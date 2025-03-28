@@ -9,16 +9,6 @@ https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservesd-1.dens.tv/s/s27/02.m3u8
 
-#EXTINF:-1 tvg-id="ANTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="MY TV",ANTV tes
-#EXTVLCOPT:http-referrer=https://visionplus.id
-#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=828e0aba9825c3546a2831e4c0c36f7f:f85d3dcd38981368ab3da597e97ebdcc
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-https://d84q7nw4qf3j3.cloudfront.net/live/eds/ANTV-HD/sa_dash_vmx/ANTV-HD.mpd|Referer=https://www.visionplus.id/
-
 
 #EXTINF:-1 tvg-id="MNCTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="MY TV",MNCTV
 #EXTVLCOPT:http-referrer=https://visionplus.id
@@ -107,45 +97,45 @@ https://op-group1-swiftservesd-1.dens.tv/s/s107/02.m3u8
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8
 
-### premium####
+### Premium####
 
-#EXTINF:-1 tvg-id="ROCK Action" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/rockaction.png?raw=true" group-title="MY TV",ROCK Action
+#EXTINF:-1 tvg-id="ROCK Action" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/rockaction.png?raw=true" group-title="Premium",ROCK Action
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h15/02.m3u8
 
-#EXTINF:-1 tvg-id="KPlus.sg" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/kplus.png?raw=true" group-title="MY TV",K-Plus
+#EXTINF:-1 tvg-id="KPlus.sg" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/kplus.png?raw=true" group-title="Premium",K-Plus
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h08/index.m3u8
 
-#EXTINF:-1 tvg-id="MyCinema.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mycinema.png?raw=true" group-title="MY TV",My Cinema
+#EXTINF:-1 tvg-id="MyCinema.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mycinema.png?raw=true" group-title="Premium",My Cinema
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h192/index.m3u8
 
-#EXTINF:-1 tvg-id="MyCinemaAsia.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mycinemaasia.png?raw=true" group-title="MY TV",My Cinema Asia
+#EXTINF:-1 tvg-id="MyCinemaAsia.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mycinemaasia.png?raw=true" group-title="Premium",My Cinema Asia
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h193/index.m3u8
 
-#EXTINF:-1 tvg-id="MyFamily.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/myfamilychannel.png?raw=true" group-title="MY TV",My Family
+#EXTINF:-1 tvg-id="MyFamily.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/myfamilychannel.png?raw=true" group-title="Premium",My Family
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h194/index.m3u8
 
-#EXTINF:-1 tvg-id="MyKidz.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mykidz.png?raw=true" group-title="MY TV",My Kidz
+#EXTINF:-1 tvg-id="MyKidz.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mykidz.png?raw=true" group-title="Premium",My Kidz
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8
 
-#EXTINF:-1 tvg-id="Thrill.hk" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/thrill.png?raw=true" group-title="MY TV",Thrill
+#EXTINF:-1 tvg-id="Thrill.hk" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/thrill.png?raw=true" group-title="Premium",Thrill
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservesd-1.dens.tv/s/s34/02.m3u8
 
-#EXTINF:-1 tvg-id="tvN Movies HD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/tvnmovies.png?raw=true" group-title="MY TV",tvN Movies HD
+#EXTINF:-1 tvg-id="tvN Movies HD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/tvnmovies.png?raw=true" group-title="Premium",tvN Movies HD
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h21/02.m3u8
 
-#EXTINF:-1 tvg-id="Motorvision+" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/Motorvision+.png?raw=true" group-title="MY TV",Motorvision+ 
+#EXTINF:-1 tvg-id="Motorvision+" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/Motorvision+.png?raw=true" group-title="Premium",Motorvision+ 
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h09/01.m3u8
 
-#EXTINF:-1 tvg-id="W-Sport" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/W-Sport.png?raw=true" group-title="MY TV",W-Sport
+#EXTINF:-1 tvg-id="W-Sport" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/W-Sport.png?raw=true" group-title="Premium",W-Sport
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h26/S1/mnf.m3u8
 
