@@ -12,7 +12,7 @@ https://op-group1-swiftservesd-1.dens.tv/s/s27/02.m3u8
 #EXTINF:-1 tvg-id="Lana" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/lan.png?raw=true" group-title="MY TV",lan4
 http-referrer=https://drive.google.com
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
-https://drive.usercontent.google.com/download?id=11GsoALVdK_m3pJYyocAOhjdg4kAyqqdt1&export=download&authuser=0
+https://dl.dropbox.com/scl/fi/k5389lnt32goy9zgzo9qb/lan.mov?rlkey=8j9wn3ofmah8hjscauetqlvqz&dl=1
 
 #EXTINF:-1 tvg-id="MNCTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="MY TV",MNCTV
 #EXTVLCOPT:http-referrer=https://visionplus.id
