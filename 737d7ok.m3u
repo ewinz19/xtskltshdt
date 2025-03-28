@@ -135,7 +135,7 @@ https://op-group1-swiftservesd-1.dens.tv/s/s34/02.m3u8
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h21/02.m3u8
 
-#EXTINF:-1 tvg-id="Motorvision+" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/Motorvision+.png?raw=true" group-title="Premium",Motorvision+ 
+#EXTINF:-1 tvg-id="Motorvision+" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/motorvision+.png?raw=true" group-title="Premium",Motorvision+ 
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h09/01.m3u8
 
