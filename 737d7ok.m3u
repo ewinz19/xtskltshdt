@@ -9,6 +9,17 @@ https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservesd-1.dens.tv/s/s27/02.m3u8
 
+#EXTINF:-1 tvg-id="ANTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="MY TV",ANTV tes
+#EXTVLCOPT:http-referrer=https://visionplus.id
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=828e0aba9825c3546a2831e4c0c36f7f:f85d3dcd38981368ab3da597e97ebdcc
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+https://d1abp075u76pbq.cloudfront.net/live/eds/ANTV-HD/sa_dash_vmx/ANTV-HD.mpd|Referer=https://www.visionplus.id/
+
+
 #EXTINF:-1 tvg-id="MNCTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="MY TV",MNCTV
 #EXTVLCOPT:http-referrer=https://visionplus.id
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
