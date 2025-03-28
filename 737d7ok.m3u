@@ -98,6 +98,10 @@ https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8
 
 ### premium####
 
+#EXTINF:-1 tvg-id="ROCK Action" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/rockction.png?raw=true" group-title="MY TV",ROCK Action
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+https://op-group1-swiftservehd-1.dens.tv/h/h15/02.m3u8
+
 #EXTINF:-1 tvg-id="KPlus.sg" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/kplus.png?raw=true" group-title="MY TV",K-Plus
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h08/index.m3u8
