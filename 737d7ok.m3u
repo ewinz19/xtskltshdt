@@ -1,7 +1,5 @@
 #EXTM3U
 
-### MY TV ###
-
 #EXTINF:-1 tvg-id="quran-tv" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/quran.png?raw=true" group-title="MY TV",Al Quran Al Kareem (Mecca)
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 ##http://m.live.net.sa:1935/live/quran/playlist.m3u8##
@@ -122,7 +120,7 @@ https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8
 
 #EXTINF:-1 tvg-id="Thrill.hk" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/thrill.png?raw=true" group-title="MY TV",Thrill
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
-https://op-group1-swiftservehd-1.dens.tv/h/h240/index.m3u8
+https://op-group1-swiftservesd-1.dens.tv/s/s34/02.m3u8
 
 #EXTINF:-1 tvg-id="tvN Movies HD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/tvnmovies.png?raw=true" group-title="MY TV",tvN Movies HD
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
