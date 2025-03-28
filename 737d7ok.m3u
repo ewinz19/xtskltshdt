@@ -1,10 +1,15 @@
 #EXTM3U
 
-###### My Tv ######
+### MY TV ###
 
-#EXTINF:-1 tvg-id="Mecca.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/quran.png?raw=true" group-title="MY TV",Al Quran Al Kareem (Mecca)
+#EXTINF:-1 tvg-id="quran-tv" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/quran.png?raw=true" group-title="MY TV",Al Quran Al Kareem (Mecca)
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
-http://m.live.net.sa:1935/live/quran/playlist.m3u8
+##http://m.live.net.sa:1935/live/quran/playlist.m3u8##
+https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8
+
+#EXTINF:-1 tvg-id="sunna-tv" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/madinah.png?raw=true" group-title="MY TV",sunna-tv medina
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+https://op-group1-swiftservesd-1.dens.tv/s/s27/02.m3u8
 
 #EXTINF:-1 tvg-id="MNCTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="MY TV",MNCTV
 #EXTVLCOPT:http-referrer=https://visionplus.id
@@ -85,9 +90,15 @@ https://op-group1-swiftservehd-1.dens.tv/h/h210/index.m3u8
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h10/index.m3u8
 
+#EXTINF:-1 tvg-id="TVRI Sport.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/tvrisport.png?raw=true" group-title="MY TV",TVRI Sport
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+https://op-group1-swiftservesd-1.dens.tv/s/s107/02.m3u8
+
 #EXTINF:-1 tvg-id="MEKAH.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mekah.png?raw=true" group-title="MY TV",MEKAH TV
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8
+
+### premium####
 
 #EXTINF:-1 tvg-id="KPlus.sg" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/kplus.png?raw=true" group-title="MY TV",K-Plus
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
@@ -113,10 +124,17 @@ https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h240/index.m3u8
 
+#EXTINF:-1 tvg-id="tvN Movies HD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/tvnmovies.png?raw=true" group-title="MY TV",tvN Movies HD
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+https://op-group1-swiftservehd-1.dens.tv/h/h21/02.m3u8
 
+#EXTINF:-1 tvg-id="Motorvision+" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/Motorvision+.png?raw=true" group-title="MY TV",Motorvision+ 
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+https://op-group1-swiftservehd-1.dens.tv/h/h09/01.m3u8
 
-
-
+#EXTINF:-1 tvg-id="W-Sport" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/W-Sport.png?raw=true" group-title="MY TV",W-Sport
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+https://op-group1-swiftservehd-1.dens.tv/h/h26/S1/mnf.m3u8
 
 ##### ewinz 2025 ########
 
