@@ -147,6 +147,12 @@ https://op-group1-swiftservehd-1.dens.tv/h/h26/S1/mnf.m3u8
 
 
 ##### film #######
+
+##### film #######
+#EXTINF:-1 tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/movies.png?raw=true" group-title="MOVIE",the bekeper
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+https://gdriveplayer.to/hlsplaylist.php?idhls=SHpuYWJiRi91N3JqVmo4bW85OGNWTG0xS09oU2JtcGw2K3V6alNPbjJXZ2hRSnRKS2VpKzl5VWg5MmdmRHlRNw==.m3u8
+
 #EXTINF:-1 tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/movies.png?raw=true" group-title="MOVIE",the bekeper
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://gdriveplayer.to/hlsplaylist.php?idhls=SHpuYWJiRi91N3JqVmo4bW85OGNWTG0xS09oU2JtcGw2K3V6alNPbjJXZ2hRSnRKS2VpKzl5VWg5MmdmRHlRNw==.m3u8
