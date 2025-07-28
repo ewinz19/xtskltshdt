@@ -18,12 +18,12 @@ https://bit.ly/3GlPReI|User-Agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 
 
 #EXTINF:-1 tvg-id="mnctv" tvg-name="MNCTV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/thumb/f/fc/MNCTV_logo_2020.svg/320px-MNCTV_logo_2020.svg.png" group-title="MY TV",MNCTV (Tanpa Iklan)
-https://embed.rctiplus.com/live/mnctv/inewsid
+
 #EXTVLCOPT:http-referrer=https://rctiplus.com
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstreamaddon=inputstream.adaptive
-
+https://embed.rctiplus.com/live/mnctv/inewsid|http-referrer=https://rctiplus.com/
 
 
 #EXTINF:-1 tvg-id="MNCTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="MY TV",MNCTV vip
