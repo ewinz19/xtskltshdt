@@ -15,22 +15,7 @@ https://op-group1-swiftservesd-1.dens.tv/s/s27/02.m3u8|Referer=https://www.dens.
 #####https://cutt.ly/6rfQXvkt |User-Agent=iTunes-AppleTV/5.0.2 (3; dt:12)|Referer=https://cutt.ly/
 https://bit.ly/3GlPReI|User-Agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 
-
-
-#EXTM3U
-#EXTINF:-1 tvg-id="mnctv.id" tvg-logo="https://upload.wikimedia.org/wikipedia/id/f/fc/MNCTV_logo_2020.svg" group-title="Indonesia",MNCTV (Tokenized)
-#EXTVLCOPT:http-referrer=https://rctiplus.com
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Mobile)
-https://mnctv-linier.rctiplus.id/hdntl=exp=1753722887~acl=%2F*~data=hdntl~hmac=ca22b340da8616ff5bb5c26f4a2aa13896a9e5a7c7265a4fca2f6cc87d42879b/mnctv-sdi-avc1_800000=7-mp4a_96000=1.m3u8
-
-
-#EXTINF:-1 tvg-id="mnctv" tvg-name="MNCTV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/thumb/f/fc/MNCTV_logo_2020.svg/320px-MNCTV_logo_2020.svg.png" group-title="MY TV",MNCTV (Tanpa Iklan)
-#EXTVLCOPT:http-referrer=https://rctiplus.com
-#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-https://embed.rctiplus.com/live/mnctv/inewsid|http-referrer=https://rctiplus.com/
-
+####
 
 #EXTINF:-1 tvg-id="MNCTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="MY TV",MNCTV vip
 #EXTVLCOPT:http-referrer=https://visionplus.id
@@ -66,6 +51,8 @@ https://op-group1-swiftservehd-1.dens.tv/s/s07/index.m3u8|Referer=https://www.de
 #KODIPROP:inputstream.adaptive.license_key=036e85de0bb448eeb21d39ab300da48e:4c6f9b15dfab2a169b2b78a498c4d77d
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 https://d2tjypxxy769fn.cloudfront.net/out/v1/b8b9b1d5f80f45649b4a3619291551ab/index.mpd|Referer=https://www.visionplus.id/
+
+#####
 
 #EXTINF:-1 tvg-id="Indosiar.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/indosiar.png?raw=true" group-title="MY TV",Indosiar
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
@@ -163,6 +150,10 @@ https://op-group1-swiftservehd-1.dens.tv/h/h09/01.m3u8|Referer=https://www.dens.
 https://op-group1-swiftservehd-1.dens.tv/h/h26/S1/mnf.m3u8|Referer=https://www.dens.tv/
 
 ##### ewinz 2025 ########
+#EXTINF:-1 tvg-id="mnctv.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="alternative",MNCTV (alternative)
+#EXTVLCOPT:http-referrer=https://rctiplus.com
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Mobile)
+https://mnctv-linier.rctiplus.id/hdntl=exp=1753722887~acl=%2F*~data=hdntl~hmac=ca22b340da8616ff5bb5c26f4a2aa13896a9e5a7c7265a4fca2f6cc87d42879b/mnctv-sdi-avc1_800000=7-mp4a_96000=1.m3u8|http-referrer=https://rctiplus.com
 
 
 ##### film #######
