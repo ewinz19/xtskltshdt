@@ -16,10 +16,10 @@ https://op-group1-swiftservesd-1.dens.tv/s/s27/02.m3u8|Referer=https://www.dens.
 https://bit.ly/3GlPReI|User-Agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 
 
-#EXTM3U
+
 #EXTINF:-1 tvg-id="mnctv" tvg-name="MNCTV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/thumb/f/fc/MNCTV_logo_2020.svg/320px-MNCTV_logo_2020.svg.png" group-title="MY TV",MNCTV (Tanpa Iklan)
 https://embed.rctiplus.com/live/mnctv/inewsid
-#EXTVLCOPT:http-referrer=https://visionplus.id
+#EXTVLCOPT:http-referrer=https://rctiplus.com
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstreamaddon=inputstream.adaptive
