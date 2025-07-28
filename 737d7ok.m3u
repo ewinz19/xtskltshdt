@@ -149,7 +149,7 @@ https://op-group1-swiftservehd-1.dens.tv/h/h09/01.m3u8|Referer=https://www.dens.
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/h/h26/S1/mnf.m3u8|Referer=https://www.dens.tv/
 
-##### ewinz 2025 ########
+##### ewinz 2025 ######## alternative
 #EXTINF:-1 tvg-id="mnctv.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="alternative",MNCTV (alternative)
 #EXTVLCOPT:http-referrer=https://rctiplus.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Mobile)
@@ -160,6 +160,13 @@ https://mnctv-linier.rctiplus.id/hdntl=exp=1753722887~acl=%2F*~data=hdntl~hmac=c
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Mobile)
 ###https://rcti-linier.rctiplus.id/hdntl=exp=1753723949~acl=%2F*~data=hdntl~hmac=96665304a97a29cb0f38224d07d2f46cacf2dc11fd271af067ec4be109fcbbd7/rcti-sdi-avc1_210000=10-mp4a_96000=1.m3u8|http-referrer=https://rctiplus.com
 https://rcti-linier.rctiplus.id/hdntl=exp=1753723949~acl=%2F*~data=hdntl~hmac=96665304a97a29cb0f38224d07d2f46cacf2dc11fd271af067ec4be109fcbbd7/rcti-sdi-avc1_800000=7-mp4a_96000=1.m3u8
+
+
+#EXTINF:-1 tvg-id="gtv.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/gtv.png?raw=true" group-title="alternative",GTV (alternative)
+#EXTVLCOPT:http-referrer=https://rctiplus.com
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Mobile)
+https://gtv-linier.rctiplus.id/hdntl=exp=1753724895~acl=%2F*~data=hdntl~hmac=775b181ce8eef62ad6e117bab589281afd46a27423c24c6e92c53a2d213da379/gtv-sdi-avc1_800000=9-mp4a_96000=1.m3u8
+
 ##### film #######
 
 ##### film #######
