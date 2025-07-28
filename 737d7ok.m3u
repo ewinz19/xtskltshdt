@@ -17,8 +17,14 @@ https://bit.ly/3GlPReI|User-Agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 
 
 
-#EXTINF:-1 tvg-id="mnctv" tvg-name="MNCTV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/thumb/f/fc/MNCTV_logo_2020.svg/320px-MNCTV_logo_2020.svg.png" group-title="MY TV",MNCTV (Tanpa Iklan)
+#EXTM3U
+#EXTINF:-1 tvg-id="mnctv.id" tvg-logo="https://upload.wikimedia.org/wikipedia/id/f/fc/MNCTV_logo_2020.svg" group-title="Indonesia",MNCTV (Tokenized)
+#EXTVLCOPT:http-referrer=https://rctiplus.com
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Mobile)
+https://mnctv-linier.rctiplus.id/hdntl=exp=1753722887~acl=%2F*~data=hdntl~hmac=ca22b340da8616ff5bb5c26f4a2aa13896a9e5a7c7265a4fca2f6cc87d42879b/mnctv-sdi-avc1_800000=7-mp4a_96000=1.m3u8
 
+
+#EXTINF:-1 tvg-id="mnctv" tvg-name="MNCTV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/thumb/f/fc/MNCTV_logo_2020.svg/320px-MNCTV_logo_2020.svg.png" group-title="MY TV",MNCTV (Tanpa Iklan)
 #EXTVLCOPT:http-referrer=https://rctiplus.com
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
