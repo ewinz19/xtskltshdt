@@ -172,6 +172,11 @@ https://gtv-linier.rctiplus.id/hdntl=exp=1753724895~acl=%2F*~data=hdntl~hmac=775
 https://inews-linier.rctiplus.id/hdntl=exp=1753726903~acl=%2F*~data=hdntl~hmac=39628059fbc1e4cc29c0089cfe24b98ede36284516bd6de4311b867a1c440540/inews-sdi-avc1_800000=8-mp4a_96000=1.m3u8
 
 
+#EXTINF:-1 tvg-id="gtv.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/gtv.png?raw=true" group-title="alternative",GTV (alternative)
+#EXTVLCOPT:http-referrer=https://rctiplus.com
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Mobile)
+https://ewinz19.github.io/xtskltshdt/Gtv.html
+
 ##### film #######
 
 ##### film #######
