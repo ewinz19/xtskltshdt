@@ -17,7 +17,7 @@ https://bit.ly/3GlPReI|User-Agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 
 
 
-#EXTINF:-1 tvg-id="MNCTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="MY TV",MNCTV
+#EXTINF:-1 tvg-id="MNCTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mnctv.png?raw=true" group-title="MY TV",MNCTV vip
 #EXTVLCOPT:http-referrer=https://visionplus.id
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
@@ -28,7 +28,7 @@ https://bit.ly/3GlPReI|User-Agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/d6b026ad50f14b7f9af5ddd5450007d4/index.mpd|Referer=https://www.visionplus.id/
 
 
-#EXTINF:-1 tvg-id="RCTI.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/rcti.png?raw=true" group-title="MY TV",RCTI
+#EXTINF:-1 tvg-id="RCTI.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/rcti.png?raw=true" group-title="MY TV",RCTI vip
 #EXTVLCOPT:http-referrer=https://visionplus.id
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
@@ -42,7 +42,7 @@ https://d2xz2v5wuvgur6.cloudfront.net/out/v1/997ce8767b604fae9fce05379b3b8b3a/in
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservehd-1.dens.tv/s/s07/index.m3u8|Referer=https://www.dens.tv/
 
-#EXTINF:-1 tvg-id="GTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/gtv.png?raw=true" group-title="MY TV",GTV
+#EXTINF:-1 tvg-id="GTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/gtv.png?raw=true" group-title="MY TV",GTV vip
 #EXTVLCOPT:http-referrer=https://visionplus.id
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
