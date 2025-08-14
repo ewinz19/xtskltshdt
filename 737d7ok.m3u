@@ -40,8 +40,12 @@ https://d2xz2v5wuvgur6.cloudfront.net/out/v1/997ce8767b604fae9fce05379b3b8b3a/in
 
 #EXTINF:-1 tvg-id="ANTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/antv.png?raw=true" group-title="MY TV",ANTV
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=251c384e846841abafa1f7c723d57e66:e45b06a38cd261b74c5160f0912c042f
+#EXTVLCOPT:http-referrer=https://www.visionplus.id/ 
+https://d84q7nw4qf3j3.cloudfront.net/out/v1/0a6c6b1534444ab4bd903af8761e6747/index.mpd|Referer=https://www.visionplus.id/
 ##https://op-group1-swiftservehd-1.dens.tv/s/s07/index.m3u8|Referer=https://www.dens.tv/
-https://cdn14jtedge.indihometv.com/atm/mpd-vo/ANTV/ANTV-mp4a_96000=2-init.mp4|Referer=https://www.indihometv.com/
+
 
 
 #EXTINF:-1 tvg-id="GTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/gtv.png?raw=true" group-title="MY TV",GTV vip
