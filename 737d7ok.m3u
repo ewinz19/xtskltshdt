@@ -133,6 +133,13 @@ https://d3b0v7fggu5zwm.cloudfront.net/out/v1/3aefa03d32954b678e5faab6daa04b58/in
 #EXTINF:-1 tvg-id="GarudaTV.id" tvg-logo="https://garuda.tv/wp-content/uploads/2023/05/Logo-Final-GarudaTV-Retina-2023.png" group-title="MY TV",Garuda TV
 https://hgmtv.com:19360/garudatvlivestreaming/garudatvlivestreaming.m3u8
 
+#EXTINF:-1 tvg-id="__" group-title="MY TV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/a/a7/Bioskop_Indonesia_TV.png",Bioskop Indonesia
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.stream_headers=user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+KODIPROP:inputstream.adaptive.license_key=https://bintangstreaming.my.id/cubmu/bintangstream/forsattv_pro/sultantvnew2.php
+https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856fd0d66d0170341bf1000905/manifest.mpd
 
 ####
 #EXTINF:-1 tvg-id="TVRI Sport.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/tvrisport.png?raw=true" group-title="MY TV",TVRI Sport
@@ -144,13 +151,6 @@ https://op-group1-swiftservesd-1.dens.tv/s/s107/02.m3u8|Referer=https://www.dens
 https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8
 
 ### Premium####
-#EXTINF:-1 tvg-id="__" group-title="MY TV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/a/a7/Bioskop_Indonesia_TV.png",Bioskop Indonesia
-#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.stream_headers=user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#####KODIPROP:inputstream.adaptive.license_key=https://bintangstreaming.my.id/cubmu/bintangstream/forsattv_pro/sultantvnew2.php
-https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856fd0d66d0170341bf1000905/manifest.mpd
 
 #EXTINF:-1 tvg-id="ROCK Action" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/rockaction.png?raw=true" group-title="Premium",ROCK Action
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
