@@ -38,7 +38,7 @@ https://d2xz2v5wuvgur6.cloudfront.net/out/v1/d6b026ad50f14b7f9af5ddd5450007d4/in
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/997ce8767b604fae9fce05379b3b8b3a/index.mpd|Referer=https://www.visionplus.id/
 
-#EXTINF:-1 tvg-id="ANTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/antv.png?raw=true" group-title="MY TV",ANTV
+#EXTINF:-1 tvg-id="ANTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/antv.png?raw=true" group-title="MY TV",ANTV vip
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=251c384e846841abafa1f7c723d57e66:e45b06a38cd261b74c5160f0912c042f
@@ -85,9 +85,14 @@ https://video.detik.com/trans7/smil:trans7.smil/playlist.m3u8|Referer=https://vi
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8|Referer=https://video.detik.com/
 
-#EXTINF:-1 tvg-id="tvOne.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/tvone.png?raw=true" group-title="MY TV",tvOne
+#EXTINF:-1 tvg-id="tvOne.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/tvone.png?raw=true" group-title="MY TV",tvOne vip
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
-https://op-group1-swiftservehd-1.dens.tv/h/h224/index.m3u8|Referer=https://www.dens.tv/
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=eab667a8f7f14ff7bf00d790314a10f0:1d6693bc942f036053fc1c3c3b3b5032
+#EXTVLCOPT:http-referrer=https://www.visionplus.id/
+###https://op-group1-swiftservehd-1.dens.tv/h/h224/index.m3u8|Referer=https://www.dens.tv/
+https://d3b0v7fggu5zwm.cloudfront.net/out/v1/f3df48faafaf4198a65b9763140fce30/index.mpd
+
 
 #EXTINF:-1 tvg-id="MetroTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/metrotv.png?raw=true" group-title="MY TV",Metro TV
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
