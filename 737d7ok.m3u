@@ -94,14 +94,13 @@ https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8|Referer=https://
 https://d3b0v7fggu5zwm.cloudfront.net/out/v1/f3df48faafaf4198a65b9763140fce30/index.mpd
 
 
-#EXTINF:-1 tvg-id="MetroTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/metrotv.png?raw=true" group-title="MY TV",Metro TV
+#EXTINF:-1 tvg-id="MetroTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/metrotv.png?raw=true" group-title="MY TV",Metro TV vip
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=c64493155d8b443c834a13d4970cf834:509294911ac3c2d779ae2225a23460b4
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/ 
-#https://op-group1-swiftservehd-1.dens.tv/h/h12/index.m3u8|Referer=https://www.dens.tv/
+###https://op-group1-swiftservehd-1.dens.tv/h/h12/index.m3u8|Referer=https://www.dens.tv/
 https://d2tjypxxy769fn.cloudfront.net/out/v1/fd4360b1c12c4375848c8f085fd51d41/index.mpd
-
 
 
 
