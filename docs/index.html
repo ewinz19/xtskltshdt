@@ -1,1 +1,146 @@
-Wellcome
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portal TV — Pilih Saluran</title>
+  <meta name="description" content="Halaman utama dengan tombol cepat ke GTV, RCTI, MNCTV, dan iNews." />  <!-- Google font (menggunakan system font fallback agar ringan) -->  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">  <style>
+    :root{
+      --bg1: #0f172a; /* dark navy */
+      --bg2: #071024; /* deeper */
+      --accent: linear-gradient(90deg,#ff6b6b,#ffb86b,#7ce7c7);
+      --glass: rgba(255,255,255,0.06);
+      --glass-2: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:#e6eef8}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,231,199,0.06), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(255,184,107,0.04), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      -webkit-font-smoothing:antialiased;
+      display:flex;align-items:center;justify-content:center;padding:40px;
+    }
+
+    .container{
+      width:100%;max-width:980px;padding:28px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.03);
+      position:relative;overflow:hidden;
+    }
+
+    header{display:flex;gap:16px;align-items:center;}
+    .logo{
+      width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,#071024, #0f172a);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.04);
+    }
+    .logo svg{width:46px;height:46px}
+    h1{font-size:20px;margin:0;font-weight:700}
+    p.lead{margin:6px 0 0;color:rgba(230,238,248,0.75)}
+
+    .grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:22px;
+    }
+
+    .card{
+      background:linear-gradient(180deg,var(--glass), var(--glass-2));padding:14px;border-radius:14px;display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.5)}
+
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;font-weight:600;text-decoration:none;color:inherit;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);width:100%;
+    }
+    .btn .badge{min-width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0b1220, rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.03)}
+    .btn:hover .badge{transform:scale(1.06)}
+
+    .meta{flex:1}
+    .title{font-size:15px;margin:0}
+    .subtitle{font-size:12px;margin:6px 0 0;color:rgba(230,238,248,0.7)}
+
+    .top-actions{display:flex;gap:10px;margin-left:auto}
+
+    .floating-deco{
+      position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:var(--accent);filter:blur(36px);opacity:0.12;transform:rotate(12deg);
+    }
+    footer{margin-top:20px;padding-top:10px;border-top:1px dashed rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
+    small{color:rgba(230,238,248,0.6)}
+
+    /* responsive tweaks */
+    @media (max-width:540px){.container{padding:18px;border-radius:12px}.logo{width:56px;height:56px}.btn{padding:10px}.title{font-size:14px}}
+  </style></head>
+<body>
+  <div class="container" role="main">
+    <div class="floating-deco" aria-hidden="true"></div><header>
+  <div class="logo" aria-hidden="true">
+    <!-- simple monogram -->
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="22" height="22" rx="6" stroke="rgba(255,255,255,0.06)"/>
+      <path d="M6 15V9a3 3 0 0 1 3-3h6v10" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div>
+    <h1>Portal TV — Pilih Saluran</h1>
+    <p class="lead">Tombol cepat ke GTV, RCTI, MNCTV, dan iNews. Klik untuk membuka halaman terkait.</p>
+  </div>
+
+  <div class="top-actions" aria-hidden="true">
+    <div style="display:flex;flex-direction:column;align-items:flex-end">
+      <small>Mode</small>
+      <strong style="font-size:13px">Dark • Modern</strong>
+    </div>
+  </div>
+</header>
+
+<section class="grid" aria-label="Daftar Saluran">
+
+  <article class="card">
+    <a class="btn" href="Gtv.html" title="Buka GTV">
+      <span class="badge" aria-hidden="true">
+        <!-- GTV icon (tv) -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="12" rx="2" stroke="white" stroke-width="1.2"/><path d="M8 3l4 3 4-3" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="meta"><span class="title">GTV</span><span class="subtitle">Galeri & hiburan</span></span>
+    </a>
+  </article>
+
+  <article class="card">
+    <a class="btn" href="rcti.html" title="Buka RCTI">
+      <span class="badge" aria-hidden="true">
+        <!-- RCTI icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="white" stroke-width="1.1"/><path d="M8 16s1.5-4 4-4 4 4 4 4" stroke="white" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="meta"><span class="title">RCTI</span><span class="subtitle">Berita & acara populer</span></span>
+    </a>
+  </article>
+
+  <article class="card">
+    <a class="btn" href="mnctv.html" title="Buka MNCTV">
+      <span class="badge" aria-hidden="true">
+        <!-- MNC icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18" stroke="white" stroke-width="1.2" stroke-linecap="round"/><path d="M7 8v8" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </span>
+      <span class="meta"><span class="title">MNCTV</span><span class="subtitle">Varietas keluarga</span></span>
+    </a>
+  </article>
+
+  <article class="card">
+    <a class="btn" href="inews.html" title="Buka iNews">
+      <span class="badge" aria-hidden="true">
+        <!-- iNews icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="14" rx="2" stroke="white" stroke-width="1.1"/><path d="M7 9h10M7 13h6" stroke="white" stroke-width="1.1" stroke-linecap="round"/></svg>
+      </span>
+      <span class="meta"><span class="title">iNews</span><span class="subtitle">Berita & liputan</span></span>
+    </a>
+  </article>
+
+</section>
+
+<footer>
+  <small>Made with ♥ — BORN30</small>
+  <small>web hiburan.</small>
+</footer>
+
+  </div>
+</body>
+</html>
