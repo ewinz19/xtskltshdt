@@ -1,54 +1,19 @@
 <?php
-// playlist.php - Ambil m3u8 terbaru dari embed RCTI+ dan buat M3U dinamis untuk OTT Player
-
 header('Content-Type: application/vnd.apple.mpegurl; charset=utf-8');
 header('Content-Disposition: inline; filename="inews.m3u"');
 header('Cache-Control: no-cache, must-revalidate, max-age=0');
 
-// ----------------------
-// STEP 1: fetch embed page dengan cURL
-$embed_url = 'https://embed.rctiplus.com/live/inews/inewsid';
-$ch = curl_init($embed_url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0 Safari/537.36',
-    'Referer: https://embed.rctiplus.com/'
-]);
-$html = curl_exec($ch);
-$err = curl_error($ch);
-curl_close($ch);
+// Base64 dari JS
+$encoded_url = 'aHR0cHM6Ly9pY2RuLnJjdGlwbHVzLmlkL2luZXdzLXNkaS5tM3U4P2hkbnRzPWV4cD0xNzYyNzM3MDA0fmhtYWM9MGJjYzdiZGRhMzJiM2YzNjhlMDc0MTcxMzBmMzY2MDY2OWZjYTc5NjNlZDE2OWQ3N2E3ODAzOWNkOTFjYzRhZQ==';
+$stream_url = base64_decode($encoded_url);
 
-if (!$html) {
-    http_response_code(502);
-    echo "## ERROR: cannot fetch embed page ($err)";
-    exit;
-}
-
-// ----------------------
-// STEP 2: cari URL .m3u8
-preg_match('/https:\/\/icdn\.rctiplus\.id\/inews-sdi\.m3u8\?hdnts=[^"\']+/', $html, $matches);
-
-if (empty($matches)) {
-    http_response_code(502);
-    echo "## ERROR: cannot find m3u8 URL";
-    exit;
-}
-
-$stream_url = $matches[0];
-
-// ----------------------
-// STEP 3: buat M3U dinamis
+// M3U
 $logo = 'https://github.com/ewinz19/xtskltshdt/blob/main/icons/inews.png?raw=true';
 $group = 'MY TV';
 $title = 'inews';
 
 echo "#EXTM3U\n";
 echo "#EXTINF:-1 tvg-id=\"inews.id\" tvg-logo=\"{$logo}\" group-title=\"{$group}\",{$title}\n";
-// Untuk OTT Player / VLC
 echo "#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0 Safari/537.36\n";
 echo "#EXTVLCOPT:http-referrer=https://embed.rctiplus.com/\n";
-echo "####\n";
 echo $stream_url . "\n";
