@@ -1,15 +1,3 @@
-Bagus — aku buatkan contoh implementasi PHP yang aman secara konsep:
-
-tes.php adalah endpoint (pada example.xom) yang hanya meng-return stream_url dan/atau license_key (mis. dari penyedia resmi).
-
-playlist.php berada di server publik yang dipanggil Kodi; playlist.php akan mem-fetch data dari tes.php lalu menghasilkan M3U / KODI entry yang valid dengan token/key terbaru.
-
-
-Penting — baca dulu: skrip ini tidak mengajarkan cara membypass token atau cara “mengambil” token dari layanan tanpa izin. Pastikan kamu punya hak / izin resmi untuk mengedarkan stream tersebut. Amankan tes.php (auth, IP whitelist, HTTPS) karena ia menyimpan kredensial sensitif.
-
-Contoh 1 — tes.php (server yang menyimpan / mengeluarkan token)
-
-Letakkan file ini di https://example.xom/tes.php. Contoh mengembalikan JSON:
 
 <?php
 // tes.php
