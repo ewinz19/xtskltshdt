@@ -10,6 +10,13 @@ https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8|Referer=https://www.dens.
 
 
 
+#EXTINF:-1 tvg-id="inews.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/inews.png?raw=true" group-title="MY TV",inews
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#EXTVLCOPT:http-referrer=https://embed.rctiplus.com/
+#### 
+https://icdn.rctiplus.id/inews-sdi.m3u8?hdnts=EXPIRINGTOKEN_HERE
 
 
 #EXTINF:-1 tvg-id="inews.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/inews.png?raw=true" group-title="MY TV",inews
