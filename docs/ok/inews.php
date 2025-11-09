@@ -1,81 +1,55 @@
 <?php
-// inews.php - License proxy skeleton
-// PURPOSE: menerima challenge dari Kodi (inputstream.adaptive), forward ke upstream license server,
-//          dan kembalikan response license ke Kodi.
-//
-// SECURITY: Protect endpoint (IP whitelist / basic auth / token). Use HTTPS.
+// playlist.php - Ambil m3u8 terbaru dari embed RCTI+ dan buat M3U dinamis
+header('Content-Type: application/vnd.apple.mpegurl; charset=utf-8');
+header('Content-Disposition: inline; filename="inews.m3u"');
+header('Cache-Control: no-cache, must-revalidate, max-age=0');
 
-ini_set('display_errors', 0);
-
-// ---------- CONFIG ----------
-define('SECRET_TOKEN', 'replace_with_strong_secret'); // token untuk mengakses proxy (optional)
-define('UPSTREAM_LICENSE_URL', 'https://embed.rctiplus.com/live/inews/inewsid'); // license server resmi
-// headers to add when contacting upstream (array of 'Header: value')
-$UPSTREAM_HEADERS = [
-    'x-auth-token: REPLACETOKEN',     // contoh header otorisasi upstream
-    'User-Agent: Kodi/19.0',          // jika perlu
-    // tambahkan header lain yg dibutuhkan provider
-];
-// optional: restrict access by IP
-$ALLOWED_IPS = []; // e.g. ['1.2.3.4'] or empty = allow all (not recommended)
-// --------------------------------
-
-// simple access control (prefer more robust in production)
-if (!empty($ALLOWED_IPS)) {
-    $remote = $_SERVER['REMOTE_ADDR'] ?? '';
-    if (!in_array($remote, $ALLOWED_IPS)) {
-        http_response_code(403);
-        echo "Forbidden";
-        exit;
-    }
-}
-
-// Optional: token auth via query ?key=SECRET or header X-Proxy-Token
-$token_ok = false;
-if (isset($_GET['key']) && hash_equals(SECRET_TOKEN, $_GET['key'])) $token_ok = true;
-$headers = getallheaders();
-if (!$token_ok && isset($headers['X-Proxy-Token']) && hash_equals(SECRET_TOKEN, $headers['X-Proxy-Token'])) $token_ok = true;
-if (!empty(SECRET_TOKEN) && !$token_ok) {
-    http_response_code(401);
-    echo "Unauthorized";
-    exit;
-}
-
-// Read raw POST body (binary challenge)
-$body = file_get_contents('php://input');
-
-// Build cURL request to upstream license server
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, UPSTREAM_LICENSE_URL);
+// ----------------------
+// STEP 1: fetch embed page dengan cURL
+$embed_url = 'https://embed.rctiplus.com/live/inews/inewsid';
+$ch = curl_init($embed_url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $UPSTREAM_HEADERS);
-// pass-through client headers that might be relevant (optional)
-if (isset($headers['Content-Type'])) {
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array_merge($UPSTREAM_HEADERS, ['Content-Type: '.$headers['Content-Type']]));
-}
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-
-// execute
-$response = curl_exec($ch);
-$curl_errno = curl_errno($ch);
-$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0 Safari/537.36',
+    'Referer: https://embed.rctiplus.com/'
+]);
+$html = curl_exec($ch);
+$err = curl_error($ch);
 curl_close($ch);
 
-if ($curl_errno || $response === false) {
+if (!$html) {
     http_response_code(502);
-    echo "Bad Gateway";
+    echo "## ERROR: cannot fetch embed page ($err)";
     exit;
 }
 
-// Return upstream response (binary). Set appropriate content-type if known, otherwise default.
-if ($content_type) header('Content-Type: ' . $content_type);
-else header('Content-Type: application/octet-stream');
+// ----------------------
+// STEP 2: cari URL .m3u8
+// Embed biasanya punya URL seperti https://icdn.rctiplus.id/inews-sdi.m3u8?hdnts=...
+preg_match('/https:\/\/icdn\.rctiplus\.id\/inews-sdi\.m3u8\?hdnts=[^"\']+/', $html, $matches);
 
-http_response_code($http_code ?: 200);
-echo $response;
-exit;
+if (empty($matches)) {
+    http_response_code(502);
+    echo "## ERROR: cannot find m3u8 URL";
+    exit;
+}
+
+$stream_url = $matches[0];
+
+// ----------------------
+// STEP 3: buat M3U dinamis
+$logo = 'https://github.com/ewinz19/xtskltshdt/blob/main/icons/inews.png?raw=true';
+$group = 'MY TV';
+$title = 'inews';
+
+echo "#EXTM3U\n";
+echo "#EXTINF:-1 tvg-id=\"inews.id\" tvg-logo=\"{$logo}\" group-title=\"{$group}\",{$title}\n";
+echo "#KODIPROP:inputstream=inputstream.adaptive\n";
+echo "#KODIPROP:inputstreamaddon=inputstream.adaptive\n";
+echo "#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0 Safari/537.36\n";
+echo "#EXTVLCOPT:http-referrer=https://embed.rctiplus.com/\n";
+echo "####\n";
+echo $stream_url . "\n";
