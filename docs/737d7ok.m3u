@@ -10,9 +10,9 @@ https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8|Referer=https://www.dens.
 
 #EXTINF:-1 tvg-id="MEKAH.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mekah.png?raw=true" group-title="MY TV",MEKAH TV
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
-//https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8
+https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8|Referer=https://media2.streambrothers.com
 //https://media2.streambrothers.com:1936/8122/8122/chunklist_w896421315.m3u8
-https://media2.streambrothers.com:1936/8122/8122/chunklist_w651367904.m3u8
+//https://media2.streambrothers.com:1936/8122/8122/chunklist_w651367904.m3u8
 
 
 #EXTINF:-1 tvg-id="sunna-tv" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/madinah.png?raw=true" group-title="MY TV",sunna-tv medina
@@ -20,7 +20,7 @@ https://media2.streambrothers.com:1936/8122/8122/chunklist_w651367904.m3u8
 https://op-group1-swiftservesd-1.dens.tv/s/s27/02.m3u8|Referer=https://www.dens.tv/
 
 #EXTINF:-1 tvg-id="Lana" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/lan.png?raw=true" group-title="MY TV",Lana
-#EXTVLCOPT:http-referrer=https://cutt.ly/
+#EXTVLCOPT:http-referrer=https://bit.ly/
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #####https://cutt.ly/6rfQXvkt |User-Agent=iTunes-AppleTV/5.0.2 (3; dt:12)|Referer=https://cutt.ly/
 https://bit.ly/3GlPReI|User-Agent=iTunes-AppleTV/5.0.2 (3; dt:12)
