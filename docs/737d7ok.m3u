@@ -8,7 +8,7 @@
 ##http://m.live.net.sa:1935/live/quran/playlist.m3u8##
 https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8|Referer=https://www.dens.tv/
 
-#EXTINF:-1 tvg-id="QuranRadio.sa@SD" tvg-logo="https://i.imgur.com/ut0kr4x.png" group-title="Undefined",Quran Radio (1080p)
+#EXTINF:-1 tvg-id="QuranRadio.sa@SD" tvg-logo="https://i.imgur.com/ut0kr4x.png" group-title="MY TV",Quran Radio (1080p)
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://live.kwikmotion.com/sbrksaquranradiolive/srpksaquranradio/playlist.m3u8
 
