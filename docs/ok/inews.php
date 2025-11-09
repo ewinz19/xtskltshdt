@@ -9,7 +9,7 @@ ini_set('display_errors', 0);
 
 // ---------- CONFIG ----------
 define('SECRET_TOKEN', 'replace_with_strong_secret'); // token untuk mengakses proxy (optional)
-define('UPSTREAM_LICENSE_URL', 'https://lic.example.com/getlicense'); // license server resmi
+define('UPSTREAM_LICENSE_URL', 'https://embed.rctiplus.com/live/inews/inewsid'); // license server resmi
 // headers to add when contacting upstream (array of 'Header: value')
 $UPSTREAM_HEADERS = [
     'x-auth-token: REPLACETOKEN',     // contoh header otorisasi upstream
