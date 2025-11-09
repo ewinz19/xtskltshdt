@@ -1,5 +1,6 @@
 <?php
-// playlist.php - Ambil m3u8 terbaru dari embed RCTI+ dan buat M3U dinamis
+// playlist.php - Ambil m3u8 terbaru dari embed RCTI+ dan buat M3U dinamis untuk OTT Player
+
 header('Content-Type: application/vnd.apple.mpegurl; charset=utf-8');
 header('Content-Disposition: inline; filename="inews.m3u"');
 header('Cache-Control: no-cache, must-revalidate, max-age=0');
@@ -28,7 +29,6 @@ if (!$html) {
 
 // ----------------------
 // STEP 2: cari URL .m3u8
-// Embed biasanya punya URL seperti https://icdn.rctiplus.id/inews-sdi.m3u8?hdnts=...
 preg_match('/https:\/\/icdn\.rctiplus\.id\/inews-sdi\.m3u8\?hdnts=[^"\']+/', $html, $matches);
 
 if (empty($matches)) {
@@ -47,8 +47,7 @@ $title = 'inews';
 
 echo "#EXTM3U\n";
 echo "#EXTINF:-1 tvg-id=\"inews.id\" tvg-logo=\"{$logo}\" group-title=\"{$group}\",{$title}\n";
-echo "#KODIPROP:inputstream=inputstream.adaptive\n";
-echo "#KODIPROP:inputstreamaddon=inputstream.adaptive\n";
+// Untuk OTT Player / VLC
 echo "#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0 Safari/537.36\n";
 echo "#EXTVLCOPT:http-referrer=https://embed.rctiplus.com/\n";
 echo "####\n";
