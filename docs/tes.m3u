@@ -13,11 +13,7 @@ https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8|Referer=https://www.dens.
 
 
 #EXTINF:-1 tvg-id="inews.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/inews.png?raw=true" group-title="MY TV",inews
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=443c5d125e0bbe8babbde210b444964833a8fcf2bd742f61ef0fed251839174d
-#KODIPROP:inputstream.adaptive.manifest_type=hmac
+
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 ####
 https://icdn.rctiplus.id/inews-sdi.m3u8?hdnts=exp=1762732813~hmac=443c5d125e0bbe8babbde210b444964833a8fcf2bd742f61ef0fed251839174d
