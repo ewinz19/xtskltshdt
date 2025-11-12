@@ -4,34 +4,34 @@
   <channel id="RCTI">
 <display-name>RCTI vip</display-name>
 </channel>
-  <programme start="20251112140000 +0700" stop="20251112160000 +0700" channel="RCTI">
+  <programme start="20251112140000 +0800" stop="20251112160000 +0800" channel="RCTI">
     <title lang="id">Preman Pensiun S9</title>
   </programme>
-  <programme start="20251112150000 +0700" stop="20251112170000 +0700" channel="RCTI">
+  <programme start="20251112150000 +0800" stop="20251112170000 +0800" channel="RCTI">
     <title lang="id">Arab Maklum</title>
   </programme>
-  <programme start="20251112160000 +0700" stop="20251112180000 +0700" channel="RCTI">
+  <programme start="20251112160000 +0800" stop="20251112180000 +0800" channel="RCTI">
     <title lang="id">Manda Curhat</title>
   </programme>
-  <programme start="20251112173000 +0700" stop="20251112193000 +0700" channel="RCTI">
+  <programme start="20251112173000 +0800" stop="20251112193000 +0800" channel="RCTI">
     <title lang="id">Dusta Dibalik Cinta</title>
   </programme>
-  <programme start="20251112184500 +0700" stop="20251112204500 +0700" channel="RCTI">
+  <programme start="20251112184500 +0800" stop="20251112204500 +0700" channel="RCTI">
     <title lang="id">Terbelenggu Rindu</title>
   </programme>
-  <programme start="20251112201500 +0700" stop="20251112221500 +0700" channel="RCTI">
+  <programme start="20251112201500 +0800" stop="20251112221500 +0800" channel="RCTI">
     <title lang="id">Cinta Sepenuh Jiwa</title>
   </programme>
-  <programme start="20251112214500 +0700" stop="20251112234500 +0700" channel="RCTI">
+  <programme start="20251112214500 +0800" stop="20251112234500 +0800" channel="RCTI">
     <title lang="id">Kau Ditakdirkan Untukku</title>
   </programme>
-  <programme start="20251112230000 +0700" stop="20251113010000 +0700" channel="RCTI">
+  <programme start="20251112230000 +0800" stop="20251113010000 +0800" channel="RCTI">
     <title lang="id">Hati Yang Memilih</title>
   </programme>
-  <programme start="20251113003000 +0700" stop="20251113023000 +0700" channel="RCTI">
+  <programme start="20251113003000 +0800" stop="20251113023000 +0800" channel="RCTI">
     <title lang="id">Sang Bodyguard Sexy</title>
   </programme>
-  <programme start="20251113020000 +0700" stop="20251113040000 +0700" channel="RCTI">
+  <programme start="20251113020000 +0800" stop="20251113040000 +0800" channel="RCTI">
     <title lang="id">Tuan Narsis Over Dosis</title>
   </programme>
   <programme start="20251112120000 +0700" stop="20251112140000 +0700" channel="GTV">
