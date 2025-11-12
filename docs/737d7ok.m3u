@@ -1,6 +1,4 @@
-#EXTM3U 
-
-####url-tvg="https://raw.githubusercontent.com/ewinz19/xtskltshdt/refs/heads/main/docs/indonesia.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://i.mjh.nz/au/Melbourne/epg.xml"  refresh="1800"
+#EXTM3U url-tvg="https://raw.githubusercontent.com/ewinz19/xtskltshdt/refs/heads/main/docs/indonesia.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/indonesia.xml,https://raw.githubusercontent.com/AqFad2811/epg/main/epg.xml,https://i.mjh.nz/au/Melbourne/epg.xml"  refresh="1800"
 
 
 #####https://raw.githubusercontent.com/AqFad2811/epg/main/indonesia.xml
