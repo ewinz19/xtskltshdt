@@ -20,7 +20,7 @@
 <display-name>ANTV vip</display-name>
 <url>http://www.mncvision.id</url>
 </channel>
-<channel id="TransTV.id">
+<channel id="TRANSTV">
 <display-name>TRANS TV vip</display-name>
 <url>http://www.mncvision.id</url>
 </channel>
@@ -33,4 +33,34 @@
 <url>http://www.mncvision.id</url>
 </channel>
       
-</tv>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
+    <title lang="id">CNN Indonesia Connected</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
+    <title lang="id">Islam Itu Indah</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
+    <title lang="id">Insert Pagi (L)</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
+    <title lang="id">CNN Indonesia Good Morning</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
+    <title lang="id">Pagi-Pagi Ambyar</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
+    <title lang="id">Insert Siang</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
+    <title lang="id">Brownis (Obrowlan Manis)</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
+    <title lang="id">Rumpi: No Secret</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
+    <title lang="id">Insert Today</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
+    <title lang="id">CNN Indonesia News Update</title>
+  </programme>
+</tv>  
