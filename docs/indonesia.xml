@@ -94,28 +94,35 @@
   <programme start="2025111300 +0700" stop="2025111300 +0700" channel="MNCTV">
     <title lang="id">Siraman Qolbu</title>
   </programme>
-  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">                      <title lang="id">Realita (L)</title>
+  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">                    
+    <title lang="id">Realita (L)</title>
   </programme>
   <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">
     <title lang="id">iNews Sore (L)</title>
   </programme>
   <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">
-    <title lang="id">iNews Terkini</title>                                                        </programme>
+    <title lang="id">iNews Terkini</title>                                                     
+  </programme>
   <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">
     <title lang="id">iNews Sore (L)</title>
-  </programme>                                                                                    <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">
+  </programme>                                                                                   
+  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">
     <title lang="id">iNews Terkini</title>
   </programme>
-  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">                      <title lang="id">iNews Room (L)</title>
+  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">                     
+    <title lang="id">iNews Room (L)</title>
   </programme>
   <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">
-    <title lang="id">iNews Terkini</title>                                                        </programme>
+    <title lang="id">iNews Terkini</title>                                                       
+  </programme>
   <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">
     <title lang="id">The Prime Show</title>
-  </programme>                                                                                    <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">
+  </programme>                                                                                  
+  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">
     <title lang="id">iNews Prime (L)</title>
   </programme>
-  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">                      <title lang="id">iNews Malam (L)</title>
+  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="iNews">                 
+    <title lang="id">iNews Malam (L)</title>
   </programme>
   <programme start="2025111200 +0700" stop="2025111200 +0700" channel="SCTV">
     <title lang="id">Janji Cinta Zahra</title>
@@ -130,15 +137,21 @@
     <title lang="id">Cinta Sedalam Rindu</title>
   </programme>
   <programme start="2025111200 +0700" stop="2025111200 +0700" channel="SCTV">
-    <title lang="id">Wanita Istimewa</title>                                                      </programme>
+    <title lang="id">Wanita Istimewa</title>                                                 
+  </programme>
   <programme start="2025111200 +0700" stop="2025111200 +0700" channel="SCTV">
     <title lang="id">Balada Cinta Dangduters</title>
-  </programme>                                                                                    <programme start="2025111300 +0700" stop="2025111300 +0700" channel="SCTV">                       <title lang="id">FTV Utama</title>
+  </programme>                                                                               
+  <programme start="2025111300 +0700" stop="2025111300 +0700" channel="SCTV">                     
+    <title lang="id">FTV Utama</title>
   </programme>
   <programme start="2025111300 +0700" stop="2025111300 +0700" channel="SCTV">
-    <title lang="id">Sinema Malam</title>                                                         </programme>                                                                                    <programme start="2025111300 +0700" stop="2025111300 +0700" channel="SCTV">
+    <title lang="id">Sinema Malam</title>                                                      
+  </programme>                                                                                 
+  <programme start="2025111300 +0700" stop="2025111300 +0700" channel="SCTV">
     <title lang="id">Sinema Dini Hari</title>
   </programme>
-  <programme start="2025111300 +0700" stop="2025111300 +0700" channel="SCTV">                       <title lang="id">Barakallah</title>
+  <programme start="2025111300 +0700" stop="2025111300 +0700" channel="SCTV">                    
+    <title lang="id">Barakallah</title>
   </programme>
 </tv>
