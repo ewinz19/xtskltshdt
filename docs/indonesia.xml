@@ -3,14 +3,12 @@
 
   <channel id="RCTI">
 <display-name>RCTI vip</display-name>
+ <url>http://www.mncvision.id</url>
   </channel>
     
-  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">
-    <title lang="id">Arab Maklum</title>
+<programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI"> 
+  <title lang="id">Manda Curhat</title>
   </programme>
-  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">
-    <title lang="id">Manda Curhat</title>
-  </programme>                                                                             
   <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">
     <title lang="id">Dusta Dibalik Cinta</title>
   </programme>
@@ -21,11 +19,11 @@
     <title lang="id">Cinta Sepenuh Jiwa</title>
   </programme>
   <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">
-    <title lang="id">Kau Ditakdirkan Untukku</title>
+    <title lang="id">Kau Ditakdirkan Untukku</title>  
   </programme>
-  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">   
     <title lang="id">Hati Yang Memilih</title>
-  </programme>
+  </programme>                                            
   <programme start="2025111300 +0800" stop="2025111300 +0800" channel="RCTI">
     <title lang="id">Sang Bodyguard Sexy</title>
   </programme>
@@ -34,5 +32,8 @@
   </programme>
   <programme start="2025111300 +0800" stop="2025111300 +0800" channel="RCTI">
     <title lang="id">Preman Pensiun S3</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="RCTI">
+    <title lang="id">Go Spot</title>
   </programme>
 </tv>
