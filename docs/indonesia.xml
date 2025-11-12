@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv generator-info-name="mncvision-xmltv">
+
+  <channel id="RCTI">
+<display-name>RCTI</display-name>
+</channel>
   <programme start="20251112140000 +0700" stop="20251112160000 +0700" channel="RCTI">
     <title lang="id">Preman Pensiun S9</title>
   </programme>
