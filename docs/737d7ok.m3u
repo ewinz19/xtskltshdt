@@ -93,7 +93,7 @@ https://op-group1-swiftservehd-1.dens.tv/h/h217/02.m3u8|Referer=https://www.dens
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/ 
 https://d2tjypxxy769fn.cloudfront.net/out/v1/0fd7b7d368bc44bc9b4dece20acc3e33/index.mpd
 
-#EXTINF:-1 tvg-id="TransTV." tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/transtv.png?raw=true" group-title="MY TV",Trans TV vip
+#EXTINF:-1 tvg-id="TransTV" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/transtv.png?raw=true" group-title="MY TV",Trans TV vip
 #KODIPROP:inputstream.adaptive.license_type=clearkey 
 #KODIPROP:inputstream.adaptive.license_key=764e726a234a435c87a82e4a1da6a69b:0de18199ebb3316e3aed8529e39542b7
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/ 
@@ -138,7 +138,7 @@ https://d3b0v7fggu5zwm.cloudfront.net/out/v1/abf3e254818c4608aab8aa109a972203/in
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/ 
 https://d3b0v7fggu5zwm.cloudfront.net/out/v1/3aefa03d32954b678e5faab6daa04b58/index.mpd
 
-#EXTINF:-1 tvg-id="__" group-title="MY TV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/a/a7/Bioskop_Indonesia_TV.png",Bioskop Indonesia vip
+#EXTINF:-1 tvg-id="BioskopIndonesia" group-title="MY TV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/a/a7/Bioskop_Indonesia_TV.png",Bioskop Indonesia vip
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.stream_headers=user-agent=Xstream XGO/1.22 (Linux;Android 9) ExoPlayerLib/2.10.5
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
@@ -150,7 +150,7 @@ https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856fd0d66d0170341bf
 #EXTINF:-1 tvg-id="GarudaTV.id" tvg-logo="https://garuda.tv/wp-content/uploads/2023/05/Logo-Final-GarudaTV-Retina-2023.png" group-title="MY TV",Garuda TV
 https://hgmtv.com:19360/garudatvlivestreaming/garudatvlivestreaming.m3u8
 
-#EXTINF:-1 tvg-id="TVRI Sport.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/tvrisport.png?raw=true" group-title="MY TV",TVRI Sport
+#EXTINF:-1 tvg-id="TVRISport.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/tvrisport.png?raw=true" group-title="MY TV",TVRI Sport
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://op-group1-swiftservesd-1.dens.tv/s/s107/02.m3u8|Referer=https://www.dens.tv/
 
