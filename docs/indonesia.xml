@@ -1,13 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<tv generator-info-name="mncvision-xmltv">
-
-  <channel id="RCTI">
+<?xml version="1.0" encoding="UTF-8"?>                             
+   <tv generator-info-name="mncvision-xmltv">
+<channel id="RCTI">
 <display-name>RCTI vip</display-name>
- <url>http://www.mncvision.id</url>
-  </channel>
-    
-<programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI"> 
-  <title lang="id">Manda Curhat</title>
+<url>http://www.mncvision.id</url>
+</channel>
+<channel id="SCTV">                                              
+  <display-name>SCTV vip</display-name>                            
+  <url>http://www.mncvision.id</url>
+</channel>
+<channel id="MNCTV">                                           
+  <display-name>MNCTV vip</display-name>
+<url>http://www.mncvision.id</url>
+</channel>                                                        
+    <channel id="GTV">
+<display-name>GTV vip</display-name>                             
+      <url>http://www.mncvision.id</url>
+</channel>
+<channel id="ANTV">                                          
+  <display-name>ANTV vip</display-name>
+<url>http://www.mncvision.id</url>
+</channel>
+<channel id="TRANS TV">
+<display-name>TRANS TV vip</display-name>
+<url>http://www.mncvision.id</url>
+</channel>
+<channel id="TRANS 7">
+<display-name>TRANS 7 vip</display-name>                         
+  <url>http://www.mncvision.id</url>                               
+     </channel>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">
+    <title lang="id">Manda Curhat</title>
   </programme>
   <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">
     <title lang="id">Dusta Dibalik Cinta</title>
@@ -15,25 +37,178 @@
   <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">
     <title lang="id">Terbelenggu Rindu</title>
   </programme>
-  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">
-    <title lang="id">Cinta Sepenuh Jiwa</title>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">                                                                   <title lang="id">Cinta Sepenuh Jiwa</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">                                                                   <title lang="id">Kau Ditakdirkan Untukku</title>
   </programme>
   <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">
-    <title lang="id">Kau Ditakdirkan Untukku</title>  
-  </programme>
-  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="RCTI">   
     <title lang="id">Hati Yang Memilih</title>
-  </programme>                                            
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="RCTI">
-    <title lang="id">Sang Bodyguard Sexy</title>
   </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="RCTI">
-    <title lang="id">Tuan Narsis Over Dosis</title>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="RCTI">                                                                   <title lang="id">Sang Bodyguard Sexy</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="RCTI">                                                                   <title lang="id">Tuan Narsis Over Dosis</title>
   </programme>
   <programme start="2025111300 +0800" stop="2025111300 +0800" channel="RCTI">
     <title lang="id">Preman Pensiun S3</title>
   </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="RCTI">
-    <title lang="id">Go Spot</title>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="RCTI">                                                                   <title lang="id">Go Spot</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS TV">                                                               <title lang="id">Dream Box Indonesia</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS TV">
+    <title lang="id">Bikin Laper</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS TV">                                                               <title lang="id">Insert Story</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS TV">                                                               <title lang="id">Dunia Punya Cerita</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS TV">
+    <title lang="id">Bioskop Trans TV</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS TV">                                                               <title lang="id">Bioskop Trans TV</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANS TV">                                                               <title lang="id">CNN Indonesia Connected</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANS TV">
+    <title lang="id">Islam Itu Indah</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANS TV">                                                               <title lang="id">Insert Pagi (L)</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANS TV">                                                               <title lang="id">CNN Indonesia Good Morning</title>                 </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="GTV">
+    <title lang="id">Lucky Spinner</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="GTV">
+    <title lang="id">SpongeBob SquarePants</title>                  
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="GTV">                                                                    <title lang="id">SpongeBob SquarePants</title>                      </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="GTV">
+    <title lang="id">Mission: Impossible Ghost...</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="GTV">
+    <title lang="id">Distortion</title>                             
+    </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="GTV">                                                                    <title lang="id">As God</title>                          
+           </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="GTV">
+    <title lang="id">Twisted 3</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="GTV">
+    <title lang="id">Jelajah Mitos</title>                   
+           </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="GTV">                                                                    <title lang="id">Crime KV</title>                           
+        </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="GTV">
+    <title lang="id">Awas Ada Sule</title>
+  </programme>                                                    
+      <programme start="2025111200 +0800" stop="2025111200 +0800" channel="MNCTV">
+    <title lang="id">"Upin & Ipin"</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="MNCTV">
+    <title lang="id">"Upin & Ipin"</title>                       
+         </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="MNCTV">
+    <title lang="id">Entong</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="MNCTV">                                                                  <title lang="id">Super Deal</title>                       
+          </programme>                                                      
+     <programme start="2025111200 +0800" stop="2025111200 +0800" channel="MNCTV">
+    <title lang="id">DMD Panggung Rezeki (L)</title>                    
+          </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="MNCTV">
+    <title lang="id">Suparman Reborn</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="MNCTV">
+    <title lang="id">Suparman Reborn</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="MNCTV">
+    <title lang="id">Lintas iNews Pagi</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="MNCTV">
+    <title lang="id">Siraman Qolbu</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="MNCTV">
+    <title lang="id">CoComelon</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="SCTV">                                                                   <title lang="id">Janji Cinta Zahra</title>                  
+       </programme>                                                      
+     <programme start="2025111200 +0800" stop="2025111200 +0800" channel="SCTV">                                                                   <title lang="id">Asmara Gen Z</title>                 
+              </programme>                                                    
+     <programme start="2025111200 +0800" stop="2025111200 +0800" channel="SCTV">
+    <title lang="id">Beri Cinta Waktu</title>
+  </programme>                                                        
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="SCTV">
+    <title lang="id">Cinta Sedalam Rindu</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="SCTV">
+    <title lang="id">Wanita Istimewa</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="SCTV">                                                                   <title lang="id">Balada Cinta Dangduters</title>              
+      </programme>                                                     
+     <programme start="2025111300 +0800" stop="2025111300 +0800" channel="SCTV">
+    <title lang="id">FTV Utama</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="SCTV">
+    <title lang="id">Sinema Malam</title>                    
+           </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="SCTV">
+    <title lang="id">Sinema Dini Hari</title>
+  </programme>
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="SCTV">
+    <title lang="id">Barakallah</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="ANTV">                                                                   <title lang="id">iNews Sore (L)</title>
+  </programme>                                                          
+<programme start="2025111200 +0800" stop="2025111200 +0800" channel="ANTV">
+    <title lang="id">iNews Terkini</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="ANTV">
+    <title lang="id">iNews Sore (L)</title>
+  </programme>                                                      
+    <programme start="2025111200 +0800" stop="2025111200 +0800" channel="ANTV">
+    <title lang="id">iNews Terkini</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="ANTV">
+    <title lang="id">iNews Room (L)</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="ANTV">
+    <title lang="id">iNews Terkini</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="ANTV">
+    <title lang="id">The Prime Show</title>                 
+            </programme>                                                    
+     <programme start="2025111200 +0800" stop="2025111200 +0800" channel="ANTV">                                                              
+       <title lang="id">iNews Prime (L)</title>                
+            </programme>                                                      
+     <programme start="2025111200 +0800" stop="2025111200 +0800" channel="ANTV">                                                                   <title lang="id">iNews Malam (L)</title>                    
+        </programme>                                                        
+     <programme start="2025111200 +0800" stop="2025111200 +0800" channel="ANTV">                                                                   <title lang="id">iNews Sport (L)</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS7">
+    <title lang="id">Makan Receh</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS7">                                                                 <title lang="id">Speak Up</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS7">
+    <title lang="id">On The Spot</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS7">                                                                 <title lang="id">Secret Story</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS7">
+    <title lang="id">POV (Pasti Obrolan Viral)</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS7">
+    <title lang="id">Arisan</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS7">                                                                 <title lang="id">Lapor Pak!</title>
+  </programme>                                                         
+ <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS7">
+    <title lang="id">The Police</title>
+  </programme>
+  <programme start="2025111200 +0800" stop="2025111200 +0800" channel="TRANS7">
+    <title lang="id">Newstainment</title>
+  </programme>                                                        
+  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANS7">
+    <title lang="id">Redaksi Malam</title>
   </programme>
 </tv>
