@@ -157,7 +157,7 @@
   <channel id="SCTV.id">
     <display-name lang="id">SCTV</display-name>
     <icon src="https://mncvision.id/userfiles/image/channel/sctv.png" />
-    <url>http://www.mncvision.id</url>
+    <url>https://www.mncvision.id/schedule/table</url>
   </channel>
   <channel id="HanacarakaTV.id">
     <display-name lang="id">Hanacaraka TV</display-name>
