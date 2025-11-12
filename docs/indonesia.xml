@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv generator-info-name="mncvision-xmltv">
-<channel id="RCTI">
+<channel id="RCTI.id">
 <display-name>RCTI vip</display-name>
 <url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="SCTV">
+<channel id="SCTV.id">
 <display-name>SCTV vip</display-name>
 <url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="MNCTV">
+<channel id="MNCTV.id">
 <display-name>MNCTV vip</display-name>
 <url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="GTV">
+<channel id="GTV.id">
 <display-name>GTV vip</display-name>
 <url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="ANTV">
+<channel id="ANTV.id">
 <display-name>ANTV vip</display-name>
 <url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="TransTV">
+<channel id="TransTV.id">
 <display-name>Trans TV vip</display-name>
 <url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="Trans7">
+<channel id="Trans7.id">
 <display-name>TRANS 7 vip</display-name>
 <url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="Indosiar">
+<channel id="Indosiar.id">
 <display-name>INDOSIAR vip</display-name>
 <url>https://www.mncvision.id/channel/detail</url>
 </channel>
