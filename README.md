@@ -9,6 +9,4 @@ my m 3 u iptv
 
 
 
-📦 Jumlah
-![GitHub all releases](https://img.shields.io/github/downloads/ewinz19/xtskltshdt/total?color=blue&label=Total%20di%20Downloads%20pengguna%20sebanyak) kali.
-
+📦 
