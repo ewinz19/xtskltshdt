@@ -4,26 +4,35 @@
   <channel id="RCTI">
 <display-name>RCTI vip</display-name>
   </channel>
-    <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">
-    <title lang="id">Arab Maklum</title>                                                          </programme>                                                                                    <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">
-    <title lang="id">Manda Curhat</title>
-  </programme>
-  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">                       <title lang="id">Dusta Dibalik Cinta</title>
+    <tv generator-info-name="mncvision-xmltv">
+  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">
+    <title lang="id">Arab Maklum</title>
   </programme>
   <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">
-    <title lang="id">Terbelenggu Rindu</title>                                                    </programme>
+    <title lang="id">Manda Curhat</title>
+  </programme>                                                                             
+  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">
+    <title lang="id">Dusta Dibalik Cinta</title>
+  </programme>
+  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">
+    <title lang="id">Terbelenggu Rindu</title>
+  </programme>
   <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">
     <title lang="id">Cinta Sepenuh Jiwa</title>
-  </programme>                                                                                    <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">
+  </programme>
+  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">
     <title lang="id">Kau Ditakdirkan Untukku</title>
   </programme>
-  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">                       <title lang="id">Hati Yang Memilih</title>
+  <programme start="2025111200 +0700" stop="2025111200 +0700" channel="RCTI">
+    <title lang="id">Hati Yang Memilih</title>
   </programme>
   <programme start="2025111300 +0700" stop="2025111300 +0700" channel="RCTI">
-    <title lang="id">Sang Bodyguard Sexy</title>                                                  </programme>
+    <title lang="id">Sang Bodyguard Sexy</title>
+  </programme>
   <programme start="2025111300 +0700" stop="2025111300 +0700" channel="RCTI">
     <title lang="id">Tuan Narsis Over Dosis</title>
-  </programme>                                                                                    <programme start="2025111300 +0700" stop="2025111300 +0700" channel="RCTI">
+  </programme>
+  <programme start="2025111300 +0700" stop="2025111300 +0700" channel="RCTI">
     <title lang="id">Preman Pensiun S3</title>
   </programme>
 </tv>
