@@ -1,66 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv generator-info-name="mncvision-xmltv">
-<channel id="RCTI.id">
+<channel id="RCTI">
 <display-name>RCTI vip</display-name>
-<url>http://www.mncvision.id</url>
+<url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="SCTV.id">
+<channel id="SCTV">
 <display-name>SCTV vip</display-name>
-<url>http://www.mncvision.id</url>
+<url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="MNCTV.id">
+<channel id="MNCTV">
 <display-name>MNCTV vip</display-name>
-<url>http://www.mncvision.id</url>
+<url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="GTV.id">
+<channel id="GTV">
 <display-name>GTV vip</display-name>
-<url>http://www.mncvision.id</url>
+<url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="ANTV.id">
+<channel id="ANTV">
 <display-name>ANTV vip</display-name>
-<url>http://www.mncvision.id</url>
+<url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="TRANSTV">
+<channel id="TransTV">
 <display-name>Trans TV vip</display-name>
-<url>http://www.mncvision.id</url>
+<url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="Trans7.id">
+<channel id="Trans7">
 <display-name>TRANS 7 vip</display-name>
-<url>http://www.mncvision.id</url>
+<url>https://www.mncvision.id/channel/detail</url>
 </channel>
-<channel id="Indosiar.id">
+<channel id="Indosiar">
 <display-name>INDOSIAR vip</display-name>
-<url>http://www.mncvision.id</url>
+<url>https://www.mncvision.id/channel/detail</url>
 </channel>
       
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
-    <title lang="id">CNN Indonesia Connected</title>
-  </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
-    <title lang="id">Islam Itu Indah</title>
-  </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
-    <title lang="id">Insert Pagi (L)</title>
-  </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
-    <title lang="id">CNN Indonesia Good Morning</title>
-  </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
-    <title lang="id">Pagi-Pagi Ambyar</title>
-  </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
-    <title lang="id">Insert Siang</title>
-  </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
-    <title lang="id">Brownis (Obrowlan Manis)</title>
-  </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
-    <title lang="id">Rumpi: No Secret</title>
-  </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
-    <title lang="id">Insert Today</title>
-  </programme>
-  <programme start="2025111300 +0800" stop="2025111300 +0800" channel="TRANSTV">
-    <title lang="id">CNN Indonesia News Update</title>
-  </programme>
+  
 </tv>  
