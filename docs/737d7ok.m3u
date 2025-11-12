@@ -45,7 +45,7 @@ https://op-group1-swiftservesd-1.dens.tv/s/s27/02.m3u8|Referer=https://www.dens.
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/d6b026ad50f14b7f9af5ddd5450007d4/index.mpd|Referer=https://www.visionplus.id/
 
-#EXTINF:-1 tvg-id="RCTI.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/rcti.png?raw=true" group-title="MY TV",RCTI vip
+#EXTINF:-1 tvg-id="RCTI" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/rcti.png?raw=true" group-title="MY TV",RCTI vip
 #EXTVLCOPT:http-referrer=https://visionplus.id
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
