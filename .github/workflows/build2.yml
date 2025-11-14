@@ -1,4 +1,4 @@
-name: build epg from chlis.txt
+name: build epg from chlist2.txt
 
 on:
   schedule:
@@ -49,7 +49,7 @@ jobs:
             exit 1
           fi
           echo "✅ Ditemukan guide.xml: $GUIDE_PATH"
-          cp "$GUIDE_PATH" guide.xml
+          cp "$GUIDE_PATH" docs/guide.xml
 
       - name: Commit and Push EPG file
         env:
