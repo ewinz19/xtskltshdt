@@ -19,4 +19,4 @@
   <channel site="mncvision.id" site_id="99" lang="id" xmltv_id="Sportstars3.id@SD">Sportstars 3</channel>
   <channel site="mncvision.id" site_id="102" lang="id" xmltv_id="Sportstars.id@SD">Sportstars</channel>
   <channel site="mncvision.id" site_id="101" lang="id" xmltv_id="SoccerChannel.id@SD">Soccer Channel</channel>
-</tv>
+</channels>
