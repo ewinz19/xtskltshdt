@@ -2,8 +2,8 @@ name: Sync indonesia.xml to docs folder
 
 on:
   schedule:
-    - cron: "*/30 * * * *"  # cek setiap 30 menit
-  workflow_dispatch:          # bisa dijalankan manual
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
 
 jobs:
   sync:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Create docs folder if not exist
+      - name: Create docs folder
         run: mkdir -p docs
 
       - name: Download guide.xml from web
@@ -28,5 +28,7 @@ jobs:
           git diff-index --quiet HEAD || git commit -m "Update indonesia.xml in docs"
 
       - name: Push changes
-        run: |
-          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/ewinz19/xtskltshdt.git HEAD:main
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.PAT_TOKEN }}
+          branch: main
