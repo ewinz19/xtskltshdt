@@ -25,7 +25,8 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add docs/indonesia.xml
-          git commit -m "Update indonesia.xml in docs" || echo "No changes to commit"
+          git diff-index --quiet HEAD || git commit -m "Update indonesia.xml in docs"
 
       - name: Push changes
-        run: git push
+        run: |
+          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/ewinz19/xtskltshdt.git HEAD:main
