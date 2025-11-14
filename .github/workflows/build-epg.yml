@@ -26,7 +26,7 @@ jobs:
       - name: Clone external repository
         run: |
           echo "Cloning external repository..."
-          git clone --depth 1 -b master https://github.com/iptv-org/epg.git external-repo
+          git clone --depth 1 -b master https://github.com/iptv-org/epg.git external-repo/docs
 
       - name: Initialize Node.js in external repository
         run: |
