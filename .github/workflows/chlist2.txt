@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <channels>
-<channel site="indihometv.com" site_id="bioskopindonesia" lang="id" xmltv_id="BioskopIndonesia.id">Bioskop Indonesia</channel>
+  <channel site="indihometv.com" site_id="bioskopindonesia" lang="id" xmltv_id="BioskopIndonesia.id">Bioskop Indonesia</channel>
+  <channel site="dens.tv" site_id="98" lang="id" xmltv_id="Motorvision.de">Motorvision+</channel>
   <channel site="dens.tv" site_id="118" lang="id" xmltv_id="TVRISport.id">TVRI Sport</channel>
   <channel site="vidio.com" site_id="6852" lang="id" xmltv_id="MakkahTV.sa">Makkah TV</channel>
   <channel site="dens.tv" site_id="82" lang="id" xmltv_id="AlQuranAlKareemTV.sa">Quran TV</channel>
