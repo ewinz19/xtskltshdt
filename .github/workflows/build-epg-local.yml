@@ -1,4 +1,4 @@
-name: Clone External Repository and Use It
+name: build epg from chlist.txt
 
 on:
   schedule:
@@ -36,32 +36,45 @@ jobs:
         run: |
           npx tsx scripts/commands/epg/grab.ts --channels=chlist.txt
 
-      - name: Debug output directory
+      - name: Debug external-repo folder
         run: |
-          echo "=== LISTING guides directory ==="
-          ls -R external-repo/sites || true
+          echo "=== Listing all files in external-repo ==="
+          ls -R external-repo || true
 
-      - name: Auto-detect and copy generated EPG file
+      - name: Copy generated guide.xml
         run: |
-          GUIDE_PATH=$(find external-repo/sites -type f -name "*.xml" | head -1)
+          GUIDE_PATH=$(find external-repo -maxdepth 1 -type f -name "guide.xml" | head -1)
           if [ -z "$GUIDE_PATH" ]; then
-            echo "❌ Tidak ditemukan file EPG (*.xml) di external-repo/sites"
+            echo "❌ guide.xml tidak ditemukan di external-repo"
             exit 1
           fi
-          echo "✅ Ditemukan file EPG: $GUIDE_PATH"
-          cp "$GUIDE_PATH" guide.xml
+          echo "✅ Ditemukan guide.xml: $GUIDE_PATH"
+          cp "$GUIDE_PATH" docs/local.xml
 
       - name: Commit and Push EPG file
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}    
         run: |
-          git config --global user.email "action@github.com"
+          
+          git config --global user.email "action@github.com"        
           git config --global user.name "GitHub Actions Bot"
+          
+          git add docs/local.xml      
 
-          git add guide.xml
-
-          # Jika tidak ada perubahan, jangan commit
           git diff --cached --quiet && echo "No changes to commit" && exit 0
 
-          git commit -m "Upload generated guide.xml"
-          git push
+          git commit -m "Upload generated docs/local.xml"
+
+          # Fetch semua update dari remote
+          git fetch origin main
+
+          # Rebase local commit di atas remote
+          git rebase origin/main
+
+          # Push hasil rebase
+          git push origin main
+
+  
+
+
+    
