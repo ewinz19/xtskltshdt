@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <channels>
-  <channel site="dens.tv" lang="id" xmltv_id="TVRISport.id@SD">TVRI Sport</channel>
-  <channel site="dens.tv" lang="id" xmltv_id="AlQuranAlKareemTV.sa@SD">Quran TV</channel>
-  <channel site="vidio.com" lang="id" xmltv_id="MakkahTV.sa@SD">Makkah TV</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="MyFamily.id@SD">My Family</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="MyCinema.id@SD">My Cinema</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="MyCinemaAsia.id@SD">My Cinema Asia</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="Thrill.hk@SD">Thrill</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="MyKidz.id@SD">My Kidz</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="NickelodeonAsia.sg@SD">Nickelodeon</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="NickJrAsia.sg@HD">Nick Jr. HD</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="VisionPrime.id@SD">Vision Prime</channel>
 
-  <channel site="mncvision.id" lang="id" xmltv_id="Sportstars.id@SD">Sportstars</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="Sportstars2.id@SD">Sportstars 2</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="Sportstars3.id@SD">Sportstars 3</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="Sportstars4.id@SD">Sportstars 4</channel>
-  <channel site="mncvision.id" lang="id" xmltv_id="SoccerChannel.id@SD">Soccer Channel</channel>
-
-
+  <channel site="dens.tv" site_id="118" lang="id" xmltv_id="TVRISport.id@SD">TVRI Sport</channel>
+  <channel site="vidio.com" site_id="6852" lang="id" xmltv_id="MakkahTV.sa@SD">Makkah TV</channel>
+  <channel site="dens.tv" site_id="82" lang="id" xmltv_id="AlQuranAlKareemTV.sa@SD">Quran TV</channel>
   <channel site="mncvision.id" site_id="93" lang="id" xmltv_id="QuranTV.sa@SD">Al Quran Al Kareem</channel>
   <channel site="mncvision.id" site_id="94" lang="id" xmltv_id="VisionPrime.id@SD">Vision Prime</channel>
 
