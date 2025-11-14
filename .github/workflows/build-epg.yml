@@ -20,7 +20,7 @@ jobs:
 
       - name: Change working directory
         run: |
-          cd /home/runner/work/xtskltshdt
+          cd /home/runner/work/xtskltshdt/xtskltshdt
           npm init
 
       - name: Clone external repository
