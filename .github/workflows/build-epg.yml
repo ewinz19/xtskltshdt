@@ -36,9 +36,20 @@ jobs:
         run: |
           npx tsx scripts/commands/epg/grab.ts --channels=chlist.txt
 
-      - name: Copy generated guide.xml
+      - name: Debug output directory
         run: |
-          cp external-repo/guides/id/guide.xml guide.xml
+          echo "=== LISTING guides directory ==="
+          ls -R external-repo/guides || true
+
+      - name: Auto-detect and copy generated EPG file
+        run: |
+          GUIDE_PATH=$(find external-repo/guides -type f -name "*.xml" | head -1)
+          if [ -z "$GUIDE_PATH" ]; then
+            echo "❌ Tidak ditemukan file EPG (*.xml) di external-repo/guides"
+            exit 1
+          fi
+          echo "✅ Ditemukan file EPG: $GUIDE_PATH"
+          cp "$GUIDE_PATH" guide.xml
 
       - name: Commit and Push EPG file
         env:
@@ -49,6 +60,7 @@ jobs:
 
           git add guide.xml
 
+          # Jika tidak ada perubahan, jangan commit
           git diff --cached --quiet && echo "No changes to commit" && exit 0
 
           git commit -m "Upload generated guide.xml"
