@@ -4,7 +4,6 @@
   <channel site="dens.tv" site_id="98" lang="id" xmltv_id="Motorvision.de">Motorvision+</channel>
   <channel site="dens.tv" site_id="118" lang="id" xmltv_id="TVRISport.id">TVRI Sport</channel>
   <channel site="vidio.com" site_id="6852" lang="id" xmltv_id="MakkahTV.sa">Makkah TV</channel>
-  <channel site="dens.tv" site_id="82" lang="id" xmltv_id="AlQuranAlKareemTV.sa">Quran TV</channel>
   <channel site="mncvision.id" site_id="93" lang="id" xmltv_id="QuranTV.sa">Al Quran Al Kareem</channel>
   <channel site="mncvision.id" site_id="94" lang="id" xmltv_id="VisionPrime.id">Vision Prime</channel>
   <channel site="mncvision.id" site_id="248" lang="id" xmltv_id="ROCKExtreme.sg">Rock Action</channel>
@@ -14,8 +13,6 @@
   <channel site="mncvision.id" site_id="19" lang="id" xmltv_id="Thrill.hk">Thrill</channel>
   <channel site="mncvision.id" site_id="49" lang="id" xmltv_id="NickelodeonAsia.sg">Nickelodeon</channel>
   <channel site="mncvision.id" site_id="50" lang="id" xmltv_id="MyKidz.id">My Kidz</channel>
-  <channel site="mncvision.id" site_id="37" lang="id" xmltv_id="NickJrAsia.sg">Nickelodeon Jr</channel>
-  <channel site="mncvision.id" site_id="472" lang="id" xmltv_id="NickJrAsia.sg">Nick Jr. HD</channel>
   <channel site="mncvision.id" site_id="88" lang="id" xmltv_id="Sportstars4.id">Sportstars 4</channel>
   <channel site="mncvision.id" site_id="98" lang="id" xmltv_id="Sportstars2.id">Sportstars 2</channel>
   <channel site="mncvision.id" site_id="99" lang="id" xmltv_id="Sportstars3.id">Sportstars 3</channel>
