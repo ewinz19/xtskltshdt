@@ -39,13 +39,13 @@ jobs:
       - name: Debug output directory
         run: |
           echo "=== LISTING guides directory ==="
-          ls -R external-repo/guides || true
+          ls -R external-repo/sites || true
 
       - name: Auto-detect and copy generated EPG file
         run: |
-          GUIDE_PATH=$(find external-repo/guides -type f -name "*.xml" | head -1)
+          GUIDE_PATH=$(find external-repo/sites -type f -name "*.xml" | head -1)
           if [ -z "$GUIDE_PATH" ]; then
-            echo "❌ Tidak ditemukan file EPG (*.xml) di external-repo/guides"
+            echo "❌ Tidak ditemukan file EPG (*.xml) di external-repo/sites"
             exit 1
           fi
           echo "✅ Ditemukan file EPG: $GUIDE_PATH"
