@@ -18,7 +18,7 @@ jobs:
 
       - name: Download guide.xml from web
         run: |
-          curl -L "https://raw.githubusercontent.com/kemalsyabaniadama/test-epg/main/guide.xml" -o docs/indonesia.xml
+          curl -L "https://raw.githubusercontent.com/kemalsyabaniadama/test-epg/main/guide.xml" -o xtskltshdt/docs/indonesia.xml
 
       - name: Commit changes if updated
         run: |
