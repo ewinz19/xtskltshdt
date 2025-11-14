@@ -52,12 +52,15 @@ jobs:
           cp "$GUIDE_PATH" guide.xml
 
       - name: Commit and Push EPG file
-         env:
-        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}    
         run: |
-          git config --global user.email "action@github.com"
+          
+          git config --global user.email "action@github.com"        
           git config --global user.name "GitHub Actions Bot"
-          git add guide.xml
+          
+          git add guide.xml      
+
           git diff --cached --quiet && echo "No changes to commit" && exit 0
 
           git commit -m "Upload generated guide.xml"
