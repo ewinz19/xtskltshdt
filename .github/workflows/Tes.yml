@@ -1,0 +1,67 @@
+name: Clone External Repository and Use It
+
+on:
+  schedule:
+    - cron: "0 17,23 * * *"
+  workflow_dispatch:
+
+jobs:
+  clone-and-use:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Clone external repository
+        run: |
+          git clone --depth 1 -b master https://github.com/iptv-org/epg.git external-repo
+
+      - name: Install dependencies
+        working-directory: external-repo
+        run: npm ci
+
+      - name: Download chlist.txt
+        working-directory: external-repo
+        run: |
+          curl -o chlist.txt https://raw.githubusercontent.com/ewinz19/xtskltshdt/refs/heads/main/.github/workflows/chlist.txt
+
+      - name: Run EPG grabber
+        working-directory: external-repo
+        run: |
+          npx tsx scripts/commands/epg/grab.ts --channels=chlist.txt
+
+      - name: Debug external-repo folder
+        run: |
+          echo "=== Listing all files in external-repo ==="
+          ls -R external-repo || true
+
+      - name: Copy generated guide.xml
+        run: |
+          GUIDE_PATH=$(find external-repo -maxdepth 1 -type f -name "guide.xml" | head -1)
+          if [ -z "$GUIDE_PATH" ]; then
+            echo "❌ guide.xml tidak ditemukan di external-repo"
+            exit 1
+          fi
+          echo "✅ Ditemukan guide.xml: $GUIDE_PATH"
+          cp "$GUIDE_PATH" guide.xml
+
+      - name: Commit and Push EPG file
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Actions Bot"
+
+          git add guide.xml
+
+          # Jika tidak ada perubahan, jangan commit
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+
+          git commit -m "Upload generated guide.xml"
+          git push
