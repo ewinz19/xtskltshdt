@@ -34,3 +34,7 @@ jobs:
           branch: main
 
 
+- name: Debug secret
+  run: echo "Secret length: ${#PAT_TOKEN}"
+  env:
+    PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
