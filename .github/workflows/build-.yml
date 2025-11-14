@@ -1,4 +1,4 @@
-name: Clone External Repository and Use It
+name: build epg from chlis.txt
 
 on:
   schedule:
@@ -51,18 +51,27 @@ jobs:
           echo "✅ Ditemukan guide.xml: $GUIDE_PATH"
           cp "$GUIDE_PATH" guide.xml
 
-      - name: Commit and Push EPG file
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Actions Bot"
 
-          git add guide.xml
 
-          # Jika tidak ada perubahan, jangan commit
-          git diff --cached --quiet && echo "No changes to commit" && exit 0
+  
+- name: Commit and Push EPG file
+  env:
+    GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+  run: |
+    git config --global user.email "action@github.com"
+    git config --global user.name "GitHub Actions Bot"
 
-          git commit -m "Upload generated guide.xml"
-          git pull --rebase origin main
-          git push
+    git add guide.xml
+
+    git diff --cached --quiet && echo "No changes to commit" && exit 0
+
+    git commit -m "Upload generated guide.xml"
+
+    # Fetch semua update dari remote
+    git fetch origin main
+
+    # Rebase local commit di atas remote
+    git rebase origin/main
+
+    # Push hasil rebase
+    git push origin main
