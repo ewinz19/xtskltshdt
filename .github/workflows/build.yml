@@ -29,12 +29,12 @@ jobs:
       - name: Download chlist.txt
         working-directory: external-repo
         run: |
-          curl -o chlist.txt https://raw.githubusercontent.com/ewinz19/xtskltshdt/refs/heads/main/.github/workflows/chlist.txt
+          curl -o chlist2.txt https://raw.githubusercontent.com/ewinz19/xtskltshdt/refs/heads/main/.github/workflows/chlist2.txt
 
       - name: Run EPG grabber
         working-directory: external-repo
         run: |
-          npx tsx scripts/commands/epg/grab.ts --channels=chlist.txt
+          npx tsx scripts/commands/epg/grab.ts --channels=chlist2.txt
 
       - name: Debug external-repo folder
         run: |
@@ -59,11 +59,11 @@ jobs:
           git config --global user.email "action@github.com"        
           git config --global user.name "GitHub Actions Bot"
           
-          git add guide.xml      
+          git add docs/guide.xml      
 
           git diff --cached --quiet && echo "No changes to commit" && exit 0
 
-          git commit -m "Upload generated guide.xml"
+          git commit -m "Upload generated docs/guide.xml"
 
           # Fetch semua update dari remote
           git fetch origin main
