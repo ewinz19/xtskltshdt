@@ -1,4 +1,4 @@
-name: build epg from chlist2.txt
+name: build epg2.xml from chlist2.txt
 
 on:
   schedule:
@@ -49,7 +49,7 @@ jobs:
             exit 1
           fi
           echo "✅ Ditemukan guide.xml: $GUIDE_PATH"
-          cp "$GUIDE_PATH" docs/guide.xml
+          cp "$GUIDE_PATH" docs/epg2.xml
 
       - name: Commit and Push EPG file
         env:
@@ -59,11 +59,11 @@ jobs:
           git config --global user.email "action@github.com"        
           git config --global user.name "GitHub Actions Bot"
           
-          git add docs/guide.xml      
+          git add docs/epg2.xml      
 
           git diff --cached --quiet && echo "No changes to commit" && exit 0
 
-          git commit -m "Upload generated docs/guide.xml"
+          git commit -m "Upload generated docs/epg2.xml"
 
           # Fetch semua update dari remote
           git fetch origin main
