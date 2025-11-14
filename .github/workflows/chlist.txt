@@ -19,6 +19,7 @@
   <channel site="mncvision.id" site_id="99" lang="id" xmltv_id="Sportstars3.id@SD">Sportstars 3</channel>
   <channel site="mncvision.id" site_id="102" lang="id" xmltv_id="Sportstars.id@SD">Sportstars</channel>
   <channel site="mncvision.id" site_id="101" lang="id" xmltv_id="SoccerChannel.id@SD">Soccer Channel</channel>
+
   <channel site="indihometv.com" lang="id" xmltv_id="ANTV.id" site_id="antv">ANTV</channel>
   <channel site="indihometv.com" lang="id" xmltv_id="BTV.id" site_id="beritasatu">BTV</channel>
   <channel site="indihometv.com" lang="id" xmltv_id="CNBCIndonesia.id" site_id="cnbcindonesia">CNBC Indonesia</channel>
