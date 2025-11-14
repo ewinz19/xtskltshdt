@@ -1,0 +1,31 @@
+name: Sync indonesia.xml to docs folder
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # cek setiap 30 menit
+  workflow_dispatch:          # bisa dijalankan manual
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create docs folder if not exist
+        run: mkdir -p docs
+
+      - name: Download guide.xml from web
+        run: |
+          curl -L "https://raw.githubusercontent.com/kemalsyabaniadama/test-epg/main/guide.xml" -o docs/indonesia.xml
+
+      - name: Commit changes if updated
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add docs/guide.xml
+          git commit -m "Update guide.xml in docs" || echo "No changes to commit"
+
+      - name: Push changes
+        run: git push
