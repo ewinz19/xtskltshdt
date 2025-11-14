@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add docs/guide.xml
+          git add docs/indonesia.xml
           git commit -m "Update indonesia.xml in docs" || echo "No changes to commit"
 
       - name: Push changes
