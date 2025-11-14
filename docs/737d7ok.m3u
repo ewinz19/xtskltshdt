@@ -7,16 +7,16 @@
 ##########################################   MY TV.       ###################################################
 #############################################################################################################
 
-#EXTINF:-1 tvg-id="AlQuranAlKareemTV.sa@SD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/quran.png?raw=true" group-title="MY TV",Al Quran Al Kareem (Mecca)
+#EXTINF:-1 tvg-id="AlQuranAlKareemTV.sa" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/quran.png?raw=true" group-title="MY TV",Al Quran Al Kareem (Mecca)
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 ##http://m.live.net.sa:1935/live/quran/playlist.m3u8##
 https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8|Referer=https://www.dens.tv/
 
-#EXTINF:-1 tvg-id="QuranRadio.sa@SD" tvg-logo="https://i.imgur.com/ut0kr4x.png" group-title="MY TV",Quran Radio (1080p)
+#EXTINF:-1 tvg-id="QuranRadio.sa" tvg-logo="https://i.imgur.com/ut0kr4x.png" group-title="MY TV",Quran Radio (1080p)
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://live.kwikmotion.com/sbrksaquranradiolive/srpksaquranradio/playlist.m3u8
 
-#EXTINF:-1 tvg-id="MakkahTV.sa@SD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mekah.png?raw=true" group-title="MY TV",MEKAH TV
+#EXTINF:-1 tvg-id="MakkahTV.sa" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mekah.png?raw=true" group-title="MY TV",MEKAH TV
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8|Referer=https://media2.streambrothers.com
 
@@ -141,7 +141,7 @@ https://d3b0v7fggu5zwm.cloudfront.net/out/v1/abf3e254818c4608aab8aa109a972203/in
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/ 
 https://d3b0v7fggu5zwm.cloudfront.net/out/v1/3aefa03d32954b678e5faab6daa04b58/index.mpd
 
-#EXTINF:-1 tvg-id="BioskopIndonesia" group-title="MY TV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/a/a7/Bioskop_Indonesia_TV.png",Bioskop Indonesia vip
+#EXTINF:-1 tvg-id="BioskopIndonesia.id" group-title="MY TV" tvg-logo="https://upload.wikimedia.org/wikipedia/id/a/a7/Bioskop_Indonesia_TV.png",Bioskop Indonesia vip
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.stream_headers=user-agent=Xstream XGO/1.22 (Linux;Android 9) ExoPlayerLib/2.10.5
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
@@ -169,14 +169,14 @@ https://op-group1-swiftservehd-1.dens.tv/h/h210/index.m3u8|Referer=https://www.d
 ##########################################   Premium.     ###################################################
 #############################################################################################################
 
-#EXTINF:-1 tvg-id="VisionPrime.id@SD" group-title="Premium" tvg-logo="https://www.visionplus.id/images/repository/641/641-LOGO-m.png",Vision Prime vip
+#EXTINF:-1 tvg-id="VisionPrime.id" group-title="Premium" tvg-logo="https://www.visionplus.id/images/repository/641/641-LOGO-m.png",Vision Prime vip
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=483c71dd36fd45dd965321e8c568ba42:719598f53c998c618adf76a8f4f17fd1
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/ 
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 https://d43tg978oium5.cloudfront.net/out/v1/873c24d3946048f68e459250f1d2fd98/index.mpd
 
-#EXTINF:-1 tvg-id="Thrill.hk@SD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/thrill.png?raw=true" group-title="Premium",Thrill vip
+#EXTINF:-1 tvg-id="Thrill.hk" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/thrill.png?raw=true" group-title="Premium",Thrill vip
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 ###https://op-group1-swiftservesd-1.dens.tv/s/s34/02.m3u8|Referer=https://www.dens.tv/
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -184,7 +184,7 @@ https://d43tg978oium5.cloudfront.net/out/v1/873c24d3946048f68e459250f1d2fd98/ind
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/ 
 https://d2tjypxxy769fn.cloudfront.net/out/v1/3c619ecc120b46e999d1eaa627cc544f/index.mpd
 
-#EXTINF:-1 tvg-id="ROCK Action" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/rockaction.png?raw=true" group-title="Premium",ROCK Action vip
+#EXTINF:-1 tvg-id="ROCKExtreme.sg" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/rockaction.png?raw=true" group-title="Premium",ROCK Action vip
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 ###https://op-group1-swiftservehd-1.dens.tv/h/h15/02.m3u8|Referer=https://www.dens.tv/
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -209,28 +209,28 @@ https://d2tjypxxy769fn.cloudfront.net/out/v1/096d5cf064294e7ea3a7f59ee2899669/in
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 https://op-group1-swiftservehd-1.dens.tv/h/h08/index.m3u8|Referer=https://www.dens.tv/
 
-#EXTINF:-1 tvg-id="MyCinema.id@SD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mycinema.png?raw=true" group-title="Premium",My Cinema
+#EXTINF:-1 tvg-id="MyCinema.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mycinema.png?raw=true" group-title="Premium",My Cinema
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 https://op-group1-swiftservehd-1.dens.tv/h/h192/index.m3u8|Referer=https://www.dens.tv/
 
-#EXTINF:-1 tvg-id="MyCinemaAsia.id@SD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mycinemaasia.png?raw=true" group-title="Premium",My Cinema Asia
+#EXTINF:-1 tvg-id="MyCinemaAsia.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mycinemaasia.png?raw=true" group-title="Premium",My Cinema Asia
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 https://op-group1-swiftservehd-1.dens.tv/h/h193/index.m3u8|Referer=https://www.dens.tv/
 
-#EXTINF:-1 tvg-id="MyFamily.id@SD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/myfamilychannel.png?raw=true" group-title="Premium",My Family
+#EXTINF:-1 tvg-id="MyFamily.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/myfamilychannel.png?raw=true" group-title="Premium",My Family
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 https://op-group1-swiftservehd-1.dens.tv/h/h194/index.m3u8|Referer=https://www.dens.tv/
 
-#EXTINF:-1 tvg-id="MyKidz.id@SD" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mykidz.png?raw=true" group-title="Premium",My Kidz
+#EXTINF:-1 tvg-id="MyKidz.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mykidz.png?raw=true" group-title="Premium",My Kidz
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstreamaddon=inputstream.adaptive
@@ -238,7 +238,7 @@ https://op-group1-swiftservehd-1.dens.tv/h/h194/index.m3u8|Referer=https://www.d
 https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8|Referer=https://www.dens.tv/
 
 
-#EXTINF:-1 tvg-id="Motorvision+" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/motorvision+.png?raw=true" group-title="Premium",Motorvision+ 
+#EXTINF:-1 tvg-id="Motorvision.de" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/motorvision+.png?raw=true" group-title="Premium",Motorvision+ 
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstreamaddon=inputstream.adaptive
@@ -301,20 +301,20 @@ https://d2xz2v5wuvgur6.cloudfront.net/out/v1/2a5668fb3b9f4e34ab7c02cdc6ef56db/in
 #KODIPROP:inputstream.adaptive.license_key=c1d5f77cd96049f78b6b253540b31722:ba8d0801fe81187d35633e1d3b3855d5
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
-#EXTINF:-1 tvg-id="NickJrAsia.sg@HD" group-title="Kids" tvg-logo="https://www.visionplus.id/images/repository/147/75147-LOGO-m.png",Nick Jr HD
+#EXTINF:-1 tvg-id="NickJrAsia.sg" group-title="Kids" tvg-logo="https://www.visionplus.id/images/repository/147/75147-LOGO-m.png",Nick Jr HD
 https://d84q7nw4qf3j3.cloudfront.net/out/v1/27163af9499b4bcca2da96677b158efe/index.mpd
 
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=676b60c2b84b49b6b316207a590203e4:da9878a96062ea105895f310e052fa7b
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
-#EXTINF:-1 tvg-id="NickelodeonAsia.sg@SD" group-title="Kids" tvg-logo="https://www.visionplus.id/images/repository/627/627-LOGO-m.png",Nickelodeon
+#EXTINF:-1 tvg-id="NickelodeonAsia.sg" group-title="Kids" tvg-logo="https://www.visionplus.id/images/repository/627/627-LOGO-m.png",Nickelodeon
 https://d2tjypxxy769fn.cloudfront.net/out/v1/3fe6d9eb97ed455c942eb8d3d1c2c2e8/index.mpd
 
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1 (Linux; Android 13) ExoPlayerLib/2.15.1
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=ef4d19eafa0d4dcbb6a247e13753caab:a693256564fea641b5c4fc59adbdcf10
-#EXTINF:-1 tvg-id="NickelodeonAsia.sg@SD" group-title="Kids" tvg-logo="https://www.visionplus.id/images/repository/627/627-LOGO-m.png",Nickelodeon HD
+#EXTINF:-1 tvg-id="NickelodeonAsia.sg" group-title="Kids" tvg-logo="https://www.visionplus.id/images/repository/627/627-LOGO-m.png",Nickelodeon HD
 https://atemeshield1-voe.sysln.id/live/eds/Nickelodeon/mpd/Nickelodeon.mpd
 
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1 (Linux; Android 13) ExoPlayerLib/2.15.1
@@ -361,7 +361,7 @@ https://cdn08jtedge.indihometv.com/dassdvr/134/davinci/manifest.mpd
 #KODIPROP:inputstream.adaptive.stream_headers=user-agent=Xstream XGO/1.22 (Linux;Android 9) ExoPlayerLib/2.10.5
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://bintangstreaming.my.id/cubmu/bintangstream/forsattv_pro/sultantvnew2.php
-#EXTINF:-1 tvg-id="__" group-title="Kids" tvg-logo="https://images.indihometv.com/logogrey/grey_logo_duniaanak_small1.png",Dunia Anak
+#EXTINF:-1 tvg-id="DuniaAnak.id" group-title="Kids" tvg-logo="https://images.indihometv.com/logogrey/grey_logo_duniaanak_small1.png",Dunia Anak
 https://cdnjkt913.transvision.co.id:1000/live/master/2/4028c6856c3db2cc016cdc32eb0c439c/manifest.mpd
 
 #KODIPROP:inputstreamaddon=inputstream.adaptive
