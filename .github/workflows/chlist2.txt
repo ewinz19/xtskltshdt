@@ -11,7 +11,6 @@
   <channel site="mncvision.id" site_id="16" lang="id" xmltv_id="MyCinema.id">My Cinema</channel>
   <channel site="mncvision.id" site_id="17" lang="id" xmltv_id="MyCinemaAsia.id">My Cinema Asia</channel>
   <channel site="mncvision.id" site_id="19" lang="id" xmltv_id="Thrill.hk">Thrill</channel>
-  <channel site="mncvision.id" site_id="49" lang="id" xmltv_id="NickelodeonAsia.sg">Nickelodeon</channel>
   <channel site="mncvision.id" site_id="50" lang="id" xmltv_id="MyKidz.id">My Kidz</channel>
   <channel site="mncvision.id" site_id="88" lang="id" xmltv_id="Sportstars4.id">Sportstars 4</channel>
   <channel site="mncvision.id" site_id="98" lang="id" xmltv_id="Sportstars2.id">Sportstars 2</channel>
