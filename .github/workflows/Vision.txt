@@ -47,10 +47,10 @@
   <channel site="visionplus.id" site_id="00000000000000000120" lang="id" xmltv_id="SPOTV2.id">SpoTV 2</channel>
   <channel site="visionplus.id" site_id="00000000000000000121" lang="id" xmltv_id="FightSports.us">Fight Sports</channel>
   <channel site="visionplus.id" site_id="00000000000000000122" lang="id" xmltv_id="beINSports1.qa">beIN SPORTS</channel>
-  <channel site="visionplus.id" site_id="00000000000000000123" lang="id" xmltv_id="">beIN SPORTS 2</channel>
+  <channel site="visionplus.id" site_id="00000000000000000123" lang="id" xmltv_id="beINSports2.qa">beIN SPORTS 2</channel>
   <channel site="visionplus.id" site_id="00000000000000000124" lang="id" xmltv_id="beINSports3.qa">beIN SPORTS 3</channel>
-  <channel site="visionplus.id" site_id="00000000000000000125" lang="id" xmltv_id="">beIN SPORTS 4</channel>
-  <channel site="visionplus.id" site_id="00000000000000000126" lang="id" xmltv_id="">beIN SPORTS 5</channel>
+  <channel site="visionplus.id" site_id="00000000000000000125" lang="id" xmltv_id="beINSports4.qa">beIN SPORTS 4</channel>
+  <channel site="visionplus.id" site_id="00000000000000000126" lang="id" xmltv_id="beINSports5.qa">beIN SPORTS 5</channel>
 </channels>
   
 
