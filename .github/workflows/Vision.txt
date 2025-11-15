@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <channels>
+
+  <channel site="dens.tv" site_id="13" lang="id" xmltv_id="Mdtv.id">MDTV</channel>
+
+
   <channel site="visionplus.id" site_id="00000000000000000001" lang="id" xmltv_id="RCTI.id">RCTI</channel>
   <channel site="visionplus.id" site_id="00000000000000000002" lang="id" xmltv_id="MNCTV.id">MNCTV</channel>
   <channel site="visionplus.id" site_id="00000000000000000003" lang="id" xmltv_id="GTV.id">GTV</channel>
