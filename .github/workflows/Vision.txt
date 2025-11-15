@@ -29,13 +29,14 @@
   <channel site="visionplus.id" site_id="00000000000000000064" lang="id" xmltv_id="NickelodeonAsia.sg">Nick</channel>
   <channel site="visionplus.id" site_id="00000000000000000066" lang="id" xmltv_id="MyKidz.id">My Kidz</channel>
 
-
   <channel site="visionplus.id" site_id="00000000000000000073" lang="id" xmltv_id="tvNAsia.hk">TVN</channel>
   <channel site="visionplus.id" site_id="00000000000000000087" lang="id" xmltv_id="VisionPrime.id">Vision Prime</channel>
   <channel site="visionplus.id" site_id="00000000000000000093" lang="id" xmltv_id="ROCKExtreme.sg">Rock Action</channel>
   <channel site="visionplus.id" site_id="00000000000000000112" lang="id" xmltv_id="Sportstars.id">Sportstars</channel>
   <channel site="visionplus.id" site_id="00000000000000000113" lang="id" xmltv_id="Sportstars2.id">Sportstars 2</channel>
   <channel site="visionplus.id" site_id="00000000000000000115" lang="id" xmltv_id="SoccerChannel.id">Soccer Channel</channel>
+  <channel site="visionplus.id" site_id="00000000000000000116" lang="id" xmltv_id="Mdtv.id">MDTV</channel>
+
   <channel site="visionplus.id" site_id="00000000000000000119" lang="id" xmltv_id="SPOTV.id">SpoTV 1</channel>
   <channel site="visionplus.id" site_id="00000000000000000120" lang="id" xmltv_id="SPOTV2.id">SpoTV 2</channel>
   <channel site="visionplus.id" site_id="00000000000000000121" lang="id" xmltv_id="FightSports.us">Fight Sports</channel>
