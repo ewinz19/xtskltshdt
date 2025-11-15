@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <channels>
-
   <channel site="dens.tv" site_id="13" lang="id" xmltv_id="Mdtv.id">MDTV</channel>
   <channel site="dens.tv" site_id="109" lang="id" xmltv_id="MyCinemaAsia.id">My Cinema Asia</channel>
   <channel site="dens.tv" site_id="98" lang="id" xmltv_id="Motorvision.de">Motorvision+</channel>
   <channel site="dens.tv" site_id="96" lang="id" xmltv_id="MyKidz.id">My Kidz HD</channel>
   <channel site="dens.tv" site_id="118" lang="id" xmltv_id="TVRISport.id">TVRI Sport</channel>
-  
+  <channel site="vidio.com" lang="id" xmltv_id="SCTV.id" site_id="204">SCTV</channel>
+  <channel site="vidio.com" lang="id" xmltv_id="Indosiar.id" site_id="205">Indosiar</channel>
   <channel site="visionplus.id" site_id="00000000000000000001" lang="id" xmltv_id="RCTI.id">RCTI</channel>
   <channel site="visionplus.id" site_id="00000000000000000002" lang="id" xmltv_id="MNCTV.id">MNCTV</channel>
   <channel site="visionplus.id" site_id="00000000000000000003" lang="id" xmltv_id="GTV.id">GTV</channel>
@@ -22,12 +22,11 @@
   <channel site="visionplus.id" site_id="00000000000000000015" lang="id" xmltv_id="BTV.id">BTV</channel>
   <channel site="visionplus.id" site_id="00000000000000000016" lang="id" xmltv_id="">TVRI</channel>
 
-
   <channel site="visionplus.id" site_id="00000000000000000041" lang="id" xmltv_id="Thrill.hk">Thrill</channel>
   <channel site="visionplus.id" site_id="00000000000000000046" lang="id" xmltv_id="tvNMoviesAsia.hk">TVN Movies</channel> 
 
-<channel site="visionplus.id" site_id="00000000000000000036" lang="id" xmltv_id="Cinemachi.uk">Cinemachi</channel>
-<channel site="visionplus.id" site_id="00000000000000000037" lang="id" xmltv_id="CinemachiKids.uk">Cinemachi Kids</channel>
+  <channel site="visionplus.id" site_id="00000000000000000036" lang="id" xmltv_id="Cinemachi.uk">Cinemachi</channel>
+  <channel site="visionplus.id" site_id="00000000000000000037" lang="id" xmltv_id="CinemachiKids.uk">Cinemachi Kids</channel>
   <channel site="visionplus.id" site_id="00000000000000000038" lang="id" xmltv_id="CinemachiXtra.uk">Cinemachi Xtra</channel>
   <channel site="visionplus.id" site_id="00000000000000000039" lang="id" xmltv_id="CinemachiMax.uk">Cinemachi Max</channel>
   <channel site="visionplus.id" site_id="00000000000000000040" lang="id" xmltv_id="CinemachiAction.uk">Cinemachi Action</channel>
