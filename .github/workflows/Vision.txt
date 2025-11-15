@@ -24,7 +24,18 @@
 
   <channel site="visionplus.id" site_id="00000000000000000041" lang="id" xmltv_id="Thrill.hk">Thrill</channel>
   <channel site="visionplus.id" site_id="00000000000000000046" lang="id" xmltv_id="tvNMoviesAsia.hk">TVN Movies</channel> 
-  <channel site="visionplus.id" site_id="00000000000000000051" lang="id" xmltv_id="MyFamily.id">My Family Channel</channel>
+
+<channel site="visionplus.id" site_id="00000000000000000036" lang="id" xmltv_id="Cinemachi.uk">Cinemachi</channel>
+<channel site="visionplus.id" site_id="00000000000000000037" lang="id" xmltv_id="CinemachiKids.uk">Cinemachi Kids</channel>
+  <channel site="visionplus.id" site_id="00000000000000000038" lang="id" xmltv_id="CinemachiXtra.uk">Cinemachi Xtra</channel>
+  <channel site="visionplus.id" site_id="00000000000000000039" lang="id" xmltv_id="CinemachiMax.uk">Cinemachi Max</channel>
+  <channel site="visionplus.id" site_id="00000000000000000040" lang="id" xmltv_id="CinemachiAction.uk">Cinemachi Action</channel>
+
+  <channel site="visionplus.id" site_id="00000000000000000047" lang="id" xmltv_id="ZeeBioskop.id">Zee Bioskop</channel>
+  <channel site="visionplus.id" site_id="00000000000000000048" lang="id" xmltv_id="GalaxyPremium.id">GALAXY PREMIUM</channel>
+  <channel site="visionplus.id" site_id="00000000000000000049" lang="id" xmltv_id="Galaxy.id">GALAXY</channel>
+  <channel site="visionplus.id" site_id="00000000000000000050" lang="id" xmltv_id="IMC.id">IMC (Indonesia Movie Channel)</channel>
+
   <channel site="visionplus.id" site_id="00000000000000000052" lang="id" xmltv_id="MyCinema.id">My Cinema</channel>
   <channel site="visionplus.id" site_id="00000000000000000053" lang="id" xmltv_id="MyCinemaAsia.id">My Cinema Asia</channel>
   <channel site="visionplus.id" site_id="00000000000000000056" lang="id" xmltv_id="KidsTV.id">Kids TV</channel>
