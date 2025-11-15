@@ -48,6 +48,7 @@
 <channel id="GTV.id"><display-name>GTV</display-name><icon src="https://i.imgur.com/jjuKnYs.png"/><url>https://visionplus.id</url></channel>
 <channel id="MNCTV.id"><display-name>MNCTV</display-name><icon src="https://i.imgur.com/SK8pjQy.png"/><url>https://visionplus.id</url></channel>
 <channel id="RCTI.id"><display-name>RCTI</display-name><icon src="https://i.imgur.com/iLFx8ia.png"/><url>https://visionplus.id</url></channel>
+<channel id="TVRISport.id"><display-name>TVRI Sport</display-name><icon src="https://i.postimg.cc/PrqBt2h1/tvrisport.png"/><url>https://dens.tv</url></channel>
 <channel id="MyKidz.id"><display-name>My Kidz HD</display-name><icon src="https://i.imgur.com/qzZFU6d.png"/><url>https://dens.tv</url></channel>
 <channel id="Motorvision.de"><display-name>Motorvision+</display-name><icon src="https://i.imgur.com/v4kj8pI.png"/><url>https://dens.tv</url></channel>
 <channel id="MyCinemaAsia.id"><display-name>My Cinema Asia</display-name><icon src="https://i.imgur.com/4XVZLW0.png"/><url>https://dens.tv</url></channel>
@@ -2660,6 +2661,58 @@
 <programme start="20251115193000 +0000" stop="20251115214500 +0000" channel="RCTI.id"><title lang="id">RCTI</title><desc lang="id">RCTI menawarkan beragam program termasuk serial drama, film box office, acara olahraga, pencarian bakat, reality show dan musik, program ulang tahun dan penghargaan, serta berbagai infotainment.</desc><category lang="id">Entertainment</category></programme>
 <programme start="20251115214500 +0000" stop="20251115234500 +0000" channel="RCTI.id"><title lang="id">Preman Pensiun S3</title><desc lang="id">Setelah pensiun, Kang Mus semakin tekun dalam bisnis kicimpring. Ditambah lagi Esih, Emak, dan Ceu Edoh bekerja sama menjadi satu tim dalam proses pengolahannya. Jamal perlahan-lahan mulai menguasai dunia preman yang ditinggalkan oleh Kang Mus. Dengan berbagai trik kotor, Jamal berusaha menjatuhkan para pengganti Kang Mus.</desc><category lang="id">Series</category><category lang="id">Series/Comedy</category></programme>
 <programme start="20251115234500 +0000" stop="20251116003000 +0000" channel="RCTI.id"><title lang="id">Upin Ipin</title><desc lang="id">Serial animasi anak-anak asal Malaysia yang diproduksi oleh Les&apos; Copaque Production, berpusat pada kisah kehidupan sepasang anak laki-laki kembar berusia 5 tahun bernama Upin &amp; Ipin yang tinggal bersama kakaknya bernama Kak Ros dan neneknya yang biasa dipanggil Opa di Kampung Durian Runtuh- Kehidupan sehari-hari Upin &amp; Ipin yang menyenangkan dan penuh kelucuan bersama teman-teman mereka yang memiliki kepribadian dan latar belakang berbeda-beda, seperti Mei-Mei yang cerdas, Jarjit Singh yang hobi berpantun, Ehsan yang suka makan, Fizi yang suka mengejek, Mail yang hobi berjualan, dan Susanti yang berasal dari Indonesia-</desc><category lang="id">Series/Children</category><category lang="id">Series</category><category lang="id">Children/Series</category><category lang="id">Children</category><category lang="id">Series/Animated</category></programme>
+<programme start="20251115170000 +0000" stop="20251115180000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115180000 +0000" stop="20251115183000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115183000 +0000" stop="20251115190000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115190000 +0000" stop="20251115200000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115200000 +0000" stop="20251115213000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115213000 +0000" stop="20251115223000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115223000 +0000" stop="20251115230000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115230000 +0000" stop="20251115233000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115233000 +0000" stop="20251116000000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116000000 +0000" stop="20251116010000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116010000 +0000" stop="20251116023000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116023000 +0000" stop="20251116030000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116030000 +0000" stop="20251116040000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116040000 +0000" stop="20251116043000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116043000 +0000" stop="20251116070000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116070000 +0000" stop="20251116080000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116080000 +0000" stop="20251116090000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116090000 +0000" stop="20251116100000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116100000 +0000" stop="20251116110000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116110000 +0000" stop="20251116113000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116113000 +0000" stop="20251116120000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116120000 +0000" stop="20251116140000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116140000 +0000" stop="20251116150000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116150000 +0000" stop="20251116160000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116160000 +0000" stop="20251116165950 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251116165950 +0000" stop="20251116165959 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251114170000 +0000" stop="20251114180000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251114180000 +0000" stop="20251114183000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251114183000 +0000" stop="20251114190000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251114190000 +0000" stop="20251114200000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251114200000 +0000" stop="20251114213000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251114213000 +0000" stop="20251114223000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251114223000 +0000" stop="20251114230000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251114230000 +0000" stop="20251114233000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251114233000 +0000" stop="20251115000000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115000000 +0000" stop="20251115010000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115010000 +0000" stop="20251115023000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115023000 +0000" stop="20251115030000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115030000 +0000" stop="20251115040000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115040000 +0000" stop="20251115043000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115043000 +0000" stop="20251115070000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115070000 +0000" stop="20251115080000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115080000 +0000" stop="20251115090000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115090000 +0000" stop="20251115100000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115100000 +0000" stop="20251115110000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115110000 +0000" stop="20251115113000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115113000 +0000" stop="20251115120000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115120000 +0000" stop="20251115140000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115140000 +0000" stop="20251115150000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115150000 +0000" stop="20251115160000 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115160000 +0000" stop="20251115165950 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
+<programme start="20251115165950 +0000" stop="20251115165959 +0000" channel="TVRISport.id"><title lang="id">The Schedule Is Not Available</title></programme>
 <programme start="20251115170000 +0000" stop="20251115190000 +0000" channel="MyKidz.id"><title lang="id">Tad The Lost Explorer</title></programme>
 <programme start="20251115190000 +0000" stop="20251115210000 +0000" channel="MyKidz.id"><title lang="id">Dragon Nest</title></programme>
 <programme start="20251115210000 +0000" stop="20251115230000 +0000" channel="MyKidz.id"><title lang="id">Bolts &amp; Blip</title></programme>
