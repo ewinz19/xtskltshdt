@@ -28,7 +28,7 @@
   <channel site="visionplus.id" site_id="00000000000000000063" lang="id" xmltv_id="ZooMoo.sg">Zoo Moo</channel>
   <channel site="visionplus.id" site_id="00000000000000000064" lang="id" xmltv_id="NickelodeonAsia.sg">Nick</channel>
   <channel site="visionplus.id" site_id="00000000000000000066" lang="id" xmltv_id="MyKidz.id">My Kidz</channel>
-  <channel site="visionplus.id" site_id="00000000000000000067" lang="id" xmltv_id="DreamWorksChannelAsia.us">Dream Works</channel>
+
 
   <channel site="visionplus.id" site_id="00000000000000000073" lang="id" xmltv_id="tvNAsia.hk">TVN</channel>
   <channel site="visionplus.id" site_id="00000000000000000087" lang="id" xmltv_id="VisionPrime.id">Vision Prime</channel>
