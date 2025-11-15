@@ -328,6 +328,57 @@ https://d2tjypxxy769fn.cloudfront.net/out/v1/782400332c96440598260730a864bc6f/in
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36 
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/47c895ca72544fcfa4221c499b555a10/index.mpd
 
+######-####
+
+EXTINF:-1 tvg-id="Animax.id" group-title="Premium" tvg-logo="https://www.visionplus.id/images/repository/628/628-LOGO-m.png",Animax
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+http://202.80.222.20/cdn/iptv/Tvod/001/channel2000122/1024.m3u8
+
+#EXTINF:-1 tvg-id="tvN.id" group-title="Premium" tvg-logo="https://www.visionplus.id/images/repository/633/633-LOGO-m.png",tvN Asia
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+http://202.80.222.20/cdn/iptv/Tvod/001/channel2000141/1024.m3u8
+
+#EXTINF:-1 tvg-id="ONE.id" group-title="Premium" tvg-logo="https://www.visionplus.id/images/repository/634/634-LOGO-m.png",ONE
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+http://202.80.222.20/cdn/iptv/Tvod/001/channel2000123/1024.m3u8
+
+#EXTINF:-1 tvg-id="KIX.id" group-title="Premium" tvg-logo="https://www.visionplus.id/images/repository/635/635-LOGO-m.png",KIX
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+http://202.80.222.20/cdn/iptv/Tvod/001/channel2000037/1024.m3u8
+
+#EXTINF:-1 tvg-id="HITS.id" group-title="Premium" tvg-logo="https://www.visionplus.id/images/repository/637/637-LOGO-m.png",HITS
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+http://202.80.222.20/cdn/iptv/Tvod/001/channel2000114/1024.m3u8
+
+#EXTINF:-1 tvg-id="AXN.id" group-title="Premium" tvg-logo="https://www.visionplus.id/images/repository/638/638-LOGO-m.png",AXN
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+http://202.80.222.20/cdn/iptv/Tvod/001/channel2000119/1024.m3u8
+
+#EXTINF:-1 tvg-id="Lifetime.id" group-title="Premium" tvg-logo="https://www.visionplus.id/images/repository/639/639-LOGO-m.png",Lifetime 
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+http://202.80.222.20/cdn/iptv/Tvod/001/channel2000046/1024.m3u8
+
 
 ####################
 ######## carton ####
