@@ -36,6 +36,14 @@
   <channel site="visionplus.id" site_id="00000000000000000049" lang="id" xmltv_id="Galaxy.id">GALAXY</channel>
   <channel site="visionplus.id" site_id="00000000000000000050" lang="id" xmltv_id="IMC.id">IMC (Indonesia Movie Channel)</channel>
 
+  <channel site="visionplus.id" site_id="00000000000000000065" lang="id" xmltv_id="AnimaxAsia.sg">Animax</channel>
+  <channel site="visionplus.id" site_id="00000000000000000073" lang="id" xmltv_id="tvNAsia.hk">TVN</channel>
+  <channel site="visionplus.id" site_id="00000000000000000074" lang="id" xmltv_id="ONE.sg">One</channel>
+  <channel site="visionplus.id" site_id="00000000000000000075" lang="id" xmltv_id="KIX.hk">Kix</channel>
+  <channel site="visionplus.id" site_id="00000000000000000077" lang="id" xmltv_id="HITS.sg">Hits</channel>
+  <channel site="visionplus.id" site_id="00000000000000000079" lang="id" xmltv_id="AXNAsia.sg@Indonesia">AXN</channel>
+  <channel site="visionplus.id" site_id="00000000000000000080" lang="id" xmltv_id="LifetimeAsia.us">Lifetime</channel>
+
   <channel site="visionplus.id" site_id="00000000000000000052" lang="id" xmltv_id="MyCinema.id">My Cinema</channel>
   <channel site="visionplus.id" site_id="00000000000000000053" lang="id" xmltv_id="MyCinemaAsia.id">My Cinema Asia</channel>
   <channel site="visionplus.id" site_id="00000000000000000056" lang="id" xmltv_id="KidsTV.id">Kids TV</channel>
