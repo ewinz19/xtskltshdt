@@ -40,6 +40,8 @@
 <channel id="GTV.id"><display-name>GTV</display-name><icon src="https://i.imgur.com/jjuKnYs.png"/><url>https://visionplus.id</url></channel>
 <channel id="MNCTV.id"><display-name>MNCTV</display-name><icon src="https://i.imgur.com/SK8pjQy.png"/><url>https://visionplus.id</url></channel>
 <channel id="RCTI.id"><display-name>RCTI</display-name><icon src="https://i.imgur.com/iLFx8ia.png"/><url>https://visionplus.id</url></channel>
+<channel id="Motorvision.de"><display-name>Motorvision+</display-name><icon src="https://i.imgur.com/v4kj8pI.png"/><url>https://dens.tv</url></channel>
+<channel id="MyCinemaAsia.id"><display-name>My Cinema Asia</display-name><icon src="https://i.imgur.com/4XVZLW0.png"/><url>https://dens.tv</url></channel>
 <programme start="20251114170000 +0000" stop="20251114181500 +0000" channel="Mdtv.id"><title lang="id">Top Spot</title></programme>
 <programme start="20251114181500 +0000" stop="20251114190000 +0000" channel="Mdtv.id"><title lang="id">Fenomena</title></programme>
 <programme start="20251114190000 +0000" stop="20251114200000 +0000" channel="Mdtv.id"><title lang="id">Inilah Kisahnya</title></programme>
@@ -2347,4 +2349,127 @@
 <programme start="20251115193000 +0000" stop="20251115214500 +0000" channel="RCTI.id"><title lang="id">RCTI</title><desc lang="id">RCTI menawarkan beragam program termasuk serial drama, film box office, acara olahraga, pencarian bakat, reality show dan musik, program ulang tahun dan penghargaan, serta berbagai infotainment.</desc><category lang="id">Entertainment</category></programme>
 <programme start="20251115214500 +0000" stop="20251115234500 +0000" channel="RCTI.id"><title lang="id">Preman Pensiun S3</title><desc lang="id">Setelah pensiun, Kang Mus semakin tekun dalam bisnis kicimpring. Ditambah lagi Esih, Emak, dan Ceu Edoh bekerja sama menjadi satu tim dalam proses pengolahannya. Jamal perlahan-lahan mulai menguasai dunia preman yang ditinggalkan oleh Kang Mus. Dengan berbagai trik kotor, Jamal berusaha menjatuhkan para pengganti Kang Mus.</desc><category lang="id">Series</category><category lang="id">Series/Comedy</category></programme>
 <programme start="20251115234500 +0000" stop="20251116003000 +0000" channel="RCTI.id"><title lang="id">Upin Ipin</title><desc lang="id">Serial animasi anak-anak asal Malaysia yang diproduksi oleh Les&apos; Copaque Production, berpusat pada kisah kehidupan sepasang anak laki-laki kembar berusia 5 tahun bernama Upin &amp; Ipin yang tinggal bersama kakaknya bernama Kak Ros dan neneknya yang biasa dipanggil Opa di Kampung Durian Runtuh- Kehidupan sehari-hari Upin &amp; Ipin yang menyenangkan dan penuh kelucuan bersama teman-teman mereka yang memiliki kepribadian dan latar belakang berbeda-beda, seperti Mei-Mei yang cerdas, Jarjit Singh yang hobi berpantun, Ehsan yang suka makan, Fizi yang suka mengejek, Mail yang hobi berjualan, dan Susanti yang berasal dari Indonesia-</desc><category lang="id">Series/Children</category><category lang="id">Series</category><category lang="id">Children/Series</category><category lang="id">Children</category><category lang="id">Series/Animated</category></programme>
+<programme start="20251115170000 +0000" stop="20251115173000 +0000" channel="Motorvision.de"><title lang="id">Australian Boat Racing 2025</title></programme>
+<programme start="20251115173000 +0000" stop="20251115175500 +0000" channel="Motorvision.de"><title lang="id">P1 Offshore Championship 2024</title></programme>
+<programme start="20251115175500 +0000" stop="20251115181500 +0000" channel="Motorvision.de"><title lang="id">P1 Class 1 Offshore Championship 2024</title></programme>
+<programme start="20251115181500 +0000" stop="20251115190000 +0000" channel="Motorvision.de"><title lang="id">Australian Circuit Boat Racing 2024</title></programme>
+<programme start="20251115190000 +0000" stop="20251115195500 +0000" channel="Motorvision.de"><title lang="id">Australian V8 Superboat Championship 2024</title></programme>
+<programme start="20251115195500 +0000" stop="20251115202000 +0000" channel="Motorvision.de"><title lang="id">Stunt Heroes</title></programme>
+<programme start="20251115202000 +0000" stop="20251115204500 +0000" channel="Motorvision.de"><title lang="id">Made in...</title></programme>
+<programme start="20251115204500 +0000" stop="20251115211000 +0000" channel="Motorvision.de"><title lang="id">Fastzone 2025</title></programme>
+<programme start="20251115211000 +0000" stop="20251115220500 +0000" channel="Motorvision.de"><title lang="id">DTM 2025</title></programme>
+<programme start="20251115220500 +0000" stop="20251115223000 +0000" channel="Motorvision.de"><title lang="id">Belgian Rally Championship 2025</title></programme>
+<programme start="20251115223000 +0000" stop="20251115231500 +0000" channel="Motorvision.de"><title lang="id">British Rally Championship 2025</title></programme>
+<programme start="20251115231500 +0000" stop="20251115234000 +0000" channel="Motorvision.de"><title lang="id">TER Series 2025</title></programme>
+<programme start="20251115234000 +0000" stop="20251116001000 +0000" channel="Motorvision.de"><title lang="id">Africa Eco Race 2025</title></programme>
+<programme start="20251116001000 +0000" stop="20251116010000 +0000" channel="Motorvision.de"><title lang="id">UK Rally Show 2024</title></programme>
+<programme start="20251116010000 +0000" stop="20251116015500 +0000" channel="Motorvision.de"><title lang="id">BTRDA Rallycross 2025</title></programme>
+<programme start="20251116015500 +0000" stop="20251116022500 +0000" channel="Motorvision.de"><title lang="id">Stunt Heroes</title></programme>
+<programme start="20251116022500 +0000" stop="20251116024500 +0000" channel="Motorvision.de"><title lang="id">Made in...</title></programme>
+<programme start="20251116024500 +0000" stop="20251116031000 +0000" channel="Motorvision.de"><title lang="id">Top Ten Show</title></programme>
+<programme start="20251116031000 +0000" stop="20251116033500 +0000" channel="Motorvision.de"><title lang="id">Fastzone 2025</title></programme>
+<programme start="20251116033500 +0000" stop="20251116043000 +0000" channel="Motorvision.de"><title lang="id">DTM 2025</title></programme>
+<programme start="20251116043000 +0000" stop="20251116045000 +0000" channel="Motorvision.de"><title lang="id">US Pro Pulling 2023</title></programme>
+<programme start="20251116045000 +0000" stop="20251116051500 +0000" channel="Motorvision.de"><title lang="id">US Pro Pulling 2023</title></programme>
+<programme start="20251116051500 +0000" stop="20251116054000 +0000" channel="Motorvision.de"><title lang="id">Monster Jam Championship 2024</title></programme>
+<programme start="20251116054000 +0000" stop="20251116062500 +0000" channel="Motorvision.de"><title lang="id">Australian Drag Racing Championship 2024</title></programme>
+<programme start="20251116062500 +0000" stop="20251116065000 +0000" channel="Motorvision.de"><title lang="id">EMX Quad European Championship 2025</title></programme>
+<programme start="20251116065000 +0000" stop="20251116072000 +0000" channel="Motorvision.de"><title lang="id">All Wheel Drive Safari Challenge 2025</title></programme>
+<programme start="20251116072000 +0000" stop="20251116080000 +0000" channel="Motorvision.de"><title lang="id">Icelandic Formula Offroad 2024</title></programme>
+<programme start="20251116080000 +0000" stop="20251116082500 +0000" channel="Motorvision.de"><title lang="id">FIA European Truck Racing Series 2025</title></programme>
+<programme start="20251116082500 +0000" stop="20251116091500 +0000" channel="Motorvision.de"><title lang="id">Ferrari Challenge Europe 2025</title></programme>
+<programme start="20251116091500 +0000" stop="20251116100500 +0000" channel="Motorvision.de"><title lang="id">DTM 2025</title></programme>
+<programme start="20251116100500 +0000" stop="20251116103500 +0000" channel="Motorvision.de"><title lang="id">Michelin Le Mans Cup 2025</title></programme>
+<programme start="20251116103500 +0000" stop="20251116112500 +0000" channel="Motorvision.de"><title lang="id">European Le Mans Series 2025</title></programme>
+<programme start="20251116112500 +0000" stop="20251116121000 +0000" channel="Motorvision.de"><title lang="id">GT World Challenge America 2025</title></programme>
+<programme start="20251116121000 +0000" stop="20251116130000 +0000" channel="Motorvision.de"><title lang="id">GT World Challenge Europe 2025</title></programme>
+<programme start="20251116130000 +0000" stop="20251116140000 +0000" channel="Motorvision.de"><title lang="id">NASCAR Whelen Euro Series 2025</title></programme>
+<programme start="20251116140000 +0000" stop="20251116142500 +0000" channel="Motorvision.de"><title lang="id">Stunt Heroes</title></programme>
+<programme start="20251116142500 +0000" stop="20251116145500 +0000" channel="Motorvision.de"><title lang="id">Made in...</title></programme>
+<programme start="20251116145500 +0000" stop="20251116152000 +0000" channel="Motorvision.de"><title lang="id">Top Ten Show</title></programme>
+<programme start="20251116152000 +0000" stop="20251116154500 +0000" channel="Motorvision.de"><title lang="id">Fastzone 2025</title></programme>
+<programme start="20251116154500 +0000" stop="20251116163500 +0000" channel="Motorvision.de"><title lang="id">DTM 2025</title></programme>
+<programme start="20251116163500 +0000" stop="20251116165950 +0000" channel="Motorvision.de"><title lang="id">Pikes Peak International Hill Climb</title></programme>
+<programme start="20251116165950 +0000" stop="20251116165959 +0000" channel="Motorvision.de"><title lang="id">Pikes Peak International Hill Climb</title></programme>
+<programme start="20251114170000 +0000" stop="20251114172500 +0000" channel="Motorvision.de"><title lang="id">Gearing Up 2025</title></programme>
+<programme start="20251114172500 +0000" stop="20251114175000 +0000" channel="Motorvision.de"><title lang="id">Perfect Ride</title></programme>
+<programme start="20251114175000 +0000" stop="20251114182000 +0000" channel="Motorvision.de"><title lang="id">Special</title></programme>
+<programme start="20251114182000 +0000" stop="20251114184500 +0000" channel="Motorvision.de"><title lang="id">Go Green!</title></programme>
+<programme start="20251114184500 +0000" stop="20251114191000 +0000" channel="Motorvision.de"><title lang="id">Dream Cars</title></programme>
+<programme start="20251114191000 +0000" stop="20251114195500 +0000" channel="Motorvision.de"><title lang="id">Car People</title></programme>
+<programme start="20251114195500 +0000" stop="20251114202000 +0000" channel="Motorvision.de"><title lang="id">Stunt Heroes</title></programme>
+<programme start="20251114202000 +0000" stop="20251114204000 +0000" channel="Motorvision.de"><title lang="id">Made in...</title></programme>
+<programme start="20251114204000 +0000" stop="20251114210500 +0000" channel="Motorvision.de"><title lang="id">Top Ten Show</title></programme>
+<programme start="20251114210500 +0000" stop="20251114213500 +0000" channel="Motorvision.de"><title lang="id">Fastzone 2025</title></programme>
+<programme start="20251114213500 +0000" stop="20251114222500 +0000" channel="Motorvision.de"><title lang="id">DTM 2025</title></programme>
+<programme start="20251114222500 +0000" stop="20251114225000 +0000" channel="Motorvision.de"><title lang="id">US Pro Pulling 2023</title></programme>
+<programme start="20251114225000 +0000" stop="20251114231000 +0000" channel="Motorvision.de"><title lang="id">US Pro Pulling 2023</title></programme>
+<programme start="20251114231000 +0000" stop="20251114233500 +0000" channel="Motorvision.de"><title lang="id">Monster Jam Championship 2024</title></programme>
+<programme start="20251114233500 +0000" stop="20251115002000 +0000" channel="Motorvision.de"><title lang="id">Australian Drag Racing Championship 2024</title></programme>
+<programme start="20251115002000 +0000" stop="20251115005000 +0000" channel="Motorvision.de"><title lang="id">EMX Quad European Championship 2025</title></programme>
+<programme start="20251115005000 +0000" stop="20251115012000 +0000" channel="Motorvision.de"><title lang="id">All Wheel Drive Safari Challenge 2025</title></programme>
+<programme start="20251115012000 +0000" stop="20251115015500 +0000" channel="Motorvision.de"><title lang="id">Icelandic Formula Offroad 2024</title></programme>
+<programme start="20251115015500 +0000" stop="20251115022500 +0000" channel="Motorvision.de"><title lang="id">Stunt Heroes</title></programme>
+<programme start="20251115022500 +0000" stop="20251115025000 +0000" channel="Motorvision.de"><title lang="id">Made in...</title></programme>
+<programme start="20251115025000 +0000" stop="20251115031500 +0000" channel="Motorvision.de"><title lang="id">Top Ten Show</title></programme>
+<programme start="20251115031500 +0000" stop="20251115034000 +0000" channel="Motorvision.de"><title lang="id">Fastzone 2025</title></programme>
+<programme start="20251115034000 +0000" stop="20251115043500 +0000" channel="Motorvision.de"><title lang="id">DTM 2025</title></programme>
+<programme start="20251115043500 +0000" stop="20251115052000 +0000" channel="Motorvision.de"><title lang="id">Pikes Peak International Hill Climb</title></programme>
+<programme start="20251115052000 +0000" stop="20251115060500 +0000" channel="Motorvision.de"><title lang="id">Pikes Peak International Hill Climb</title></programme>
+<programme start="20251115060500 +0000" stop="20251115063500 +0000" channel="Motorvision.de"><title lang="id">Belcar Endurance Championship 2025</title></programme>
+<programme start="20251115063500 +0000" stop="20251115070500 +0000" channel="Motorvision.de"><title lang="id">Classic Ride</title></programme>
+<programme start="20251115070500 +0000" stop="20251115075500 +0000" channel="Motorvision.de"><title lang="id">Silverstone Festival</title></programme>
+<programme start="20251115075500 +0000" stop="20251115082500 +0000" channel="Motorvision.de"><title lang="id">Stunt Heroes</title></programme>
+<programme start="20251115082500 +0000" stop="20251115084500 +0000" channel="Motorvision.de"><title lang="id">Made in...</title></programme>
+<programme start="20251115084500 +0000" stop="20251115091000 +0000" channel="Motorvision.de"><title lang="id">Fastzone 2025</title></programme>
+<programme start="20251115091000 +0000" stop="20251115100500 +0000" channel="Motorvision.de"><title lang="id">DTM 2025</title></programme>
+<programme start="20251115100500 +0000" stop="20251115103000 +0000" channel="Motorvision.de"><title lang="id">Belgian Rally Championship 2025</title></programme>
+<programme start="20251115103000 +0000" stop="20251115112000 +0000" channel="Motorvision.de"><title lang="id">British Rally Championship 2025</title></programme>
+<programme start="20251115112000 +0000" stop="20251115114500 +0000" channel="Motorvision.de"><title lang="id">TER Series 2025</title></programme>
+<programme start="20251115114500 +0000" stop="20251115121000 +0000" channel="Motorvision.de"><title lang="id">Africa Eco Race 2025</title></programme>
+<programme start="20251115121000 +0000" stop="20251115130500 +0000" channel="Motorvision.de"><title lang="id">UK Rally Show 2024</title></programme>
+<programme start="20251115130500 +0000" stop="20251115140000 +0000" channel="Motorvision.de"><title lang="id">BTRDA Rallycross 2025</title></programme>
+<programme start="20251115140000 +0000" stop="20251115142500 +0000" channel="Motorvision.de"><title lang="id">Stunt Heroes</title></programme>
+<programme start="20251115142500 +0000" stop="20251115145500 +0000" channel="Motorvision.de"><title lang="id">Made in...</title></programme>
+<programme start="20251115145500 +0000" stop="20251115152000 +0000" channel="Motorvision.de"><title lang="id">Top Ten Show</title></programme>
+<programme start="20251115152000 +0000" stop="20251115154500 +0000" channel="Motorvision.de"><title lang="id">Fastzone 2025</title></programme>
+<programme start="20251115154500 +0000" stop="20251115164000 +0000" channel="Motorvision.de"><title lang="id">DTM 2025</title></programme>
+<programme start="20251115164000 +0000" stop="20251115165950 +0000" channel="Motorvision.de"><title lang="id">Australian Boat Racing 2025</title></programme>
+<programme start="20251115165950 +0000" stop="20251115165959 +0000" channel="Motorvision.de"><title lang="id">Australian Boat Racing 2025</title></programme>
+<programme start="20251115170000 +0000" stop="20251115180000 +0000" channel="MyCinemaAsia.id"><title lang="id">Hunting For Dragon</title></programme>
+<programme start="20251115180000 +0000" stop="20251115194000 +0000" channel="MyCinemaAsia.id"><title lang="id">Ju-On</title></programme>
+<programme start="20251115194000 +0000" stop="20251115212000 +0000" channel="MyCinemaAsia.id"><title lang="id">Hunting For Dragon</title></programme>
+<programme start="20251115212000 +0000" stop="20251115230000 +0000" channel="MyCinemaAsia.id"><title lang="id">Ju-On 2</title></programme>
+<programme start="20251115230000 +0000" stop="20251116004000 +0000" channel="MyCinemaAsia.id"><title lang="id">Detective K: Secret Of Virtous Widow</title></programme>
+<programme start="20251116004000 +0000" stop="20251116012500 +0000" channel="MyCinemaAsia.id"><title lang="id">BTTH Eps. 37</title></programme>
+<programme start="20251116012500 +0000" stop="20251116022000 +0000" channel="MyCinemaAsia.id"><title lang="id">HSADSS Eps. 27</title></programme>
+<programme start="20251116022000 +0000" stop="20251116040900 +0000" channel="MyCinemaAsia.id"><title lang="id">Happy Birthday</title></programme>
+<programme start="20251116040900 +0000" stop="20251116054000 +0000" channel="MyCinemaAsia.id"><title lang="id">Looking For Jacky</title></programme>
+<programme start="20251116054000 +0000" stop="20251116072000 +0000" channel="MyCinemaAsia.id"><title lang="id">I Am Father</title></programme>
+<programme start="20251116072000 +0000" stop="20251116090000 +0000" channel="MyCinemaAsia.id"><title lang="id">Chang An Fog Monster</title></programme>
+<programme start="20251116090000 +0000" stop="20251116111500 +0000" channel="MyCinemaAsia.id"><title lang="id">Khun Phaen Begins</title></programme>
+<programme start="20251116111500 +0000" stop="20251116131500 +0000" channel="MyCinemaAsia.id"><title lang="id">Khun Pan 2</title></programme>
+<programme start="20251116131500 +0000" stop="20251116140000 +0000" channel="MyCinemaAsia.id"><title lang="id">BTTH Eps. 37</title></programme>
+<programme start="20251116140000 +0000" stop="20251116144500 +0000" channel="MyCinemaAsia.id"><title lang="id">HSADSS Eps. 27</title></programme>
+<programme start="20251116144500 +0000" stop="20251116164500 +0000" channel="MyCinemaAsia.id"><title lang="id">Bang Rajan 2</title></programme>
+<programme start="20251116164500 +0000" stop="20251116165950 +0000" channel="MyCinemaAsia.id"><title lang="id">Land Shark</title></programme>
+<programme start="20251116165950 +0000" stop="20251116165959 +0000" channel="MyCinemaAsia.id"><title lang="id">Land Shark</title></programme>
+<programme start="20251114170000 +0000" stop="20251114180000 +0000" channel="MyCinemaAsia.id"><title lang="id">The Letter</title></programme>
+<programme start="20251114180000 +0000" stop="20251114194000 +0000" channel="MyCinemaAsia.id"><title lang="id">Spiral</title></programme>
+<programme start="20251114194000 +0000" stop="20251114212000 +0000" channel="MyCinemaAsia.id"><title lang="id">Bodyguard 2</title></programme>
+<programme start="20251114212000 +0000" stop="20251114230000 +0000" channel="MyCinemaAsia.id"><title lang="id">Sadako 2 3D</title></programme>
+<programme start="20251114230000 +0000" stop="20251115004000 +0000" channel="MyCinemaAsia.id"><title lang="id">London Sweeties</title></programme>
+<programme start="20251115004000 +0000" stop="20251115012500 +0000" channel="MyCinemaAsia.id"><title lang="id">BTTH Eps. 36</title></programme>
+<programme start="20251115012500 +0000" stop="20251115022000 +0000" channel="MyCinemaAsia.id"><title lang="id">HSADSS Eps. 26</title></programme>
+<programme start="20251115022000 +0000" stop="20251115040800 +0000" channel="MyCinemaAsia.id"><title lang="id">Wedding Dress</title></programme>
+<programme start="20251115040800 +0000" stop="20251115054000 +0000" channel="MyCinemaAsia.id"><title lang="id">Killer Bee Invasion</title></programme>
+<programme start="20251115054000 +0000" stop="20251115072800 +0000" channel="MyCinemaAsia.id"><title lang="id">Legendary Amazon</title></programme>
+<programme start="20251115072800 +0000" stop="20251115090000 +0000" channel="MyCinemaAsia.id"><title lang="id">Deep Sea Mutant Snake</title></programme>
+<programme start="20251115090000 +0000" stop="20251115104000 +0000" channel="MyCinemaAsia.id"><title lang="id">Horror Shark</title></programme>
+<programme start="20251115104000 +0000" stop="20251115122000 +0000" channel="MyCinemaAsia.id"><title lang="id">Hitman File</title></programme>
+<programme start="20251115122000 +0000" stop="20251115130500 +0000" channel="MyCinemaAsia.id"><title lang="id">BTTH Eps. 36</title></programme>
+<programme start="20251115130500 +0000" stop="20251115140000 +0000" channel="MyCinemaAsia.id"><title lang="id">HSADSS Eps. 26</title></programme>
+<programme start="20251115140000 +0000" stop="20251115155600 +0000" channel="MyCinemaAsia.id"><title lang="id">Bang Rajan</title></programme>
+<programme start="20251115155600 +0000" stop="20251115165950 +0000" channel="MyCinemaAsia.id"><title lang="id">Hunting For Dragon</title></programme>
+<programme start="20251115165950 +0000" stop="20251115165959 +0000" channel="MyCinemaAsia.id"><title lang="id">Hunting For Dragon</title></programme>
 </tv>
