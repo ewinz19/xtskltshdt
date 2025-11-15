@@ -1,4 +1,4 @@
-name: build build-vision.yml from Vision.txt
+name: build epg2-Vision.xml from Vision.txt
 
 on:
   schedule:
