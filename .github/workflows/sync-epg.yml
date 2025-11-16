@@ -2,7 +2,7 @@ name: Sync epg2-Vision.xml to docs folder
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron:  "15 17,23,06 * * *"
   workflow_dispatch:
 
 jobs:
@@ -19,6 +19,11 @@ jobs:
      # - name: Download guide.xml from web
         # run: |
        #   curl -L "https://raw.githubusercontent.com/ewinz19/ZXdpbno-E_pg/refs/heads/main/epg2-Vision.xml?token= " -o docs/indonesia.xml
+
+      - name: export timezone
+        working-directory: data
+        run: export TZ="Asia/Makassar"
+
 
       - name: Download guide.xml from private repo
         run: |
