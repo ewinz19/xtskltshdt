@@ -1,5 +1,5 @@
 # xtskltshdt
-my m 3 u iptv
+my m 3 u i pt v
 ##
 *https://winz.linkpc.net/*
 ##
