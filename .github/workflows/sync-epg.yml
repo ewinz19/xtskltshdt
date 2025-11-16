@@ -1,4 +1,4 @@
-name: Sync indonesia.xml to docs folder
+name: Sync epg2-Vision.xml to docs folder
 
 on:
   schedule:
@@ -26,7 +26,7 @@ jobs:
            -H "Accept: application/vnd.github.v3.raw" \
            -L \
              https://api.github.com/repos/ewinz19/ZXdpbno-E_pg/contents/epg2-Vision.xml \
-             -o docs/indonesia.xml
+             -o docs/epg2-Vision.xml
 
 
 
@@ -35,12 +35,14 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add docs/indonesia.xml
+          git add docs/epg2-Vision.xml
           git diff-index --quiet HEAD || git commit -m "Update indonesia.xml"
 
-      - name: Pull latest changes
+      - name: set remote
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/ewinz19/xtskltshdt.git
+      - name: Pull latest changes
+        run: |
           git pull origin main --rebase || true
 
       - name: Push changes
