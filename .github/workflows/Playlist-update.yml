@@ -15,7 +15,7 @@ jobs:
       - name: Create docs folder
         run: mkdir -p docs
 
-           - name: export timezone
+      - name: export timezone
         working-directory: data
         run: export TZ="Asia/Makassar"
 
