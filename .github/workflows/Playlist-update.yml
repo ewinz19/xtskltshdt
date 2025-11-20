@@ -1,0 +1,50 @@
+name: Sync private playlist to docs/vip-stream.m3u8
+on:
+  schedule:
+    - cron:  "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create docs folder
+        run: mkdir -p docs
+
+           - name: export timezone
+        working-directory: data
+        run: export TZ="Asia/Makassar"
+
+
+      - name: Download guide.xml from private repo
+        run: |
+           curl -H "Authorization: token ${{ secrets.CAHAYA-MALAM_TOKEN }}" \
+           -H "Accept: application/vnd.github.v3.raw" \
+           -L \
+             https://api.github.com/repos/cahaya-malam/x-vid/contents/url.m3u8 \
+             -o docs/vip-stream.m3u8
+
+
+
+
+      - name: Commit changes if updated
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add docs/vip-stream.m3u8
+          git diff-index --quiet HEAD || git commit -m "Update --vip-stream.m3u8"
+
+      - name: set remote
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/ewinz19/xtskltshdt.git
+      - name: Pull latest changes
+        run: |
+          git pull origin main --rebase || true
+
+      - name: Push changes
+        run: |
+          git push origin main
