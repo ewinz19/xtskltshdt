@@ -22,7 +22,7 @@ jobs:
 
       - name: Download guide.xml from private repo
         run: |
-           curl -H "Authorization: token ${{ secrets.CAHAYA-MALAM_TOKEN }}" \
+           curl -H "Authorization: token ${{ secrets.CAHAYA_MALAM_TOKEN }}" \
            -H "Accept: application/vnd.github.v3.raw" \
            -L \
              https://api.github.com/repos/cahaya-malam/x-vid/contents/url.m3u8 \
