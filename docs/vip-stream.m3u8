@@ -3,9 +3,12 @@
 ###### my live streaming ######
 #EXTINF:-1 tvg-id="__" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/streaming.png?raw=true" group-title="MY TV", Live Stream
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 11; Pixel 9 Pro XL Build/RQ3A.210905.001) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.122 Mobile Safari/537.36
-#EXTHTTP:{"Content-Type":"application/vnd.apple.mpegurl"}
 #EXTVLCOPT:http-referrer=https://m.youtube.com
-#KODIPROP:inputstream.adaptive.stream_headers=Content-Type: application/vnd.apple.mpegurl
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://drm-widevine.com/license|Content-Type=text%2Fxml&User-Agent=Mozilla
+
 https://winz.linkpc.net/live.m3u8
 
 
