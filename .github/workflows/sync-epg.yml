@@ -21,8 +21,8 @@ jobs:
        #   curl -L "https://raw.githubusercontent.com/ewinz19/ZXdpbno-E_pg/refs/heads/main/epg2-Vision.xml?token= " -o docs/indonesia.xml
 
       - name: export timezone
-        working-directory: data
-        run: export TZ="Asia/Makassar"
+        
+        run: echo "TZ=Asia/Makassar" >> $GITHUB_ENV
 
 
       - name: Download guide.xml from private repo
