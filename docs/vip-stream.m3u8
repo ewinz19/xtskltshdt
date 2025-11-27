@@ -3,21 +3,21 @@
 ###### my live streaming Quran ######
 #EXTINF:-1 tvg-id="__" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/streaming.png?raw=true" group-title="MY TV", Live Stream Qura'an
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 11; Pixel 9 Pro XL Build/RQ3A.210905.001) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.122 Mobile Safari/537.36
-#EXTVLCOPT:http-referrer=https://m.youtube.com
+#EXTVLCOPT:http-referrer=https://www.youtube.com
 #KODIPROP:inputstream.adaptive.max_bandwidth=600000
 https://manifest.googlevideo.com/api/manifest/hls_variant/expire/1764256528/ei/sBYoafbfDsSPssUPld-ouAk/ip/39.194.5.247/id/0fBsitNBq94.2/source/yt_live_broadcast/requiressl/yes/xpc/EgVo2aDSNQ%3D%3D/tx/51679573/txs/51679570%2C51679571%2C51679573/hfr/1/playlist_duration/30/manifest_duration/30/maudio/1/bui/AdEuB5TGpASy_NQ6fcrTxQzmYOA5ebwkwupuqze1FjWxtpYOqpakDcd2Alga1mcJDjDSwVd9EoPLZ8DN/spc/6b0G_FZBIwJjjOjWx7QyA49hal4TCcBGJfFPWOgJADWIZICPMvjye5J0EkarwyrRwek/vprv/1/go/1/rqh/5/pacing/0/nvgoi/1/ncsapi/1/keepalive/yes/fexp/51331020%2C51552689%2C51565116%2C51565681%2C51580968/dover/11/itag/0/playlist_type/DVR/sparams/expire%2Cei%2Cip%2Cid%2Csource%2Crequiressl%2Cxpc%2Ctx%2Ctxs%2Chfr%2Cplaylist_duration%2Cmanifest_duration%2Cmaudio%2Cbui%2Cspc%2Cvprv%2Cgo%2Crqh%2Citag%2Cplaylist_type/sig/AJfQdSswRQIgMQQhNiHw_tThVioRcsndTGEz6td3h3ZJKl5GNiC2JEoCIQDRsW1PMyggxURi_140fUmR1kntOSMg2uIQQuRuReaqUQ%3D%3D/file/index.m3u8
 
 ###### my live streaming sholawat ######
 #EXTINF:-1 tvg-id="__" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/streaming2.png?raw=true" group-title="MY TV", Stream Sholawat
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 11; Pixel 9 Pro XL Build/RQ3A.210905.001) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.122 Mobile Safari/537.36
-#EXTVLCOPT:http-referrer=https://m.youtube.com
+#EXTVLCOPT:http-referrer=https://www.youtube.com
 #KODIPROP:inputstream.adaptive.max_bandwidth=600000
 https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1764256553/ei/yRYoaZzcFsfk4-EPvPmDsAc/ip/39.194.5.247/id/u2uni_WwaKA.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr1---sn-2uuxa3vh-cqw6.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/bui/AdEuB5QFChgKOGpdse4nZNDc9O4jDzgnmUiR3MpeMlQBUiH73tqoRD2VpryGl9w6fRLT0CmqWo8ZsW2x/spc/6b0G_ABHicsU07CNwdgX/vprv/1/playlist_type/DVR/cps/120/initcwndbps/708750/met/1764234955,/mh/sV/mm/44/mn/sn-2uuxa3vh-cqw6/ms/lva/mv/m/mvi/1/pl/24/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/mt/1764234525/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,bui,spc,vprv,playlist_type/sig/AJfQdSswRQIhANSrBJf-chUTPiImQS6ft94aWK1DxemM9agEecrNEVTnAiA5Ceh1k-O0S9ImOzOTNtqXiY0R6yZ5crk4U3Azb0o44A%3D%3D/lsparams/hls_chunk_host,cps,initcwndbps,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIgFLnz7PlSAudaFdpfivtdXpkXxnKena3HszKOFuEA8DUCIQDu6WgRLQM3duMdU901b9njoqvl1PO0fUMlhcKdkBqnpA%3D%3D/playlist/index.m3u8
 
 ###### my live streaming ibnul amin ######
 #EXTINF:-1 tvg-id="__" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/streaming3.png?raw=true" group-title="MY TV", Ibnul Amin Tv (record/live)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 11; Pixel 9 Pro XL Build/RQ3A.210905.001) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.122 Mobile Safari/537.36
-#EXTVLCOPT:http-referrer=https://m.youtube.com
+#EXTVLCOPT:http-referrer=https://www.youtube.com
 #KODIPROP:inputstream.adaptive.max_bandwidth=600000
 https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1764256517/ei/pRYoaYmtFvyU4t4Pr8fDkAc/ip/39.194.5.247/id/axjvKhUTjSw.1/itag/301/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D299/rqh/1/hls_chunk_host/rr6---sn-2uuxa3vh-cqwe.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/force_finished/1/bui/AdEuB5TCvkCzty7OkJE5ebHX5eGfKarUVH07edbiyxgcrwyLjhS6Atn60xNqFyUsKQVOj8k6pWKt6P-4/spc/6b0G_HQLlFrnMVmZf6kF/vprv/1/playlist_type/CLEAN/cps/0/initcwndbps/786250/met/1764234919,/mh/No/mm/44/mn/sn-2uuxa3vh-cqwe/ms/lva/mv/m/mvi/6/pcm2cms/yes/pl/24/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565116,51565682,51580968/mt/1764234525/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,force_finished,bui,spc,vprv,playlist_type/sig/AJfQdSswRQIhAJ9cRbYs29w6pWZ5VASMeiPm--0P2dfvDJb2CRns4P-fAiAl2RBBPiGdS7n8BElRqOopYyY9XwGhfo3YbFI5JJM30g%3D%3D/lsparams/hls_chunk_host,cps,initcwndbps,met,mh,mm,mn,ms,mv,mvi,pcm2cms,pl,rms/lsig/APaTxxMwRQIgdpvwXPMt2jqXUZrqtJJ2Wp3mHxur0Z6OGZSgpkKdZIcCIQDby8ukqi_5RtrrlJOZKQE9Ge3-eAA0UON9Nf9yI0FE5w%3D%3D/playlist/index.m3u8
 
