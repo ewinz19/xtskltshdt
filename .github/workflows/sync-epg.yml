@@ -41,7 +41,7 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add docs/epg2-Vision.xml
-          git diff-index --quiet HEAD || git commit -m "Update indonesia.xml"
+          git diff-index --quiet HEAD || git commit -m "Update epg.xml  $(date '+%Y-%m-%d %H:%M:%S')"
 
       - name: set remote
         run: |
