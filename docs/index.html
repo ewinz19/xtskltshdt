@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+     <meta http-equiv="Cache-Control"  content="no-cache" />
+    <meta name="robots"    content="noindex, nofollow" />
+      <link rel="canonical" href="https://winz.linkpc.net/" />
     <title>🎬 TV Streaming Portal - All Channels</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -586,14 +589,37 @@
                         <span>TV CHANNELS</span>
                     </div>
 
-
-
                     <div class="channel-grid">
                     <div class="channel-btn active live" data-channel="Mekah" data-type="hls" data-url="https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8">
                             <div class="channel-icon">🕋</div>
                             <div class="channel-name">Mekah</div>
                             <div class="channel-quality">HLS</div>
                         </div>
+                            <div class="channel-btn  live" data-channel="indosiar" data-type="hls" data-url="https://op-group1-swiftservehd-1.dens.tv/h/h235/02.m3u8">
+                            <div class="channel-icon">😮‍💨</div>
+                            <div class="channel-name">INDOSIAR</div>
+                            <div class="channel-quality">HLS</div>
+                             </div>
+                            <div class="channel-btn  live" data-channel="sctv" data-type="hls" data-url="https://op-group1-swiftservehd-1.dens.tv/h/h217/02.m3u8">
+                            <div class="channel-icon">🥰</div>
+                            <div class="channel-name">SCTV</div>
+                            <div class="channel-quality">HLS</div>
+                             </div>
+                            <div class="channel-btn  live" data-channel="Btv" data-type="hls" data-url="https://op-group1-swiftservehd-1.dens.tv/h/h210/02.m3u8">
+                            <div class="channel-icon">😁</div>
+                            <div class="channel-name">BTV</div>
+                            <div class="channel-quality">HLS</div>
+                             </div>
+                           <div class="channel-btn  live" data-channel="My Cinema Asia" data-type="hls" data-url="https://op-group1-swiftservehd-1.dens.tv/h/h193/index.m3u8">
+                            <div class="channel-icon">🫥</div>
+                            <div class="channel-name">My Cinema Asia</div>
+                            <div class="channel-quality">HLS</div>
+                             </div>
+                              <div class="channel-btn  live" data-channel="my Kidz" data-type="Embed" data-url="https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8">
+                            <div class="channel-icon">😹</div>
+                            <div class="channel-name">MyKidz</div>
+                            <div class="channel-quality">HLS</div>
+                             </div>
                         <div class="channel-btn  live" data-channel="rcti" data-type="embed" data-url="https://embed.rctiplus.com/live/rcti/inewsid">
                             <div class="channel-icon">🌟</div>
                             <div class="channel-name">RCTI</div>
@@ -738,13 +764,7 @@
                     lowLatencyMode: true,
                     backBufferLength: 90,
                     debug: false,
-
-                    xhrSetup: function(xhr, url) {
-                     if (url.includes('detik.com')) {
-                         xhr.setRequestHeader('Referer', 'https://video.detik.com/');
-                         xhr.setRequestHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36');
-                      }
-                   }
+                    
                 });
                 
                 currentState.player.attachMedia(videoPlayer);
@@ -862,7 +882,7 @@
             // So we'll just assume it works
         }
 
-        function loadHlsStream(url, timeout) {
+              function loadHlsStream(url, timeout) {
     embedPlayer.style.display = 'none';
     videoPlayer.style.display = 'block';
     
@@ -877,7 +897,7 @@
         }
         
         // ✅ REMOVE OLD LISTENER
-        currentState.player.off(Hls.Events.MANIFEST_PARSED);
+       // currentState.player.off(Hls.Events.MANIFEST_PARSED);
         
         currentState.player.loadSource(url);
         currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
@@ -919,6 +939,7 @@
     });
 }
 
+       
         function loadDirectVideo(url, timeout) {
             // Hide embed player, show video player
             embedPlayer.style.display = 'none';
