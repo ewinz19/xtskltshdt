@@ -863,6 +863,11 @@
         }
 
         function loadHlsStream(url, timeout) {
+            if (url.includes('detik.com')) {
+                url = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+           }
+    
+    
             // Hide embed player, show video player
             embedPlayer.style.display = 'none';
             videoPlayer.style.display = 'block';
