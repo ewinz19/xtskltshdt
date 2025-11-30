@@ -901,36 +901,109 @@
             // So we'll just assume it works
         }
 
-
+//ad block
         function setupEmbedAdBlocking() {
     const embed = document.getElementById('embed-player');
     if (embed && embed.style.display === 'block') {
-        console.log('Setting up ad blocking for embed player');
         
-        // Clear previous onload handler
-        embed.onload = null;
-        
-        // Set new onload handler
         embed.onload = function() {
-            console.log('Embed loaded, attempting ad block...');
             setTimeout(() => {
                 try {
                     const embedDoc = embed.contentDocument || embed.contentWindow.document;
-                    const adElements = embedDoc.querySelectorAll('[class*="ad"], [id*="ad"], iframe[src*="ads"]');
                     
-                    console.log(`Found ${adElements.length} potential ad elements`);
-                    adElements.forEach(el => {
-                        console.log('Removing ad element:', el);
+                    // ✅ PATTERN UNTUK IKLAN
+                    const adPatterns = [
+                        'ad', 'ads', 'advertisement', 'commercial', 'sponsor',
+                        'banner', 'promo', 'doubleclick', 'googlead', 'adsystem'
+                    ];
+                    
+                    // ✅ OBSERVER UNTUK ELEMENT BARU
+                    const observer = new MutationObserver((mutations) => {
+                        mutations.forEach((mutation) => {
+                            mutation.addedNodes.forEach((node) => {
+                                if (node.nodeType === 1) {
+                                    const className = node.className || '';
+                                    const id = node.id || '';
+                                    const innerHTML = node.innerHTML || '';
+                                    const src = node.src || '';
+                                    const tagName = node.tagName || '';
+                                    
+                                    // ✅ CEK LOGO/LOADING RCTI
+                                    const isRctiElement = (
+                                        className.includes('logo') ||
+                                        className.includes('loading') ||
+                                        className.includes('rcti') ||
+                                        className.includes('watermark') ||
+                                        id.includes('logo') ||
+                                        id.includes('loading') ||
+                                        innerHTML.includes('RCTI') ||
+                                        innerHTML.includes('rcti+')
+                                    );
+                                    
+                                    // ✅ CEK IKLAN
+                                    const isAdElement = adPatterns.some(pattern => 
+                                        className.toLowerCase().includes(pattern) ||
+                                        id.toLowerCase().includes(pattern) ||
+                                        src.toLowerCase().includes(pattern) ||
+                                        innerHTML.toLowerCase().includes(pattern)
+                                    );
+                                    
+                                    if (isRctiElement || isAdElement) {
+                                        console.log('Removing element:', {className, id, tagName, isRctiElement, isAdElement});
+                                        node.remove();
+                                    }
+                                    
+                                    // ✅ CEK CHILDREN UNTUK IKLAN
+                                    if (node.querySelectorAll) {
+                                        const selectors = [
+                                            '[class*="ad"]', '[id*="ad"]', 
+                                            '[class*="banner"]', '[class*="sponsor"]',
+                                            '[class*="commercial"]', '[src*="ads"]',
+                                            '[class*="logo"]', '[class*="loading"]'
+                                        ].join(', ');
+                                        
+                                        const childElements = node.querySelectorAll(selectors);
+                                        childElements.forEach(child => {
+                                            console.log('Removing child element:', child);
+                                            child.remove();
+                                        });
+                                    }
+                                }
+                            });
+                        });
+                    });
+                    
+                    // Start observing
+                    observer.observe(embedDoc.body, {
+                        childList: true,
+                        subtree: true
+                    });
+                    
+                    // ✅ REMOVE EXISTING ELEMENTS (LOGO & IKLAN)
+                    const selectors = [
+                        '[class*="ad"]', '[id*="ad"]',
+                        '[class*="banner"]', '[class*="sponsor"]', 
+                        '[class*="commercial"]', '[src*="ads"]',
+                        '[class*="logo"]', '[class*="loading"]',
+                        '[class*="rcti"]', '[class*="watermark"]'
+                    ].join(', ');
+                    
+                    const existingElements = embedDoc.querySelectorAll(selectors);
+                    console.log(`Found ${existingElements.length} elements to remove`);
+                    existingElements.forEach(el => {
+                        console.log('Removing existing element:', el);
                         el.remove();
                     });
                     
                 } catch (e) {
-                    console.log('Cannot access embed content (CORS):', e.message);
+                    console.log('CORS block:', e.message);
                 }
-            }, 1000); // Tunggu 1 detik biar content fully loaded
+            }, 2000);
         };
     }
 }
+
+        // adblock
 
 
         
