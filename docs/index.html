@@ -884,7 +884,7 @@
             
             // Set embed source
             embedPlayer.src = url;
-            
+            setupEmbedAdBlocking() //ad block
             // Update UI
             streamType.textContent = 'Embed';
             streamFormat.textContent = 'Embed Player';
@@ -901,7 +901,40 @@
             // So we'll just assume it works
         }
 
-              function showStreamRedirectModal(channel, url) {
+
+        function setupEmbedAdBlocking() {
+    const embed = document.getElementById('embed-player');
+    if (embed && embed.style.display === 'block') {
+        console.log('Setting up ad blocking for embed player');
+        
+        // Clear previous onload handler
+        embed.onload = null;
+        
+        // Set new onload handler
+        embed.onload = function() {
+            console.log('Embed loaded, attempting ad block...');
+            setTimeout(() => {
+                try {
+                    const embedDoc = embed.contentDocument || embed.contentWindow.document;
+                    const adElements = embedDoc.querySelectorAll('[class*="ad"], [id*="ad"], iframe[src*="ads"]');
+                    
+                    console.log(`Found ${adElements.length} potential ad elements`);
+                    adElements.forEach(el => {
+                        console.log('Removing ad element:', el);
+                        el.remove();
+                    });
+                    
+                } catch (e) {
+                    console.log('Cannot access embed content (CORS):', e.message);
+                }
+            }, 1000); // Tunggu 1 detik biar content fully loaded
+        };
+    }
+}
+
+
+        
+         function showStreamRedirectModal(channel, url) {
     // Create modal element
     const modal = document.createElement('div');
     modal.style.cssText = `
