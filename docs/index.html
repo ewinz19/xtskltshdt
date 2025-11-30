@@ -784,8 +784,8 @@
     xhr.setRequestHeader('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36');
     xhr.setRequestHeader('Accept', '*/*');
     xhr.setRequestHeader('Accept-Language', 'en-US,en;q=0.9');
-    xhr.setRequestHeader('Sec-Fetch-Mode', 'cors');
-    xhr.setRequestHeader('Sec-Fetch-Site', 'cross-site');
+  //  xhr.setRequestHeader('Sec-Fetch-Mode', 'cors');
+  //  xhr.setRequestHeader('Sec-Fetch-Site', 'cross-site');
 }
                     
                 });
@@ -888,10 +888,7 @@
             
             // Set embed source
             embedPlayer.src = url;
-            //ad block +++++++++++++ adblock
-             setTimeout(() => {
-             setupEmbedAdBlocking();
-            }, 2000); 
+            
             // Update UI
             streamType.textContent = 'Embed';
             streamFormat.textContent = 'Embed Player';
@@ -1300,26 +1297,6 @@ function loadHlsStreamDirect(url, timeout) {
             }
         }
 
-        // Tambahkan adblok 
-    function setupEmbedAdBlocking() {
-    const embed = document.getElementById('embed-player');
-    if (embed) {
-        embed.onload = function() {
-            try {
-                // Coba access embed content (jika same-origin)
-                const embedDoc = embed.contentDocument || embed.contentWindow.document;
-                
-                // Remove ads dari dalam embed
-                const adElements = embedDoc.querySelectorAll('[class*="ad"], [id*="ad"], iframe[src*="ads"]');
-                adElements.forEach(el => el.remove());
-                
-            } catch (e) {
-                // Cross-origin block, tidak bisa akses content
-                console.log('Cannot access embed content due to CORS');
-            }
-        };
-    }
-}
 
     
         function showLoading() {
