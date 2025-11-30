@@ -1,148 +1,1169 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://winz.linkpc.net/" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portal TV — Pilih Saluran</title>
-  <meta name="description" content="Halaman utama dengan tombol cepat ke GTV, RCTI, MNCTV, dan iNews." />  <!-- Google font (menggunakan system font fallback agar ringan) -->  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">  <style>
-    :root{
-      --bg1: #0f172a; /* dark navy */
-      --bg2: #071024; /* deeper */
-      --accent: linear-gradient(90deg,#ff6b6b,#ffb86b,#7ce7c7);
-      --glass: rgba(255,255,255,0.06);
-      --glass-2: rgba(255,255,255,0.04);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:#e6eef8}
-    body{
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,231,199,0.06), transparent),
-                  radial-gradient(900px 400px at 90% 90%, rgba(255,184,107,0.04), transparent),
-                  linear-gradient(180deg,var(--bg1),var(--bg2));
-      -webkit-font-smoothing:antialiased;
-      display:flex;align-items:center;justify-content:center;padding:40px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>🎬 TV Streaming Portal - All Channels</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container{
-      width:100%;max-width:980px;padding:28px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.03);
-      position:relative;overflow:hidden;
-    }
+        :root {
+            --primary: #e50914;
+            --primary-dark: #b2070f;
+            --secondary: #2ecc71;
+            --dark: #141414;
+            --light: #ffffff;
+            --gray: #2f2f2f;
+            --gray-light: #404040;
+            --accent: #3498db;
+        }
 
-    header{display:flex;gap:16px;align-items:center;}
-    .logo{
-      width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,#071024, #0f172a);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.04);
-    }
-    .logo svg{width:46px;height:46px}
-    h1{font-size:20px;margin:0;font-weight:700}
-    p.lead{margin:6px 0 0;color:rgba(230,238,248,0.75)}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-    .grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:22px;
-    }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    .card{
-      background:linear-gradient(180deg,var(--glass), var(--glass-2));padding:14px;border-radius:14px;display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .18s ease, box-shadow .18s ease;
-    }
-    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.5)}
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;font-weight:600;text-decoration:none;color:inherit;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);width:100%;
-    }
-    .btn .badge{min-width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0b1220, rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.03)}
-    .btn:hover .badge{transform:scale(1.06)}
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
 
-    .meta{flex:1}
-    .title{font-size:15px;margin:0}
-    .subtitle{font-size:12px;margin:6px 0 0;color:rgba(230,238,248,0.7)}
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
 
-    .top-actions{display:flex;gap:10px;margin-left:auto}
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
 
-    .floating-deco{
-      position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:var(--accent);filter:blur(36px);opacity:0.12;transform:rotate(12deg);
-    }
-    footer{margin-top:20px;padding-top:10px;border-top:1px dashed rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
-    small{color:rgba(230,238,248,0.6)}
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
 
-    /* responsive tweaks */
-    @media (max-width:540px){.container{padding:18px;border-radius:12px}.logo{width:56px;height:56px}.btn{padding:10px}.title{font-size:14px}}
-  </style></head>
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.7;
+            color: #4fc3f7;
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Player Section */
+        .player-section {
+            position: relative;
+            background: #000;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            aspect-ratio: 16/9;
+            min-height: 500px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .player-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #video-player {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #000;
+            display: none;
+        }
+
+        #embed-player {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #000;
+        }
+
+        .player-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .player-section:hover .player-overlay {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .loading-spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 25px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 1.3rem;
+            color: #4fc3f7;
+            text-align: center;
+        }
+
+        /* Controls Section */
+        .controls-section {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            height: fit-content;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #4fc3f7;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .section-title i {
+            font-size: 1.3rem;
+        }
+
+        /* Channel Grid */
+        .channel-categories {
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #feca57;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .channel-btn {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px 15px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .channel-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .channel-btn:hover::before {
+            left: 100%;
+        }
+
+        .channel-btn:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .channel-btn.active {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-color: #e74c3c;
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .channel-btn.live::after {
+            content: 'LIVE';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #e74c3c;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .channel-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+        }
+
+        .channel-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .channel-quality {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            color: #2ecc71;
+        }
+
+        /* Control Buttons */
+        .control-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .control-btn {
+            background: linear-gradient(135deg, var(--accent), #2980b9);
+            border: none;
+            border-radius: 15px;
+            padding: 18px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .control-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(52, 152, 219, 0.5);
+        }
+
+        .control-btn.fullscreen {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .control-btn.landscape {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
+        }
+
+        .control-btn.refresh {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            box-shadow: 0 8px 20px rgba(155, 89, 182, 0.3);
+        }
+
+        .control-btn.volume {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+        }
+
+        /* Status Panel */
+        .status-panel {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .status-item {
+            text-align: center;
+            padding: 18px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .status-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 8px;
+            color: #bdc3c7;
+        }
+
+        .status-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .status-value.connected {
+            color: #27ae60;
+        }
+
+        .status-value.connecting {
+            color: #f39c12;
+        }
+
+        .status-value.error {
+            color: #e74c3c;
+        }
+
+        /* Stream Info */
+        .stream-info {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-label {
+            flex: 1;
+            opacity: 0.8;
+        }
+
+        .info-value {
+            flex: 1;
+            text-align: right;
+            color: #4fc3f7;
+            font-weight: 600;
+        }
+
+        /* Landscape Mode */
+        body.landscape-mode {
+            overflow: hidden;
+        }
+
+        body.landscape-mode .container {
+            padding: 0;
+            max-width: none;
+        }
+
+        body.landscape-mode .header,
+        body.landscape-mode .controls-section,
+        body.landscape-mode .status-panel,
+        body.landscape-mode .stream-info {
+            display: none;
+        }
+
+        body.landscape-mode .main-content {
+            grid-template-columns: 1fr;
+            gap: 0;
+            margin: 0;
+            height: 100vh;
+        }
+
+        body.landscape-mode .player-section {
+            border-radius: 0;
+            height: 100vh;
+            aspect-ratio: unset;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .channel-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .control-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Notification System */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+            animation: slideInRight 0.3s ease;
+            max-width: 350px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .notification.success {
+            border-left-color: #27ae60;
+        }
+
+        .notification.error {
+            border-left-color: #e74c3c;
+        }
+
+        .notification.warning {
+            border-left-color: #f39c12;
+        }
+
+        /* Error Message */
+        .error-message {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .error-message i {
+            color: #e74c3c;
+            margin-right: 10px;
+        }
+    </style>
+</head>
 <body>
-  <div class="container" role="main">
-    <div class="floating-deco" aria-hidden="true"></div><header>
-  <div class="logo" aria-hidden="true">
-    <!-- simple monogram -->
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1" y="1" width="22" height="22" rx="6" stroke="rgba(255,255,255,0.06)"/>
-      <path d="M6 15V9a3 3 0 0 1 3-3h6v10" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
+    <div class="container">
+        <div class="header fade-in-up">
+            <h1>📺 TV STREAMING PORTAL</h1>
+            <p>Streaming TV Channels • All Channels Working</p>
+            <p class="subtitle">Powered by Born30 • Portal Hiburan</p>
+        </div>
 
-  <div>
-    <h1>Portal TV — Pilih Saluran</h1>
-    <p class="lead">Tombol cepat ke GTV, RCTI, MNCTV, dan iNews. Klik untuk membuka halaman terkait.</p>
-  </div>
+        <div class="main-content">
+            <!-- Player Section -->
+            <div class="player-section fade-in-up">
+                <div class="player-container">
+                    <video 
+                        id="video-player"
+                        allowfullscreen
+                        allow="autoplay; fullscreen"
+                        controls
+                        autoplay
+                        playsinline
+                        webkit-playsinline>
+                        Your browser doesn't support HTML5 video.
+                    </video>
+                    <iframe 
+                        id="embed-player"
+                        allowfullscreen
+                        allow="autoplay; fullscreen"
+                        style="display:none;">
+                    </iframe>
+                    <div class="player-overlay">
+                        <div class="loading-spinner"></div>
+                        <div class="loading-text">Loading TV Stream...</div>
+                    </div>
+                </div>
+            </div>
 
-  <div class="top-actions" aria-hidden="true">
-    <div style="display:flex;flex-direction:column;align-items:flex-end">
-      <small>Mode</small>
-      <strong style="font-size:13px">Free</strong>
+            <!-- Controls Section -->
+            <div class="controls-section fade-in-up">
+                <!-- TV Channels -->
+                <div class="channel-categories">
+                    <div class="section-title">
+                        <i class="fas fa-satellite-dish"></i>
+                        <span>TV CHANNELS</span>
+                    </div>
+
+
+
+                    <div class="channel-grid">
+                    <div class="channel-btn active live" data-channel="Mekah" data-type="hls" data-url="https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8">
+                            <div class="channel-icon">🕋</div>
+                            <div class="channel-name">Mekah</div>
+                            <div class="channel-quality">HLS</div>
+                        </div>
+                        <div class="channel-btn  live" data-channel="rcti" data-type="embed" data-url="https://embed.rctiplus.com/live/rcti/inewsid">
+                            <div class="channel-icon">🌟</div>
+                            <div class="channel-name">RCTI</div>
+                            <div class="channel-quality">Embed</div>
+                        </div>
+                        <div class="channel-btn live" data-channel="gtv" data-type="embed" data-url="https://embed.rctiplus.com/live/gtv/inewsid">
+                            <div class="channel-icon">⚽</div>
+                            <div class="channel-name">GTV</div>
+                            <div class="channel-quality">Embed</div>
+                        </div>
+                        <div class="channel-btn live" data-channel="mnctv" data-type="embed" data-url="https://embed.rctiplus.com/live/mnctv/inewsid">
+                            <div class="channel-icon">🎪</div>
+                            <div class="channel-name">MNCTV</div>
+                            <div class="channel-quality">Embed</div>
+                        </div>
+                        <div class="channel-btn live" data-channel="inewstv" data-type="embed" data-url="https://embed.rctiplus.com/live/inews/inewsid">
+                            <div class="channel-icon">📰</div>
+                            <div class="channel-name">iNews TV</div>
+                            <div class="channel-quality">Embed</div>
+                        </div>
+                        <div class="channel-btn live" data-channel="transtv" data-type="hls" data-url="https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8">
+                            <div class="channel-icon">🎭</div>
+                            <div class="channel-name">TRANS TV</div>
+                            <div class="channel-quality">HLS</div>
+                        </div>
+                        <div class="channel-btn live" data-channel="trans7" data-type="hls" data-url="https://video.detik.com/trans7/smil:trans7.smil/playlist.m3u8">
+                            <div class="channel-icon">📺</div>
+                            <div class="channel-name">TRANS 7</div>
+                            <div class="channel-quality">HLS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player Controls -->
+                <div class="section-title">
+                    <i class="fas fa-gamepad"></i>
+                    <span>PLAYER CONTROLS</span>
+                </div>
+
+                <div class="control-buttons">
+                    <button class="control-btn fullscreen" onclick="toggleFullscreen()">
+                        <i class="fas fa-expand"></i>
+                        <span>Fullscreen</span>
+                    </button>
+                    <button class="control-btn landscape" onclick="toggleLandscape()">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Landscape</span>
+                    </button>
+                    <button class="control-btn refresh" onclick="refreshStream()">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Refresh</span>
+                    </button>
+                    <button class="control-btn volume" onclick="toggleMute()">
+                        <i class="fas fa-volume-up"></i>
+                        <span>Volume</span>
+                    </button>
+                </div>
+
+                <!-- Status Panel -->
+                <div class="section-title">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>STREAM STATUS</span>
+                </div>
+
+                <div class="status-panel">
+                    <div class="status-grid">
+                        <div class="status-item">
+                            <div class="status-label">Connection</div>
+                            <div class="status-value connected" id="connection-status">Connected</div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-label">Current Channel</div>
+                            <div class="status-value" id="current-channel">Mekah</div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-label">Stream Type</div>
+                            <div class="status-value" id="stream-type">hls</div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-label">Player Mode</div>
+                            <div class="status-value" id="player-mode">Normal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stream Information -->
+                <div class="stream-info">
+                    <div class="info-item">
+                        <div class="info-label">Format:</div>
+                        <div class="info-value" id="stream-format">Embed Player</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Provider:</div>
+                        <div class="info-value">Multiple Sources</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Status:</div>
+                        <div class="info-value" id="stream-status">All Channels Working</div>
+                    </div>
+                </div>
+
+                <!-- Troubleshooting Tips -->
+                <div class="error-message" id="troubleshooting-tips" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="error-text">Jika channel tidak berfungsi, coba refresh atau gunakan VPN</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</header>
 
-<section class="grid" aria-label="Daftar Saluran">
+    <script>
+        // Current state
+        let currentState = {
+            channel: 'Mekah',
+            url: 'https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8',
+            type: 'HLS',
+            isFullscreen: false,
+            isLandscape: false,
+            isMuted: false,
+            player: null,
+            retryCount: 0,
+            maxRetries: 3
+        };
 
-  <article class="card">
-    <a class="btn" href="Web/Gtv.html" title="Buka GTV">
-      <span class="badge" aria-hidden="true">
-        <!-- GTV icon (tv) -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="12" rx="2" stroke="white" stroke-width="1.2"/><path d="M8 3l4 3 4-3" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-      <span class="meta"><span class="title">GTV</span><span class="subtitle">Tv</span></span>
-    </a>
-  </article>
+        // DOM Elements
+        const videoPlayer = document.getElementById('video-player');
+        const embedPlayer = document.getElementById('embed-player');
+        const connectionStatus = document.getElementById('connection-status');
+        const currentChannel = document.getElementById('current-channel');
+        const streamType = document.getElementById('stream-type');
+        const streamFormat = document.getElementById('stream-format');
+        const playerMode = document.getElementById('player-mode');
+        const streamStatus = document.getElementById('stream-status');
+        const troubleshootingTips = document.getElementById('troubleshooting-tips');
+        const errorText = document.getElementById('error-text');
 
-  <article class="card">
-    <a class="btn" href="Web/rcti.html" title="Buka RCTI">
-      <span class="badge" aria-hidden="true">
-        <!-- RCTI icon -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="white" stroke-width="1.1"/><path d="M8 16s1.5-4 4-4 4 4 4 4" stroke="white" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-      <span class="meta"><span class="title">RCTI</span><span class="subtitle">Tv</span></span>
-    </a>
-  </article>
+        // Initialize HLS.js if needed
+        function initializePlayer() {
+            if (Hls.isSupported()) {
+                currentState.player = new Hls({
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                    backBufferLength: 90,
+                    debug: false
+                });
+                
+                currentState.player.attachMedia(videoPlayer);
+                currentState.player.on(Hls.Events.MEDIA_ATTACHED, function() {
+                    console.log('HLS.js media attached');
+                });
 
-  <article class="card">
-    <a class="btn" href="Web/mnctv.html" title="Buka MNCTV">
-      <span class="badge" aria-hidden="true">
-        <!-- MNC icon -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18" stroke="white" stroke-width="1.2" stroke-linecap="round"/><path d="M7 8v8" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
-      </span>
-      <span class="meta"><span class="title">MNCTV</span><span class="subtitle">Tv</span></span>
-    </a>
-  </article>
+                // Error handling
+                currentState.player.on(Hls.Events.ERROR, function(event, data) {
+                    console.error('HLS Error:', data);
+                    if (data.fatal) {
+                        switch(data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                console.log('Network error, trying to recover...');
+                                currentState.player.startLoad();
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                console.log('Media error, trying to recover...');
+                                currentState.player.recoverMediaError();
+                                break;
+                            default:
+                                handleStreamError('Cannot recover player error');
+                                break;
+                        }
+                    }
+                });
+            } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                // Native HLS support
+                console.log('Using native HLS support');
+            } else {
+                showNotification('Browser tidak mendukung streaming HLS', 'error');
+            }
+        }
 
-  <article class="card">
-    <a class="btn" href="Web/inews.html" title="Buka iNews">
-      <span class="badge" aria-hidden="true">
-        <!-- iNews icon -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="14" rx="2" stroke="white" stroke-width="1.1"/><path d="M7 9h10M7 13h6" stroke="white" stroke-width="1.1" stroke-linecap="round"/></svg>
-      </span>
-      <span class="meta"><span class="title">iNews</span><span class="subtitle">Berita & liputan</span></span>
-    </a>
-  </article>
+        // Channel Switching
+        document.querySelectorAll('.channel-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const channel = this.getAttribute('data-channel');
+                const url = this.getAttribute('data-url');
+                const type = this.getAttribute('data-type');
+                
+                // Update active state
+                document.querySelectorAll('.channel-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show loading
+                showLoading();
+                
+                // Switch channel
+                switchChannel(channel, url, type);
+            });
+        });
 
-</section>
+        // Functions
+        function switchChannel(channel, url, type) {
+            // Reset retry count
+            currentState.retryCount = 0;
+            
+            // Update connection status
+            connectionStatus.textContent = 'Connecting...';
+            connectionStatus.className = 'status-value connecting';
+            
+            // Update current channel
+            currentChannel.textContent = channel.toUpperCase();
+            currentState.channel = channel;
+            currentState.url = url;
+            currentState.type = type;
 
-<footer>
-  <small>Made with ♥ — BORN30</small>
-  <small>web hiburan.</small>
-</footer>
+            // Hide troubleshooting tips
+            troubleshootingTips.style.display = 'none';
+            streamStatus.textContent = 'Connecting...';
+            streamStatus.style.color = '#f39c12';
 
-  </div>
+            // Load the stream with timeout
+            const loadTimeout = setTimeout(() => {
+                if (connectionStatus.textContent === 'Connecting...') {
+                    handleStreamError('Timeout loading stream');
+                }
+            }, 10000);
+
+            // Load the stream based on type
+            if (type === 'embed') {
+                // Use iframe for embed URLs
+                loadEmbedStream(url, loadTimeout);
+            } else if (type === 'hls') {
+                // Use HLS.js for M3U8 streams
+                loadHlsStream(url, loadTimeout);
+            } else {
+                // Fallback to direct video
+                loadDirectVideo(url, loadTimeout);
+            }
+        }
+
+        function loadEmbedStream(url, timeout) {
+            // Hide video player, show embed player
+            videoPlayer.style.display = 'none';
+            embedPlayer.style.display = 'block';
+            
+            // Set embed source
+            embedPlayer.src = url;
+            
+            // Update UI
+            streamType.textContent = 'Embed';
+            streamFormat.textContent = 'Embed Player';
+            
+            // Clear timeout and update status
+            clearTimeout(timeout);
+            connectionStatus.textContent = 'Connected';
+            connectionStatus.className = 'status-value connected';
+            streamStatus.textContent = 'Streaming Active';
+            streamStatus.style.color = '#27ae60';
+            showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
+            
+            // Embed iframe doesn't have error events we can listen to
+            // So we'll just assume it works
+        }
+
+        function loadHlsStream(url, timeout) {
+            // Hide embed player, show video player
+            embedPlayer.style.display = 'none';
+            videoPlayer.style.display = 'block';
+            
+            // Update UI
+            streamType.textContent = 'HLS';
+            streamFormat.textContent = 'HLS Stream';
+            
+            // Use HLS.js for M3U8 streams
+            if (Hls.isSupported() && currentState.player) {
+                currentState.player.loadSource(url);
+                currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
+                    clearTimeout(timeout);
+                    videoPlayer.play().catch(e => {
+                        console.log('Autoplay prevented:', e);
+                        showNotification('Klik play untuk memulai streaming', 'warning');
+                    });
+                    connectionStatus.textContent = 'Connected';
+                    connectionStatus.className = 'status-value connected';
+                    streamStatus.textContent = 'Streaming Active';
+                    streamStatus.style.color = '#27ae60';
+                    showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
+                });
+            } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                // Native HLS support (Safari)
+                videoPlayer.src = url;
+                videoPlayer.addEventListener('loadeddata', function() {
+                    clearTimeout(timeout);
+                    videoPlayer.play().catch(e => {
+                        console.log('Autoplay prevented:', e);
+                        showNotification('Klik play untuk memulai streaming', 'warning');
+                    });
+                    connectionStatus.textContent = 'Connected';
+                    connectionStatus.className = 'status-value connected';
+                    streamStatus.textContent = 'Streaming Active';
+                    streamStatus.style.color = '#27ae60';
+                    showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
+                });
+            } else {
+                clearTimeout(timeout);
+                handleStreamError('Browser tidak mendukung format HLS');
+            }
+            
+            // Error handling
+            videoPlayer.addEventListener('error', function(e) {
+                clearTimeout(timeout);
+                handleStreamError(`Gagal memuat ${currentState.channel.toUpperCase()}`);
+            });
+        }
+
+        function loadDirectVideo(url, timeout) {
+            // Hide embed player, show video player
+            embedPlayer.style.display = 'none';
+            videoPlayer.style.display = 'block';
+            
+            // For direct video URLs
+            videoPlayer.src = url;
+            videoPlayer.addEventListener('loadeddata', function() {
+                clearTimeout(timeout);
+                videoPlayer.play().catch(e => {
+                    console.log('Autoplay prevented:', e);
+                    showNotification('Klik play untuk memulai streaming', 'warning');
+                });
+                connectionStatus.textContent = 'Connected';
+                connectionStatus.className = 'status-value connected';
+                streamStatus.textContent = 'Streaming Active';
+                streamStatus.style.color = '#27ae60';
+                showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
+            });
+            
+            // Error handling
+            videoPlayer.addEventListener('error', function(e) {
+                clearTimeout(timeout);
+                handleStreamError(`Gagal memuat ${currentState.channel.toUpperCase()}`);
+            });
+        }
+
+        function handleStreamError(message) {
+            connectionStatus.textContent = 'Error';
+            connectionStatus.className = 'status-value error';
+            streamStatus.textContent = 'Stream Error';
+            streamStatus.style.color = '#e74c3c';
+            
+            // Show troubleshooting tips
+            troubleshootingTips.style.display = 'block';
+            errorText.textContent = message + '. Coba refresh atau gunakan VPN.';
+            
+            // Retry logic
+            if (currentState.retryCount < currentState.maxRetries) {
+                currentState.retryCount++;
+                showNotification(`Mencoba ulang... (${currentState.retryCount}/${currentState.maxRetries})`, 'warning');
+                setTimeout(() => {
+                    switchChannel(currentState.channel, currentState.url, currentState.type);
+                }, 2000);
+            } else {
+                showNotification(message, 'error');
+            }
+        }
+
+        function toggleFullscreen() {
+            const activePlayer = currentState.type === 'embed' ? embedPlayer : videoPlayer;
+            
+            if (!currentState.isFullscreen) {
+                if (activePlayer.requestFullscreen) {
+                    activePlayer.requestFullscreen();
+                } else if (activePlayer.webkitRequestFullscreen) {
+                    activePlayer.webkitRequestFullscreen();
+                } else if (activePlayer.msRequestFullscreen) {
+                    activePlayer.msRequestFullscreen();
+                }
+                currentState.isFullscreen = true;
+                playerMode.textContent = 'Fullscreen';
+                showNotification('Mode layar penuh diaktifkan', 'success');
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                currentState.isFullscreen = false;
+                playerMode.textContent = 'Normal';
+                showNotification('Mode layar penuh dinonaktifkan', 'success');
+            }
+        }
+
+        function toggleLandscape() {
+            if (!currentState.isLandscape) {
+                document.body.classList.add('landscape-mode');
+                currentState.isLandscape = true;
+                playerMode.textContent = 'Landscape';
+                showNotification('Mode landscape diaktifkan', 'success');
+                
+                // Lock orientation if supported
+                if (screen.orientation && screen.orientation.lock) {
+                    screen.orientation.lock('landscape').catch(err => {
+                        console.log('Orientation lock not supported:', err);
+                    });
+                }
+            } else {
+                document.body.classList.remove('landscape-mode');
+                currentState.isLandscape = false;
+                playerMode.textContent = 'Normal';
+                showNotification('Mode portrait diaktifkan', 'success');
+                
+                // Unlock orientation
+                if (screen.orientation && screen.orientation.unlock) {
+                    screen.orientation.unlock();
+                }
+            }
+        }
+
+        function refreshStream() {
+            showLoading();
+            connectionStatus.textContent = 'Refreshing...';
+            connectionStatus.className = 'status-value connecting';
+            
+            // Reset retry count
+            currentState.retryCount = 0;
+            
+            // Reload the current stream
+            switchChannel(currentState.channel, currentState.url, currentState.type);
+            showNotification('Stream direfresh', 'success');
+        }
+
+        function toggleMute() {
+            if (currentState.type === 'embed') {
+                // For embed iframe, we can't control volume directly
+                showNotification('Volume control tidak tersedia untuk embed player', 'warning');
+            } else {
+                currentState.isMuted = !currentState.isMuted;
+                videoPlayer.muted = currentState.isMuted;
+                showNotification(currentState.isMuted ? 'Audio dimatikan' : 'Audio diaktifkan', 'success');
+            }
+        }
+
+        function showLoading() {
+            const overlay = document.querySelector('.player-overlay');
+            overlay.style.opacity = '1';
+            overlay.style.pointerEvents = 'all';
+            
+            setTimeout(() => {
+                overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
+            }, 3000);
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 4 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 4000);
+        }
+
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Event listeners
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement) {
+                currentState.isFullscreen = false;
+                playerMode.textContent = 'Normal';
+            }
+        });
+
+        window.addEventListener('orientationchange', function() {
+            if (Math.abs(window.orientation) === 90) {
+                document.body.classList.add('landscape-mode');
+                currentState.isLandscape = true;
+                playerMode.textContent = 'Landscape';
+            } else {
+                document.body.classList.remove('landscape-mode');
+                currentState.isLandscape = false;
+                playerMode.textContent = 'Normal';
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            switch(e.key) {
+                case 'f':
+                case 'F':
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        toggleFullscreen();
+                    }
+                    break;
+                case 'l':
+                case 'L':
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        toggleLandscape();
+                    }
+                    break;
+                case 'r':
+                case 'R':
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        refreshStream();
+                    }
+                    break;
+                case 'm':
+                case 'M':
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        toggleMute();
+                    }
+                    break;
+                case 'Escape':
+                    if (currentState.isFullscreen) {
+                        toggleFullscreen();
+                    }
+                    if (currentState.isLandscape) {
+                        toggleLandscape();
+                    }
+                    break;
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load HLS.js library
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/hls.js@latest';
+            script.onload = function() {
+                initializePlayer();
+                // Load initial channel
+                switchChannel('Mekah', 'https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8', 'hls');
+            };
+            document.head.appendChild(script);
+
+            showNotification('TV Streaming Portal Siap! Gunakan Ctrl+F/L/R/M untuk kontrol', 'success');
+            
+            // Auto-hide loading after 5 seconds
+            setTimeout(() => {
+                const overlay = document.querySelector('.player-overlay');
+                overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
+            }, 5000);
+        });
+    </script>
 </body>
 </html>
