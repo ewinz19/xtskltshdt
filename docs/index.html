@@ -615,6 +615,10 @@
                             <div class="channel-name">My Cinema Asia</div>
                             <div class="channel-quality">HLS</div>
                              </div>
+
+
+
+
                               <div class="channel-btn  live" data-channel="my Kidz" data-type="Embed" data-url="https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8">
                             <div class="channel-icon">😹</div>
                             <div class="channel-name">MyKidz</div>
@@ -639,6 +643,13 @@
                             <div class="channel-icon">📰</div>
                             <div class="channel-name">iNews TV</div>
                             <div class="channel-quality">Embed</div>
+                        </div>
+
+
+                         <div class="channel-btn live" data-channel="cnn" data-type="hls" data-url="https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/playlist.m3u8">
+                            <div class="channel-icon">🌍</div>
+                            <div class="channel-name">CNN TV</div>
+                            <div class="channel-quality">HLS</div>
                         </div>
                         <div class="channel-btn live" data-channel="transtv" data-type="hls" data-url="https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8">
                             <div class="channel-icon">🎭</div>
@@ -765,10 +776,10 @@
                     backBufferLength: 90,
                     debug: false,
 
-                    xhrSetup: function(xhr, url) {
+                   xhrSetup: function(xhr, url) {
     // Headers seperti OTT player
-    xhr.setRequestHeader('Referer', 'https://video.detik.com/');
-    xhr.setRequestHeader('Origin', 'https://video.detik.com/');
+   // xhr.setRequestHeader('Referer', 'https://20.video.detik.com/');
+  //  xhr.setRequestHeader('Origin', 'https://20.video.detik.com/');
     xhr.setRequestHeader('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36');
     xhr.setRequestHeader('Accept', '*/*');
     xhr.setRequestHeader('Accept-Language', 'en-US,en;q=0.9');
@@ -849,8 +860,6 @@
             streamStatus.textContent = 'Connecting...';
             streamStatus.style.color = '#f39c12';
 
-            
-
             // Load the stream with timeout
             const loadTimeout = setTimeout(() => {
                 if (connectionStatus.textContent === 'Connecting...') {
@@ -871,7 +880,6 @@
             }
         }
 
- 
         function loadEmbedStream(url, timeout) {
             // Hide video player, show embed player
             videoPlayer.style.display = 'none';
@@ -896,9 +904,110 @@
             // So we'll just assume it works
         }
 
-              
+              function showStreamRedirectModal(channel, url) {
+    // Create modal element
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        backdrop-filter: blur(10px);
+    `;
+    
+    modal.innerHTML = `
+        <div style="
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.2);
+        ">
+            <div style="font-size: 3rem; margin-bottom: 15px;">📺</div>
+            <h3 style="margin-bottom: 10px;">${channel.toUpperCase()}</h3>
+            <p style="margin-bottom: 25px; opacity: 0.9;">Stream ini bekerja lebih baik di tab baru</p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center;">
+                <button id="redirect-btn" style="
+                    padding: 12px 25px;
+                    background: #27ae60;
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 1rem;
+                ">
+                    🎬 Buka di Tab Baru
+                </button>
+                
+                <button id="cancel-btn" style="
+                    padding: 12px 25px;
+                    background: rgba(255,255,255,0.2);
+                    color: white;
+                    border: 1px solid rgba(255,255,255,0.3);
+                    border-radius: 10px;
+                    cursor: pointer;
+                    font-size: 1rem;
+                ">
+                    Tetap di Sini
+                </button>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">
+                Klik di luar  untuk batal
+            </p>
+        </div>
+    `;
+    
+    // Add to page
+    document.body.appendChild(modal);
+    
+    // Event handlers
+    modal.querySelector('#redirect-btn').addEventListener('click', function() {
+        window.open(url, '_blank', 'noopener,noreferrer');
+        document.body.removeChild(modal);
+    });
+    
+    modal.querySelector('#cancel-btn').addEventListener('click', function() {
+        document.body.removeChild(modal);
+    });
+    
+    // Close on background click
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            document.body.removeChild(modal);
+        }
+    });
+}
 
+// Usage in loadHlsStream
 function loadHlsStream(url, timeout) {
+    const isProblematicStream = url.includes('detik.com');
+    
+    if (isProblematicStream) {
+        // ✅ SHOW CUSTOM MODAL
+        showStreamRedirectModal(currentState.channel, url);
+        
+        // Update UI
+        connectionStatus.textContent = 'Ready';
+        streamStatus.textContent = 'Choose playback option';
+        clearTimeout(timeout);
+        return;
+    }
+    
+   
+    
+    // Hide embed player, show video player
     embedPlayer.style.display = 'none';
     videoPlayer.style.display = 'block';
     
@@ -911,9 +1020,6 @@ function loadHlsStream(url, timeout) {
         if (!currentState.player) {
             initializePlayer();
         }
-        
-        // ✅ REMOVE OLD LISTENER
-       // currentState.player.off(Hls.Events.MANIFEST_PARSED);
         
         currentState.player.loadSource(url);
         currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
@@ -955,9 +1061,109 @@ function loadHlsStream(url, timeout) {
     });
 }
 
+function loadWithNativeVideo(url, timeout) {
+    console.log('Loading chunklist with native video element');
+    
+    // Hide embed player, show video player
+    embedPlayer.style.display = 'none';
+    videoPlayer.style.display = 'block';
+    
+    streamType.textContent = 'Native HLS';
+    streamFormat.textContent = 'Direct Stream';
+    
+    // ✅ SET VIDEO SOURCE LANGSUNG (seperti di browser)
+    videoPlayer.src = url;
+    
+    // ✅ EVENT LISTENER UNTUK NATIVE PLAYBACK
+    videoPlayer.addEventListener('loadeddata', function() {
+        clearTimeout(timeout);
+        videoPlayer.play().catch(e => {
+            console.log('Autoplay prevented:', e);
+            showNotification('Klik play untuk memulai streaming', 'warning');
+        });
+        connectionStatus.textContent = 'Connected';
+        connectionStatus.className = 'status-value connected';
+        streamStatus.textContent = 'Streaming Active';
+        streamStatus.style.color = '#27ae60';
+        showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
+    });
+    
+    videoPlayer.addEventListener('error', function(e) {
+        clearTimeout(timeout);
+        console.error('Native video error:', e);
+        console.error('Video error details:', videoPlayer.error);
+        handleStreamError(`Gagal memuat ${currentState.channel.toUpperCase()}`);
+    });
+    
+    // ✅ FALLBACK: JIKA NATIVE GAGAL, COBA HLS.js
+    setTimeout(() => {
+        if (connectionStatus.textContent === 'Connecting...') {
+            console.log('Native video timeout, trying HLS.js fallback');
+            loadHlsStreamDirect(url, timeout);
+        }
+    }, 5000);
+}
 
 
-        //winz
+
+function loadHlsStreamDirect(url, timeout) {
+    console.log('Loading chunklist directly:', url);
+    
+    // Normal HLS.js flow tapi dengan URL chunklist yang CORS-friendly
+    embedPlayer.style.display = 'none';
+    videoPlayer.style.display = 'block';
+    
+    streamType.textContent = 'HLS';
+    streamFormat.textContent = 'Direct Chunklist';
+    
+    if (Hls.isSupported()) {
+        if (!currentState.player) {
+            initializePlayer();
+        }
+        
+        currentState.player.loadSource(url);
+        currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
+            clearTimeout(timeout);
+            videoPlayer.play().catch(e => {
+                console.log('Autoplay prevented:', e);
+                showNotification('Klik play untuk memulai streaming', 'warning');
+            });
+            connectionStatus.textContent = 'Connected';
+            connectionStatus.className = 'status-value connected';
+            streamStatus.textContent = 'Streaming Active';
+            streamStatus.style.color = '#27ae60';
+            showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
+        });
+        
+        // Error handling untuk chunklist
+        currentState.player.on(Hls.Events.ERROR, function(event, data) {
+            if (data.fatal) {
+                handleStreamError('Gagal memuat chunklist stream');
+            }
+        });
+    } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+        // Native HLS support
+        videoPlayer.src = url;
+        videoPlayer.addEventListener('loadeddata', function() {
+            clearTimeout(timeout);
+            videoPlayer.play().catch(e => {
+                console.log('Autoplay prevented:', e);
+                showNotification('Klik play untuk memulai streaming', 'warning');
+            });
+            connectionStatus.textContent = 'Connected';
+            connectionStatus.className = 'status-value connected';
+            streamStatus.textContent = 'Streaming Active';
+            streamStatus.style.color = '#27ae60';
+            showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
+        });
+    } else {
+        clearTimeout(timeout);
+        handleStreamError('Browser tidak mendukung format HLS');
+    }
+}
+
+
+// Winz
        
         function loadDirectVideo(url, timeout) {
             // Hide embed player, show video player
