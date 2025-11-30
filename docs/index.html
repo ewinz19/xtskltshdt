@@ -881,7 +881,24 @@
             // Hide video player, show embed player
             videoPlayer.style.display = 'none';
             embedPlayer.style.display = 'block';
-            
+
+                // ✅ SET PERMISSIONS POLICY UNTUK EMBED
+    embedPlayer.setAttribute('allow', 'autoplay; fullscreen; encrypted-media');
+    embedPlayer.removeAttribute('allowfullscreen'); // Hapus yang lama
+    embedPlayer.setAttribute('allowfullscreen', ''); // Tambah yang baru
+    
+    // ✅ SET FEATURE POLICY (untuk browser lama)
+    embedPlayer.setAttribute('allow', `
+        accelerometer 'none';
+        gyroscope 'none'; 
+        magnetometer 'none';
+        microphone 'none';
+        camera 'none';
+        geolocation 'none';
+        autoplay *;
+        fullscreen *;
+        encrypted-media *
+    `.replace(/\n/g, ' '));
             // Set embed source
             embedPlayer.src = url;
             setupEmbedAdBlocking() //ad block
