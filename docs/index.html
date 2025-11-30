@@ -764,6 +764,17 @@
                     lowLatencyMode: true,
                     backBufferLength: 90,
                     debug: false,
+
+                    xhrSetup: function(xhr, url) {
+    // Headers seperti OTT player
+    xhr.setRequestHeader('Referer', 'https://video.detik.com/');
+    xhr.setRequestHeader('Origin', 'https://video.detik.com/');
+    xhr.setRequestHeader('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36');
+    xhr.setRequestHeader('Accept', '*/*');
+    xhr.setRequestHeader('Accept-Language', 'en-US,en;q=0.9');
+    xhr.setRequestHeader('Sec-Fetch-Mode', 'cors');
+    xhr.setRequestHeader('Sec-Fetch-Site', 'cross-site');
+}
                     
                 });
                 
