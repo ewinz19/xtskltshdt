@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+l<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -781,6 +781,7 @@
             xhr.setRequestHeader('Cache-Control', 'no-cache');
             xhr.setRequestHeader('Accept', '*/*');
             xhr.setRequestHeader('Accept-Language', 'en-US,en;q=0.9');
+            xhr.setRequestHeader('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36');
 
            }
                     
@@ -897,8 +898,7 @@
         geolocation 'none';
         autoplay *;
         fullscreen *;
-        encrypted-media *
-    `.replace(/\n/g, ' '));
+         `);
             // Set embed source
             embedPlayer.src = url;
             setupEmbedAdBlocking() //ad block
