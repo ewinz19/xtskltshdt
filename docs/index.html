@@ -921,6 +921,14 @@
         
         // ✅ REMOVE OLD LISTENER
        // currentState.player.off(Hls.Events.MANIFEST_PARSED);
+
+             // ✅ DETEKSI JIKA INI CHUNKLIST
+        const isChunklist = url.includes('chunklist');
+        
+        if (isChunklist) {
+            // ✅ FORCE LOAD SEBAGAI MEDIA PLAYLIST
+            console.log('Loading chunklist directly as media playlist');
+        }
         
         currentState.player.loadSource(url);
         currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
