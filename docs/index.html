@@ -548,14 +548,14 @@
             color: #e74c3c;
             margin-right: 10px;
         }
-         /* ⬇️  AD BLOCK CSS */
-         [class*="ad"], 
-         [id*="ad"],
-        .ad-container,
-        .adsbygoogle,
-            iframe[src*="ads"] {
-            display: none !important;
-         }        
+         /* HANYA block yang benar-benar iklan */
+         iframe[src*="ads"]:not([src*="rctiplus.com"]):not([src*="embed."]),
+         iframe[src*="doubleclick"],
+         iframe[src*="googleads"],
+         div[class="ad-container"],
+         div[class="adsbygoogle"] {
+         display: none !important;
+        }
     </style>
 </head>
 <body>
