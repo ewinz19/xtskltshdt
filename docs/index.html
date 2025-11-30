@@ -615,16 +615,12 @@
                             <div class="channel-name">My Cinema Asia</div>
                             <div class="channel-quality">HLS</div>
                              </div>
-
-
-
-
                               <div class="channel-btn  live" data-channel="my Kidz" data-type="Embed" data-url="https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8">
                             <div class="channel-icon">😹</div>
                             <div class="channel-name">MyKidz</div>
                             <div class="channel-quality">HLS</div>
                              </div>
-                        <div class="channel-btn  live" data-channel="rcti" data-type="embed" data-url="https://embed.rctiplus.com/live/rcti/inewsid">
+                          <div class="channel-btn  live" data-channel="rcti" data-type="embed" data-url="https://embed.rctiplus.com/live/rcti/inewsid">
                             <div class="channel-icon">🌟</div>
                             <div class="channel-name">RCTI</div>
                             <div class="channel-quality">Embed</div>
@@ -645,8 +641,7 @@
                             <div class="channel-quality">Embed</div>
                         </div>
 
-
-                         <div class="channel-btn live" data-channel="cnn" data-type="hls" data-url="https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/playlist.m3u8">
+                         <div class="channel-btn live" data-channel="cnn" data-type="hls" data-url="https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/chunklist_w1052680134_b384000_sleng.m3u8">
                             <div class="channel-icon">🌍</div>
                             <div class="channel-name">CNN TV</div>
                             <div class="channel-quality">HLS</div>
@@ -992,8 +987,12 @@
 
 // Usage in loadHlsStream
 function loadHlsStream(url, timeout) {
-    const isProblematicStream = url.includes('detik.com');
-    
+    const problematicDomains = [
+    'detik.com',
+    'live.cnnindonesia.com',
+];
+
+const isProblematicStream = problematicDomains.some(domain => url.includes(domain));
     if (isProblematicStream) {
         // ✅ SHOW CUSTOM MODAL
         showStreamRedirectModal(currentState.channel, url);
