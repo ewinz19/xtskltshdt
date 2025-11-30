@@ -926,7 +926,7 @@ function loadHlsStream(url, timeout) {
             initializePlayer();
         }
         
-        currentState.player.off(Hls.Events.MANIFEST_PARSED);
+       // currentState.player.off(Hls.Events.MANIFEST_PARSED);
         currentState.player.loadSource(url);
         currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
             clearTimeout(timeout);
