@@ -740,11 +740,11 @@
                     debug: false,
 
                     xhrSetup: function(xhr, url) {
-                if (url.includes('detik.com')) {
-                    xhr.setRequestHeader('Referer', 'https://video.detik.com/');
-                    xhr.setRequestHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36');
-                }
-                }
+                     if (url.includes('detik.com')) {
+                         xhr.setRequestHeader('Referer', 'https://video.detik.com/');
+                         xhr.setRequestHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36');
+                      }
+                   }
                 });
                 
                 currentState.player.attachMedia(videoPlayer);
