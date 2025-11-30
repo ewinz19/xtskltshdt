@@ -548,14 +548,7 @@
             color: #e74c3c;
             margin-right: 10px;
         }
-         /* HANYA block yang benar-benar iklan */
-         iframe[src*="ads"]:not([src*="rctiplus.com"]):not([src*="embed."]),
-         iframe[src*="doubleclick"],
-         iframe[src*="googleads"],
-         div[class="ad-container"],
-         div[class="adsbygoogle"] {
-         display: none !important;
-        }
+         
     </style>
 </head>
 <body>
@@ -895,7 +888,10 @@
             
             // Set embed source
             embedPlayer.src = url;
-            
+            //ad block +++++++++++++ adblock
+             setTimeout(() => {
+             setupEmbedAdBlocking();
+            }, 2000); /
             // Update UI
             streamType.textContent = 'Embed';
             streamFormat.textContent = 'Embed Player';
@@ -1304,6 +1300,28 @@ function loadHlsStreamDirect(url, timeout) {
             }
         }
 
+        // Tambahkan adblok 
+    function setupEmbedAdBlocking() {
+    const embed = document.getElementById('embed-player');
+    if (embed) {
+        embed.onload = function() {
+            try {
+                // Coba access embed content (jika same-origin)
+                const embedDoc = embed.contentDocument || embed.contentWindow.document;
+                
+                // Remove ads dari dalam embed
+                const adElements = embedDoc.querySelectorAll('[class*="ad"], [id*="ad"], iframe[src*="ads"]');
+                adElements.forEach(el => el.remove());
+                
+            } catch (e) {
+                // Cross-origin block, tidak bisa akses content
+                console.log('Cannot access embed content due to CORS');
+            }
+        };
+    }
+}
+
+    
         function showLoading() {
             const overlay = document.querySelector('.player-overlay');
             overlay.style.opacity = '1';
