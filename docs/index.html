@@ -888,29 +888,22 @@
               
 
 function loadHlsStream(url, timeout) {
-    const isDirectPlayableChunklist = url.includes('chunklist') && 
-                                     url.includes('detik.com');
-    
-    if (isDirectPlayableChunklist) {
-        // ✅ BUAT VIRTUAL MAIN PLAYLIST DARI CHUNKLIST
-        createVirtualPlaylist(url, timeout);
-        
-        return;
-    }
-    
-    // ✅ NORMAL FLOW UNTUK URL LAINNYA
     embedPlayer.style.display = 'none';
     videoPlayer.style.display = 'block';
     
     streamType.textContent = 'HLS';
     streamFormat.textContent = 'HLS Stream';
     
+    // ✅ FIXED CONDITION
     if (Hls.isSupported()) {
+        // ✅ INITIALIZE IF NOT EXISTS
         if (!currentState.player) {
             initializePlayer();
         }
         
+        // ✅ REMOVE OLD LISTENER
        // currentState.player.off(Hls.Events.MANIFEST_PARSED);
+        
         currentState.player.loadSource(url);
         currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
             clearTimeout(timeout);
@@ -951,58 +944,8 @@ function loadHlsStream(url, timeout) {
     });
 }
 
-//ok
-        
-    
 
 
-function createVirtualPlaylist(chunklistUrl, timeout) {
-    console.log('Creating virtual playlist from chunklist');
-    
-    // Fetch chunklist content
-    fetch(chunklistUrl)
-        .then(response => response.text())
-        .then(chunklistContent => {
-            // ✅ BUAT VIRTUAL MAIN PLAYLIST
-            const virtualPlaylist = `#EXTM3U
-#EXT-X-VERSION:3
-#EXT-X-STREAM-INF:BANDWIDTH=744100,RESOLUTION=1280x720
-${chunklistUrl}`;
-            
-            // ✅ CREATE BLOB URL
-            const blob = new Blob([virtualPlaylist], { type: 'application/vnd.apple.mpegurl' });
-            const virtualUrl = URL.createObjectURL(blob);
-            
-            console.log('Virtual playlist created:', virtualUrl);
-            
-            // ✅ LOAD VIRTUAL PLAYLIST DENGAN HLS.js
-            if (Hls.isSupported()) {
-                if (!currentState.player) {
-                    initializePlayer();
-                }
-                
-                currentState.player.off(Hls.Events.MANIFEST_PARSED);
-                currentState.player.loadSource(virtualUrl);
-                currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
-                    URL.revokeObjectURL(virtualUrl); // Cleanup
-                    clearTimeout(timeout);
-                    videoPlayer.play().catch(e => {
-                        console.log('Autoplay prevented:', e);
-                        showNotification('Klik play untuk memulai streaming', 'warning');
-                    });
-                    connectionStatus.textContent = 'Connected';
-                    connectionStatus.className = 'status-value connected';
-                    streamStatus.textContent = 'Streaming Active';
-                    streamStatus.style.color = '#27ae60';
-                    showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Error creating virtual playlist:', error);
-            handleStreamError('Gagal membuat virtual playlist');
-        });
-}
         //winz
        
         function loadDirectVideo(url, timeout) {
