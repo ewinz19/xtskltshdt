@@ -838,6 +838,29 @@
             streamStatus.textContent = 'Connecting...';
             streamStatus.style.color = '#f39c12';
 
+            
+            // ✅ JIKA TRANS7, GUNAKAN URL ALTERNATIF
+    if (channel === 'trans7') {
+        const trans7Urls = [
+            'https://video.detik.com/trans7/smil:trans7.smil/chunklist_w49843411_b744100_sleng.m3u8',
+            'https://video.detik.com/trans7/smil:trans7.smil/playlist.m3u8',
+            'https://video.detik.com/trans7/trans7.smil/playlist.m3u8'
+        ];
+        url = trans7Urls[0]; // Gunakan yang pertama dulu
+    }
+                     // ✅ JIKA TRANS7, GUNAKAN URL ALTERNATIF
+    if (channel === 'transtv') {
+        const trans7Urls = [
+            'https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2102817461_b744100_sleng.m3u8',
+            'https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8',
+            'https://video.detik.com/transtv/transtv.smil/playlist.m3u8'
+        ];
+        url = trans7Urls[0]; // Gunakan yang pertama dulu
+    }
+
+
+
+        
             // Load the stream with timeout
             const loadTimeout = setTimeout(() => {
                 if (connectionStatus.textContent === 'Connecting...') {
