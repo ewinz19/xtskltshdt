@@ -850,12 +850,12 @@
     }
                      // ✅ JIKA TRANS7, GUNAKAN URL ALTERNATIF
     if (channel === 'transtv') {
-        const trans7Urls = [
+        const transtvUrls = [
             'https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2102817461_b744100_sleng.m3u8',
             'https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8',
             'https://video.detik.com/transtv/transtv.smil/playlist.m3u8'
         ];
-        url = trans7Urls[0]; // Gunakan yang pertama dulu
+        url = transtvUrls[0]; // Gunakan yang pertama dulu
     }
 
 
@@ -905,24 +905,22 @@
             // So we'll just assume it works
         }
 
-              function loadHlsStream(url, timeout) {
+              
+ function loadHlsStream(url, timeout) {
     embedPlayer.style.display = 'none';
     videoPlayer.style.display = 'block';
     
     streamType.textContent = 'HLS';
     streamFormat.textContent = 'HLS Stream';
     
-    // ✅ FIXED CONDITION
     if (Hls.isSupported()) {
-        // ✅ INITIALIZE IF NOT EXISTS
         if (!currentState.player) {
             initializePlayer();
         }
         
-        // ✅ REMOVE OLD LISTENER
-       // currentState.player.off(Hls.Events.MANIFEST_PARSED);
-
-             // ✅ DETEKSI JIKA INI CHUNKLIST
+        currentState.player.off(Hls.Events.MANIFEST_PARSED);
+        
+        // ✅ DETEKSI JIKA INI CHUNKLIST
         const isChunklist = url.includes('chunklist');
         
         if (isChunklist) {
@@ -943,8 +941,9 @@
             streamStatus.style.color = '#27ae60';
             showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
         });
+        
     } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS support (Safari)
+        // Native HLS (Safari) - biasanya lebih toleran
         videoPlayer.src = url;
         videoPlayer.addEventListener('loadeddata', function() {
             clearTimeout(timeout);
@@ -963,13 +962,11 @@
         handleStreamError('Browser tidak mendukung format HLS');
     }
     
-    // Error handling
     videoPlayer.addEventListener('error', function(e) {
         clearTimeout(timeout);
         handleStreamError(`Gagal memuat ${currentState.channel.toUpperCase()}`);
     });
 }
-
        
         function loadDirectVideo(url, timeout) {
             // Hide embed player, show video player
