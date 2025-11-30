@@ -913,21 +913,19 @@
     streamType.textContent = 'HLS';
     streamFormat.textContent = 'HLS Stream';
     
-    if (Hls.isSupported()) {
+    // ✅ DETEKSI CHUNKLIST
+    const isChunklist = url.includes('chunklist');
+    
+    if (isChunklist) {
+        // ✅ LOAD CHUNKLIST MANUALLY
+        loadChunklistDirectly(url, timeout);
+    } else if (Hls.isSupported()) {
+        // Normal HLS.js flow untuk main playlist
         if (!currentState.player) {
             initializePlayer();
         }
         
         currentState.player.off(Hls.Events.MANIFEST_PARSED);
-        
-        // ✅ DETEKSI JIKA INI CHUNKLIST
-        const isChunklist = url.includes('chunklist');
-        
-        if (isChunklist) {
-            // ✅ FORCE LOAD SEBAGAI MEDIA PLAYLIST
-            console.log('Loading chunklist directly as media playlist');
-        }
-        
         currentState.player.loadSource(url);
         currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
             clearTimeout(timeout);
@@ -941,22 +939,10 @@
             streamStatus.style.color = '#27ae60';
             showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
         });
-        
     } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS (Safari) - biasanya lebih toleran
+        // Native HLS
         videoPlayer.src = url;
-        videoPlayer.addEventListener('loadeddata', function() {
-            clearTimeout(timeout);
-            videoPlayer.play().catch(e => {
-                console.log('Autoplay prevented:', e);
-                showNotification('Klik play untuk memulai streaming', 'warning');
-            });
-            connectionStatus.textContent = 'Connected';
-            connectionStatus.className = 'status-value connected';
-            streamStatus.textContent = 'Streaming Active';
-            streamStatus.style.color = '#27ae60';
-            showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
-        });
+        videoPlayer.addEventListener('loadeddata', onStreamLoaded(timeout));
     } else {
         clearTimeout(timeout);
         handleStreamError('Browser tidak mendukung format HLS');
@@ -967,6 +953,57 @@
         handleStreamError(`Gagal memuat ${currentState.channel.toUpperCase()}`);
     });
 }
+
+// ✅ FUNGSI BARU UNTUK HANDLE CHUNKLIST
+function loadChunklistDirectly(chunklistUrl, timeout) {
+    console.log('Loading chunklist directly:', chunklistUrl);
+    
+    // Fetch chunklist content
+    fetch(chunklistUrl)
+        .then(response => response.text())
+        .then(playlistContent => {
+            console.log('Chunklist content:', playlistContent.substring(0, 200));
+            
+            // Cek jika ini valid media playlist
+            if (playlistContent.includes('#EXTM3U') && playlistContent.includes('.ts')) {
+                // ✅ INI MEDIA PLAYLIST - bisa dipakai
+                if (Hls.isSupported() && currentState.player) {
+                    currentState.player.loadSource(chunklistUrl);
+                    currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
+                        onStreamLoaded(timeout)();
+                    });
+                } else {
+                    // Fallback ke native
+                    videoPlayer.src = chunklistUrl;
+                    videoPlayer.addEventListener('loadeddata', onStreamLoaded(timeout));
+                }
+            } else {
+                // ❌ Bukan media playlist yang valid
+                handleStreamError('Format chunklist tidak didukung');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching chunklist:', error);
+            handleStreamError('Gagal mengambil chunklist');
+        });
+}
+
+// ✅ HELPER FUNCTION
+function onStreamLoaded(timeout) {
+    return function() {
+        clearTimeout(timeout);
+        videoPlayer.play().catch(e => {
+            console.log('Autoplay prevented:', e);
+            showNotification('Klik play untuk memulai streaming', 'warning');
+        });
+        connectionStatus.textContent = 'Connected';
+        connectionStatus.className = 'status-value connected';
+        streamStatus.textContent = 'Streaming Active';
+        streamStatus.style.color = '#27ae60';
+        showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
+    };
+}
+        //winz
        
         function loadDirectVideo(url, timeout) {
             // Hide embed player, show video player
