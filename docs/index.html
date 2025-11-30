@@ -839,28 +839,7 @@
             streamStatus.style.color = '#f39c12';
 
             
-            // ✅ JIKA TRANS7, GUNAKAN URL ALTERNATIF
-    if (channel === 'trans7') {
-        const trans7Urls = [
-            'https://video.detik.com/trans7/smil:trans7.smil/chunklist_w49843411_b744100_sleng.m3u8',
-            'https://video.detik.com/trans7/smil:trans7.smil/playlist.m3u8',
-            'https://video.detik.com/trans7/trans7.smil/playlist.m3u8'
-        ];
-        url = trans7Urls[0]; // Gunakan yang pertama dulu
-    }
-                     // ✅ JIKA TRANS7, GUNAKAN URL ALTERNATIF
-    if (channel === 'transtv') {
-        const transtvUrls = [
-            'https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2102817461_b744100_sleng.m3u8',
-            'https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8',
-            'https://video.detik.com/transtv/transtv.smil/playlist.m3u8'
-        ];
-        url = transtvUrls[0]; // Gunakan yang pertama dulu
-    }
 
-
-
-        
             // Load the stream with timeout
             const loadTimeout = setTimeout(() => {
                 if (connectionStatus.textContent === 'Connecting...') {
@@ -881,6 +860,7 @@
             }
         }
 
+ 
         function loadEmbedStream(url, timeout) {
             // Hide video player, show embed player
             videoPlayer.style.display = 'none';
@@ -906,21 +886,42 @@
         }
 
               
- function loadHlsStream(url, timeout) {
+function loadHlsStream(url, timeout) {
+    const isDirectPlayableChunklist = url.includes('chunklist') && 
+                                     url.includes('detik.com');
+    
+    if (isDirectPlayableChunklist) {
+        // ✅ EMBED DI IFRAME TANPA KELUAR DARI APLIKASI
+        console.log('Loading chunklist in iframe:', url);
+        
+        // Hide video player, show embed player
+        videoPlayer.style.display = 'none';
+        embedPlayer.style.display = 'block';
+        
+        // Set iframe source
+        embedPlayer.src = url;
+        
+        // Update UI status
+        streamType.textContent = 'Direct';
+        streamFormat.textContent = 'Chunklist Player';
+        connectionStatus.textContent = 'Connected';
+        connectionStatus.className = 'status-value connected';
+        streamStatus.textContent = 'Streaming Active';
+        streamStatus.style.color = '#27ae60';
+        showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
+        
+        clearTimeout(timeout);
+        return; // Stop further processing
+    }
+    
+    // ✅ NORMAL FLOW UNTUK URL LAINNYA
     embedPlayer.style.display = 'none';
     videoPlayer.style.display = 'block';
     
     streamType.textContent = 'HLS';
     streamFormat.textContent = 'HLS Stream';
     
-    // ✅ DETEKSI CHUNKLIST
-    const isChunklist = url.includes('chunklist');
-    
-    if (isChunklist) {
-        // ✅ LOAD CHUNKLIST MANUALLY
-        loadChunklistDirectly(url, timeout);
-    } else if (Hls.isSupported()) {
-        // Normal HLS.js flow untuk main playlist
+    if (Hls.isSupported()) {
         if (!currentState.player) {
             initializePlayer();
         }
@@ -940,68 +941,30 @@
             showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
         });
     } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS
+        // Native HLS support (Safari)
         videoPlayer.src = url;
-        videoPlayer.addEventListener('loadeddata', onStreamLoaded(timeout));
+        videoPlayer.addEventListener('loadeddata', function() {
+            clearTimeout(timeout);
+            videoPlayer.play().catch(e => {
+                console.log('Autoplay prevented:', e);
+                showNotification('Klik play untuk memulai streaming', 'warning');
+            });
+            connectionStatus.textContent = 'Connected';
+            connectionStatus.className = 'status-value connected';
+            streamStatus.textContent = 'Streaming Active';
+            streamStatus.style.color = '#27ae60';
+            showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
+        });
     } else {
         clearTimeout(timeout);
         handleStreamError('Browser tidak mendukung format HLS');
     }
     
+    // Error handling
     videoPlayer.addEventListener('error', function(e) {
         clearTimeout(timeout);
         handleStreamError(`Gagal memuat ${currentState.channel.toUpperCase()}`);
     });
-}
-
-// ✅ FUNGSI BARU UNTUK HANDLE CHUNKLIST
-function loadChunklistDirectly(chunklistUrl, timeout) {
-    console.log('Loading chunklist directly:', chunklistUrl);
-    
-    // Fetch chunklist content
-    fetch(chunklistUrl)
-        .then(response => response.text())
-        .then(playlistContent => {
-            console.log('Chunklist content:', playlistContent.substring(0, 200));
-            
-            // Cek jika ini valid media playlist
-            if (playlistContent.includes('#EXTM3U') && playlistContent.includes('.ts')) {
-                // ✅ INI MEDIA PLAYLIST - bisa dipakai
-                if (Hls.isSupported() && currentState.player) {
-                    currentState.player.loadSource(chunklistUrl);
-                    currentState.player.on(Hls.Events.MANIFEST_PARSED, function() {
-                        onStreamLoaded(timeout)();
-                    });
-                } else {
-                    // Fallback ke native
-                    videoPlayer.src = chunklistUrl;
-                    videoPlayer.addEventListener('loadeddata', onStreamLoaded(timeout));
-                }
-            } else {
-                // ❌ Bukan media playlist yang valid
-                handleStreamError('Format chunklist tidak didukung');
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching chunklist:', error);
-            handleStreamError('Gagal mengambil chunklist');
-        });
-}
-
-// ✅ HELPER FUNCTION
-function onStreamLoaded(timeout) {
-    return function() {
-        clearTimeout(timeout);
-        videoPlayer.play().catch(e => {
-            console.log('Autoplay prevented:', e);
-            showNotification('Klik play untuk memulai streaming', 'warning');
-        });
-        connectionStatus.textContent = 'Connected';
-        connectionStatus.className = 'status-value connected';
-        streamStatus.textContent = 'Streaming Active';
-        streamStatus.style.color = '#27ae60';
-        showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
-    };
 }
         //winz
        
