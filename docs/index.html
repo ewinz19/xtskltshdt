@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    
-    <meta http-equiv="Content-Security-Policy" content="frame-ancestors *;">
-    
+     <meta http-equiv="Cache-Control"  content="no-cache" />
+    <meta name="robots"    content="noindex, nofollow" />
       <link rel="canonical" href="https://winz.linkpc.net/" />
     <title>🎬 TV Streaming Portal - All Channels</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -551,7 +550,7 @@
         <div class="header fade-in-up">
             <h1>📺 TV STREAMING PORTAL</h1>
             <p>Streaming TV Channels • All Channels Working</p>
-            <p class="subtitle">Powered by Born30 • Portal Hiburan</p>
+            <p class="subtitle">Powered by winz Born30 • Portal Hiburan</p>
         </div>
 
         <div class="main-content">
@@ -642,15 +641,15 @@
                             <div class="channel-quality">Embed</div>
                         </div>
 
-                         <div class="channel-btn live" data-channel="cnn" data-type="hls" data-url="https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/chunklist_w1052680134_b384000_sleng.m3u8">
+                         <div class="channel-btn live" data-channel="cnn" data-type="embed data-url="https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/chunklist_w1052680134_b384000_sleng.m3u8">
                             <div class="channel-icon">🌍</div>
                             <div class="channel-name">CNN TV</div>
-                            <div class="channel-quality">HLS</div>
+                            <div class="channel-quality">Embed</div>
                         </div>
-                        <div class="channel-btn live" data-channel="transtv" data-type="hls" data-url="https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2102817461_b744100_sleng.m3u8">
+                        <div class="channel-btn live" data-channel="transtv" data-type="embed" data-url="https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2102817461_b744100_sleng.m3u8">
                             <div class="channel-icon">🎭</div>
                             <div class="channel-name">TRANS TV</div>
-                            <div class="channel-quality">HLS</div>
+                            <div class="channel-quality">Embed</div>
                         </div>
                         <div class="channel-btn live" data-channel="trans7" data-type="embed" data-url="https://video.detik.com/trans7/smil:trans7.smil/chunklist_w49843411_b744100_sleng.m3u8">
                             <div class="channel-icon">📺</div>
@@ -779,8 +778,8 @@
         xhr.setRequestHeader('Referer', 'https://m.rctiplus.com/');
     }
     else if (url.includes('detik.com') || url.includes('video.detik.com')) {
-        xhr.setRequestHeader('Origin', 'https://video.detik.com/');
-        xhr.setRequestHeader('Referer', 'https://video.detik.com/');
+        xhr.setRequestHeader('Origin', 'https://20.detik.com/');
+        xhr.setRequestHeader('Referer', 'https://20.detik.com/');
     }
     else if (url.includes('dens.tv')) {
         xhr.setRequestHeader('Origin', 'https://dens.tv/');
@@ -798,7 +797,7 @@
 
          /* sekarang ,masa lalu dan detik2 waktu berikut nya */          
                     
-});                
+                });
                 
                 currentState.player.attachMedia(videoPlayer);
                 currentState.player.on(Hls.Events.MEDIA_ATTACHED, function() {
@@ -878,17 +877,21 @@
                 }
             }, 10000);
 
-            // Load the stream based on type
-            if (type === 'embed') {
-                // Use iframe for embed URLs
-                loadEmbedStream(url, loadTimeout);
-            } else if (type === 'hls') {
-                // Use HLS.js for M3U8 streams
-                loadHlsStream(url, loadTimeout);
-            } else {
-                // Fallback to direct video
-                loadDirectVideo(url, loadTimeout);
-            }
+
+               if (type === 'embed') {
+    // ✅ COBA SANDBOX DULU UNTUK DOMAIN TERTENTU
+    if (url.includes('detik.com') || url.includes('cnnindonesia.com')) {
+        loadEmbedSandbox(url, loadTimeout);
+    } else {
+        loadEmbedStream(url, loadTimeout); // Normal 
+    }
+} else if (type === 'hls') {
+    // Use HLS.js for M3U8 streams
+    loadHlsStream(url, loadTimeout);
+} else {
+    // Fallback to direct video
+    loadDirectVideo(url, loadTimeout);
+}
         }
         
         function stopCurrentStream() {
@@ -900,9 +903,12 @@
         videoPlayer.muted = true; // ✅ MATIKAN AUDIO
         videoPlayer.style.display = 'none';
     }
+    if (embedPlayer) {
+        embedPlayer.src = ''; // ⬅️ INI YANG PENTING - STOP EMBED
+        embedPlayer.style.display = 'none';
+    }
+
     
-    // ✅ EMBED - TIDAK BISA CONTROL AUDIO, TAPI HIDE
-    embedPlayer.style.display = 'none';
     
     // ✅ HLS.js - STOP LOAD
     if (currentState.player && Hls.isSupported()) {
@@ -943,6 +949,42 @@
             // So we'll just assume it works
         }
 
+
+function loadEmbedSandbox(url, timeout) {
+    console.log('Loading embed dengan sandbox bypass...');
+    
+    // Hide video player, show embed player
+    videoPlayer.style.display = 'none';
+    embedPlayer.style.display = 'block';
+    currentState.isMuted = false;
+    // ✅ SANDBOX BYPASS TECHNIQUES
+    embedPlayer.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-presentation');
+    embedPlayer.setAttribute('referrerpolicy', 'no-referrer');
+    embedPlayer.setAttribute('allow', 'autoplay; fullscreen; encrypted-media');
+    
+    embedPlayer.onload = function() {
+        console.log('✅ Embed sandbox loaded successfully');
+        clearTimeout(timeout);
+        connectionStatus.textContent = 'Connected';
+        connectionStatus.className = 'status-value connected';
+        streamStatus.textContent = 'Streaming Active';
+        streamStatus.style.color = '#27ae60';
+        showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()} dengan sandbox`, 'success');
+    };
+    
+    embedPlayer.onerror = function() {
+        console.log('❌ Embed sandbox loading error');
+        handleStreamError(`Gagal memuat ${currentState.channel.toUpperCase()} dengan sandbox`);
+    };
+
+    embedPlayer.src = url;
+    
+    // Update UI
+    streamType.textContent = 'Embed (Sandbox)';
+    streamFormat.textContent = 'Sandbox Embed';
+}
+
+//Sanbox
 
 
     function setupEmbedAdBlocking() {
@@ -1124,8 +1166,8 @@
 // Usage in loadHlsStream
 function loadHlsStream(url, timeout) {
     const problematicDomains = [
-   // 'detik.com',  // bug
-    'live.cnnindonesia.com',
+//    'detik.com',
+//    'live.cnnindonesia.com',
 ];
 
 const isProblematicStream = problematicDomains.some(domain => url.includes(domain));
@@ -1189,7 +1231,6 @@ const isProblematicStream = problematicDomains.some(domain => url.includes(domai
         });
     } else {
         clearTimeout(timeout);
-        loadWithNativeVideo();
         handleStreamError('Browser tidak mendukung format HLS');
     }
     
@@ -1199,6 +1240,8 @@ const isProblematicStream = problematicDomains.some(domain => url.includes(domai
         handleStreamError(`Gagal memuat ${currentState.channel.toUpperCase()}`);
     });
 }
+
+//Winz 000
 
 function loadWithNativeVideo(url, timeout) {
     console.log('Loading chunklist with native video element');
@@ -1309,7 +1352,7 @@ function loadHlsStreamDirect(url, timeout) {
 }
 
 
-// Winz
+// Winz 000
        
         function loadDirectVideo(url, timeout) {
             // Hide embed player, show video player
@@ -1328,7 +1371,7 @@ function loadHlsStreamDirect(url, timeout) {
                 });
                 connectionStatus.textContent = 'Connected';
                 connectionStatus.className = 'status-value connected';
-                streamStatus.textContent = 'Streaming Active';
+                streamStatus.textContent = 'Streaming direct video Active';
                 streamStatus.style.color = '#27ae60';
                 showNotification(`Berhasil memuat ${currentState.channel.toUpperCase()}`, 'success');
             });
@@ -1417,6 +1460,7 @@ function loadHlsStreamDirect(url, timeout) {
         }
 
         function refreshStream() {
+            stopCurrentStream();
             showLoading();
             connectionStatus.textContent = 'Refreshing...';
             connectionStatus.className = 'status-value connecting';
