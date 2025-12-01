@@ -1123,7 +1123,7 @@
 // Usage in loadHlsStream
 function loadHlsStream(url, timeout) {
     const problematicDomains = [
-    'detik.com',
+   // 'detik.com',  // bug
     'live.cnnindonesia.com',
 ];
 
@@ -1188,6 +1188,7 @@ const isProblematicStream = problematicDomains.some(domain => url.includes(domai
         });
     } else {
         clearTimeout(timeout);
+        loadWithNativeVideo();
         handleStreamError('Browser tidak mendukung format HLS');
     }
     
