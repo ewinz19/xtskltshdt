@@ -783,7 +783,7 @@
     }
     else if (url.includes('dens.tv')) {
         //xhr.setRequestHeader('Origin', 'https://dens.tv/');
-        xhr.setRequestHeader('Referer', 'https://dens.tv/');
+       // xhr.setRequestHeader('Referer', 'https://dens.tv/');
     }
     else if (url.includes('cnnindonesia.com')) {
         xhr.setRequestHeader('Origin', 'https://m.rctiplus.com/');
@@ -1314,7 +1314,9 @@ function loadHlsStreamDirect(url, timeout) {
             // Hide embed player, show video player
             embedPlayer.style.display = 'none';
             videoPlayer.style.display = 'block';
-            
+
+            videoPlayer.muted = false;
+            currentState.isMuted = false;
             // For direct video URLs
             videoPlayer.src = url;
             videoPlayer.addEventListener('loadeddata', function() {
