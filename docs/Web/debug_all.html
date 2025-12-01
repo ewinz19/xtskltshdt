@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV Player - DASH/HLS + Embed Sandbox</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.10/dist/hls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dashjs@4.7.0/dist/dash.all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .video-section {
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            min-height: 500px;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+        
+        #video-element {
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+        
+        #embed-player {
+            width: 100%;
+            height: 500px;
+            border: none;
+            display: none;
+            background: #000;
+        }
+        
+        .player-active {
+            display: block !important;
+        }
+        
+        .config-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background: #e74c3c;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+        }
+        
+        .tab-btn:hover {
+            background: rgba(231, 76, 60, 0.7);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #4fc3f7;
+            font-size: 13px;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .key-input {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            color: white;
+        }
+        
+        .sandbox-active {
+            background: linear-gradient(135deg, #27ae60, #229954) !important;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4) !important;
+        }
+        
+        .sandbox-inactive {
+            background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .status-panel {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+        
+        .status-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .status-value {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        .status-ready { color: #27ae60; }
+        .status-loading { color: #f39c12; }
+        .status-error { color: #e74c3c; }
+        .status-playing { color: #3498db; }
+        
+        .log-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .log {
+            height: 200px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #00ff00;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+        }
+        
+        .log-entry {
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            border-left: 3px solid #3498db;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 4px;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .log-error {
+            border-left-color: #e74c3c;
+            color: #ff6b6b;
+        }
+        
+        .log-success {
+            border-left-color: #27ae60;
+            color: #00ff00;
+        }
+        
+        .log-warning {
+            border-left-color: #f39c12;
+            color: #ffd700;
+        }
+        
+        .log-drm {
+            border-left-color: #9b59b6;
+            color: #e056fd;
+        }
+        
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .preset-btn {
+            padding: 8px;
+            background: rgba(52, 152, 219, 0.2);
+            color: white;
+            border: 1px solid rgba(52, 152, 219, 0.5);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .preset-btn:hover {
+            background: rgba(52, 152, 219, 0.4);
+        }
+        
+        .drm-info {
+            background: rgba(155, 89, 182, 0.2);
+            border: 1px solid rgba(155, 89, 182, 0.5);
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        
+        .header-info {
+            background: rgba(52, 152, 219, 0.2);
+            border: 1px solid rgba(52, 152, 219, 0.5);
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 16px;
+            background: #27ae60;
+            color: white;
+            border-radius: 8px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+        
+        .notification.error {
+            background: #e74c3c;
+        }
+        
+        .notification.warning {
+            background: #f39c12;
+        }
+        
+        .debug-info {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 5px;
+            font-size: 11px;
+            color: #aaa;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎬 IPTV Player dengan Header Support</h1>
+            <p>DASH/HLS + Embed dengan Custom Headers & Sandbox</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="video-section">
+                <div class="video-container">
+                    <!-- Video Element untuk DASH/HLS -->
+                    <video
+                        id="video-element"
+                        controls
+                        preload="auto"
+                        width="100%"
+                        height="500">
+                        Your browser does not support HTML5 video.
+                    </video>
+                    
+                    <!-- Embed Player untuk Sandbox -->
+                    <iframe
+                        id="embed-player"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="config-section">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab('basic')">🔧 Basic</button>
+                    <button class="tab-btn" onclick="switchTab('drm')">🔐 DRM</button>
+                    <button class="tab-btn" onclick="switchTab('headers')">🌐 Headers</button>
+                    <button class="tab-btn" onclick="switchTab('sandbox')">🛡️ Embed</button>
+                </div>
+                
+                <!-- Basic Tab -->
+                <div id="basic-tab" class="tab-content active">
+                    <div class="form-group">
+                        <label for="streamUrl">📡 Stream URL:</label>
+                        <input type="text" id="streamUrl" 
+                               value="https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd"
+                               placeholder="Enter MPD or M3U8 URL">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="streamType">🎬 Stream Type:</label>
+                        <select id="streamType">
+                            <option value="auto">Auto Detect</option>
+                            <option value="dash">DASH (.mpd)</option>
+                            <option value="hls">HLS (.m3u8)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="loadPreset('dash_open')">DASH Open</button>
+                        <button class="preset-btn" onclick="loadPreset('hls_open')">HLS Open</button>
+                        <button class="preset-btn" onclick="loadPreset('visionplus')">Vision+</button>
+                        <button class="preset-btn" onclick="clearAll()">Clear</button>
+                    </div>
+                    
+                    <div class="debug-info">
+                        <div>Status: <span id="video-state">Idle</span></div>
+                        <div>Time: <span id="current-time">0</span>s | Buffered: <span id="buffered">0</span>s</div>
+                    </div>
+                </div>
+                
+                <!-- DRM Tab -->
+                <div id="drm-tab" class="tab-content">
+                    <div class="form-group">
+                        <label for="drmType">🔒 DRM System:</label>
+                        <select id="drmType">
+                            <option value="none">No DRM (Open Stream)</option>
+                            <option value="clearkey">ClearKey</option>
+                            <option value="widevine">Widevine</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="licenseKey">🔑 License Key (kid:k):</label>
+                        <input type="text" id="licenseKey" class="key-input"
+                               placeholder="kid:key (for ClearKey)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="licenseServer">🌐 License Server:</label>
+                        <input type="text" id="licenseServer" 
+                               placeholder="https://license-server.com">
+                    </div>
+                    
+                    <div class="drm-info">
+                        <strong>Note:</strong> DRM hanya untuk stream terenkripsi.
+                    </div>
+                </div>
+                
+                <!-- Headers Tab -->
+                <div id="headers-tab" class="tab-content">
+                    <div class="form-group">
+                        <label for="httpReferrer">🔗 HTTP Referrer:</label>
+                        <input type="text" id="httpReferrer" 
+                               placeholder="https://www.visionplus.id/"
+                               value="https://www.visionplus.id/">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userAgent">🤖 User Agent:</label>
+                        <input type="text" id="userAgent" 
+                               value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+                               placeholder="Mozilla/5.0 ...">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="originHeader">🎯 Origin Header:</label>
+                            <input type="text" id="originHeader" 
+                                   placeholder="https://origin-domain.com"
+                                   value="https://www.visionplus.id">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contentType">📄 Content-Type:</label>
+                            <input type="text" id="contentType" 
+                                   placeholder="application/dash+xml"
+                                   value="application/dash+xml">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customHeaders">📋 Custom Headers (JSON):</label>
+                        <textarea id="customHeaders" rows="3" 
+                                  placeholder='{"X-Custom-Header": "value", "Authorization": "Bearer token"}'></textarea>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="enableHeaders" checked>
+                        <label for="enableHeaders">Enable Custom Headers</label>
+                    </div>
+                    
+                    <div class="header-info">
+                        <strong>Headers akan digunakan untuk:</strong><br>
+                        • DASH Player (manifest & segments)<br>
+                        • HLS Player (manifest & chunks)<br>
+                        • Embed (HTTP requests)<br>
+                        • DRM License requests
+                    </div>
+                </div>
+                
+                <!-- Sandbox Tab -->
+                <div id="sandbox-tab" class="tab-content">
+                    <div class="form-group">
+                        <label for="sandboxMode">🛡️ Sandbox Mode:</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+                            <button type="button" class="btn-success sandbox-active" onclick="setSandboxMode(true)" id="sandboxYesBtn">
+                                ✅ YES
+                            </button>
+                            <button type="button" class="btn-secondary" onclick="setSandboxMode(false)" id="sandboxNoBtn">
+                                ❌ NO
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="embedUrl">🌐 Embed URL:</label>
+                        <input type="text" id="embedUrl" 
+                               placeholder="https://www.youtube.com/embed/..." 
+                               value="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="embedReferrer">🔗 Embed Referrer:</label>
+                        <input type="text" id="embedReferrer" 
+                               placeholder="https://embed-referrer.com">
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn-primary" onclick="loadEmbedStream()">
+                            <span>🚀 LOAD EMBED</span>
+                        </button>
+                        <button class="btn-secondary" onclick="stopEmbedStream()">
+                            <span>⏹️ STOP</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn-primary" onclick="loadStream()">
+                        <span>🚀 LOAD STREAM</span>
+                    </button>
+                    <button class="btn-secondary" onclick="stopAllStreams()">
+                        <span>⏹️ STOP ALL</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="status-panel">
+            <div class="status-grid">
+                <div class="status-item">
+                    <div>Status</div>
+                    <div class="status-value status-ready" id="statusText">READY</div>
+                </div>
+                <div class="status-item">
+                    <div>Player</div>
+                    <div class="status-value" id="playerStatus">VIDEO</div>
+                </div>
+                <div class="status-item">
+                    <div>Headers</div>
+                    <div class="status-value" id="headersStatus">ON</div>
+                </div>
+                <div class="status-item">
+                    <div>Sandbox</div>
+                    <div class="status-value" id="sandboxStatus">ON</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="log-section">
+            <div class="log-header">
+                <h3>📋 SYSTEM LOG</h3>
+                <button class="btn-secondary" onclick="clearLog()" style="padding: 6px 12px; font-size: 12px;">
+                    🗑️ Clear
+                </button>
+            </div>
+            <div id="log" class="log">
+                <div class="log-entry">🎬 Player dengan Header Support initialized</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global Variables
+        let dashPlayer = null;
+        let hlsPlayer = null;
+        let currentMode = null;
+        
+        // Current State
+        const currentState = {
+            isSandbox: true,
+            isPlaying: false,
+            headersEnabled: true
+        };
+        
+        // Preset configurations
+        const presets = {
+            'dash_open': {
+                streamUrl: 'https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd',
+                streamType: 'dash',
+                drmType: 'none',
+                licenseKey: '',
+                httpReferrer: '',
+                userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                originHeader: ''
+            },
+            'hls_open': {
+                streamUrl: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',
+                streamType: 'hls',
+                drmType: 'none',
+                licenseKey: '',
+                httpReferrer: '',
+                userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                originHeader: ''
+            },
+            'visionplus': {
+                streamUrl: 'https://d2tjypxxy769fn.cloudfront.net/out/v1/b8b9b1d5f80f45649b4a3619291551ab/index.mpd',
+                streamType: 'dash',
+                drmType: 'clearkey',
+                licenseKey: '036e85de0bb448eeb21d39ab300da48e:4c6f9b15dfab2a169b2b78a498c4d77d1',
+                httpReferrer: 'https://www.visionplus.id/',
+                userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                originHeader: 'https://www.visionplus.id'
+            }
+        };
+        
+        // Tab Switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        // Preset Loading
+        function loadPreset(presetName) {
+            const preset = presets[presetName];
+            if (preset) {
+                document.getElementById('streamUrl').value = preset.streamUrl;
+                document.getElementById('streamType').value = preset.streamType;
+                document.getElementById('drmType').value = preset.drmType;
+                document.getElementById('licenseKey').value = preset.licenseKey || '';
+                document.getElementById('licenseServer').value = preset.licenseServer || '';
+                document.getElementById('httpReferrer').value = preset.httpReferrer || '';
+                document.getElementById('userAgent').value = preset.userAgent || '';
+                document.getElementById('originHeader').value = preset.originHeader || '';
+                addLog(`✅ Preset "${presetName}" loaded`, 'success');
+                showNotification(`Loaded: ${presetName}`);
+            }
+        }
+        
+        // Clear All Fields
+        function clearAll() {
+            document.getElementById('streamUrl').value = '';
+            document.getElementById('licenseKey').value = '';
+            document.getElementById('httpReferrer').value = '';
+            document.getElementById('userAgent').value = '';
+            document.getElementById('originHeader').value = '';
+            document.getElementById('customHeaders').value = '';
+            addLog('🔄 Fields cleared');
+        }
+        
+        // Log Management
+        function clearLog() {
+            document.getElementById('log').innerHTML = '';
+            addLog('📋 Log cleared');
+        }
+        
+        function addLog(message, type = 'info') {
+            const logEl = document.getElementById('log');
+            const logEntry = document.createElement('div');
+            
+            let logClass = 'log-entry';
+            if (type === 'error') logClass += ' log-error';
+            else if (type === 'success') logClass += ' log-success';
+            else if (type === 'warning') logClass += ' log-warning';
+            else if (type === 'drm') logClass += ' log-drm';
+            
+            logEntry.className = logClass;
+            logEntry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logEl.appendChild(logEntry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+        
+        // Status Updates
+        function updateStatus(status, type = 'ready') {
+            const statusEl = document.getElementById('statusText');
+            statusEl.textContent = status;
+            statusEl.className = `status-value status-${type}`;
+        }
+        
+        function updatePlayerStatus(status) {
+            document.getElementById('playerStatus').textContent = status;
+        }
+        
+        function updateHeadersStatus(status) {
+            const statusEl = document.getElementById('headersStatus');
+            statusEl.textContent = status;
+            statusEl.style.color = status === 'ON' ? '#27ae60' : '#e74c3c';
+        }
+        
+        function updateSandboxStatus(status) {
+            const statusEl = document.getElementById('sandboxStatus');
+            statusEl.textContent = status;
+            statusEl.style.color = status === 'ON' ? '#27ae60' : '#e74c3c';
+        }
+        
+        function updateVideoState(state) {
+            document.getElementById('video-state').textContent = state;
+        }
+        
+        function updateCurrentTime() {
+            const video = document.getElementById('video-element');
+            if (video && !isNaN(video.currentTime)) {
+                document.getElementById('current-time').textContent = video.currentTime.toFixed(1);
+                
+                // Update buffered
+                if (video.buffered.length > 0) {
+                    const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+                    document.getElementById('buffered').textContent = bufferedEnd.toFixed(1);
+                }
+            }
+        }
+        
+        // Get Headers Configuration
+        function getHeadersConfig() {
+            const headersEnabled = document.getElementById('enableHeaders').checked;
+            if (!headersEnabled) return null;
+            
+            const config = {
+                referrer: document.getElementById('httpReferrer').value.trim(),
+                userAgent: document.getElementById('userAgent').value.trim(),
+                origin: document.getElementById('originHeader').value.trim(),
+                contentType: document.getElementById('contentType').value.trim(),
+                customHeaders: null
+            };
+            
+            // Parse custom headers JSON
+            const customHeadersText = document.getElementById('customHeaders').value.trim();
+            if (customHeadersText) {
+                try {
+                    config.customHeaders = JSON.parse(customHeadersText);
+                } catch (e) {
+                    addLog(`❌ Invalid JSON in custom headers: ${e.message}`, 'error');
+                }
+            }
+            
+            // Log headers being used
+            let headersLog = [];
+            if (config.referrer) headersLog.push(`Referrer: ${config.referrer}`);
+            if (config.origin) headersLog.push(`Origin: ${config.origin}`);
+            if (config.userAgent) headersLog.push(`User-Agent: ${config.userAgent.substring(0, 30)}...`);
+            
+            if (headersLog.length > 0) {
+                addLog(`🌐 Headers: ${headersLog.join(' | ')}`);
+            }
+            
+            return config;
+        }
+        
+        // Sandbox Mode Control
+        function setSandboxMode(enabled) {
+            currentState.isSandbox = enabled;
+            const yesBtn = document.getElementById('sandboxYesBtn');
+            const noBtn = document.getElementById('sandboxNoBtn');
+            
+            if (enabled) {
+                yesBtn.className = 'btn-success sandbox-active';
+                noBtn.className = 'btn-secondary';
+                updateSandboxStatus('ON');
+                addLog('✅ Sandbox: ENABLED', 'success');
+            } else {
+                yesBtn.className = 'btn-success';
+                noBtn.className = 'btn-secondary sandbox-inactive';
+                updateSandboxStatus('OFF');
+                addLog('⚠️ Sandbox: DISABLED', 'warning');
+            }
+        }
+        
+        // Notification System
+        function showNotification(message, type = 'info') {
+            document.querySelectorAll('.notification').forEach(el => el.remove());
+            
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => notification.remove(), 3000);
+        }
+        
+        // Main Stream Loading
+        function loadStream() {
+            try {
+                const streamUrl = document.getElementById('streamUrl').value.trim();
+                const streamType = document.getElementById('streamType').value;
+                const drmType = document.getElementById('drmType').value;
+                const licenseKey = document.getElementById('licenseKey').value.trim();
+                const licenseServer = document.getElementById('licenseServer').value.trim();
+                
+                if (!streamUrl) {
+                    throw new Error('Stream URL is required');
+                }
+                
+                // Get headers configuration
+                const headersConfig = getHeadersConfig();
+                currentState.headersEnabled = headersConfig !== null;
+                updateHeadersStatus(currentState.headersEnabled ? 'ON' : 'OFF');
+                
+                // Stop any active streams
+                stopAllStreams();
+                
+                addLog(`🔄 Loading: ${streamUrl.substring(0, 50)}...`);
+                updateStatus('LOADING...', 'loading');
+                updatePlayerStatus('VIDEO');
+                updateVideoState('Loading');
+                
+                // Show video, hide embed
+                document.getElementById('video-element').style.display = 'block';
+                document.getElementById('embed-player').style.display = 'none';
+                
+                // Detect stream type
+                const detectedType = detectStreamType(streamUrl, streamType);
+                addLog(`📦 Type: ${detectedType.toUpperCase()}`);
+                
+                // Get video element
+                const video = document.getElementById('video-element');
+                
+                // Load based on stream type
+                if (detectedType === 'dash') {
+                    loadDashStream(video, streamUrl, drmType, licenseKey, licenseServer, headersConfig);
+                } else if (detectedType === 'hls') {
+                    loadHlsStream(video, streamUrl, headersConfig);
+                } else {
+                    throw new Error('Unsupported format');
+                }
+                
+                currentMode = 'video';
+                currentState.isPlaying = true;
+                
+            } catch (error) {
+                addLog(`❌ Error: ${error.message}`, 'error');
+                updateStatus('ERROR', 'error');
+                showNotification(`Error: ${error.message}`, 'error');
+            }
+        }
+        
+        function detectStreamType(url, preferredType) {
+            if (preferredType !== 'auto') {
+                return preferredType;
+            }
+            
+            if (url.includes('.mpd')) return 'dash';
+            if (url.includes('.m3u8')) return 'hls';
+            
+            return 'dash';
+        }
+        
+        // DASH Stream Loading dengan Headers
+        function loadDashStream(video, url, drmType, licenseKey, licenseServer, headersConfig) {
+            addLog('🎬 Starting DASH dengan headers...');
+            
+            // Clean up previous DASH player
+            if (dashPlayer) {
+                dashPlayer.destroy();
+                dashPlayer = null;
+            }
+            
+            // Create new DASH player
+            dashPlayer = dashjs.MediaPlayer().create();
+            
+            // Configure headers jika ada
+            if (headersConfig) {
+                dashPlayer.updateSettings({
+                    streaming: {
+                        requestCustomizer: (type, request) => {
+                            if (headersConfig.referrer) {
+                                request.setRequestHeader('Referer', headersConfig.referrer);
+                                request.setRequestHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+                            }
+                            if (headersConfig.origin) {
+                                request.setRequestHeader('Origin', headersConfig.origin);
+                            }
+                            if (headersConfig.userAgent) {
+                                request.setRequestHeader('User-Agent', headersConfig.userAgent);
+                            }
+                            if (headersConfig.contentType) {
+                                request.setRequestHeader('Content-Type', headersConfig.contentType);
+                            }
+                            // Custom headers
+                            if (headersConfig.customHeaders) {
+                                Object.entries(headersConfig.customHeaders).forEach(([key, value]) => {
+                                    request.setRequestHeader(key, value);
+                                });
+                            }
+                            
+                            // Default headers
+                            request.setRequestHeader('Accept', '*/*');
+                            request.setRequestHeader('Accept-Language', 'en-US,en;q=0.9');
+                            request.setRequestHeader('Accept-Encoding', 'gzip, deflate, br');
+                            
+                            return request;
+                        }
+                    }
+                });
+                addLog('🌐 DASH headers configured');
+            }
+            
+            // Configure DRM jika diperlukan
+            if (drmType !== 'none') {
+                const protectionData = {};
+                
+                if (drmType === 'clearkey' && licenseKey) {
+                    const [kid, key] = licenseKey.split(':');
+                    if (kid && key) {
+                        protectionData['org.w3.clearkey'] = {
+                            serverURL: `data:application/json;base64,${btoa(JSON.stringify({
+                                keys: [{kty: 'oct', kid: kid, k: key}]
+                            }))}`
+                        };
+                        addLog('🔑 DRM: ClearKey configured', 'drm');
+                    }
+                } else if (drmType === 'widevine' && licenseServer) {
+                    protectionData['com.widevine.alpha'] = {
+                        serverURL: licenseServer
+                    };
+                    // Tambah headers untuk license request
+                    if (headersConfig) {
+                        protectionData['com.widevine.alpha'].httpRequestHeaders = {
+                            'Referer': headersConfig.referrer || '',
+                            'Origin': headersConfig.origin || '',
+                            'User-Agent': headersConfig.userAgent || ''
+                        };
+                    }
+                    addLog('🔑 DRM: Widevine configured', 'drm');
+                }
+                
+                if (Object.keys(protectionData).length > 0) {
+                    dashPlayer.setProtectionData(protectionData);
+                }
+            }
+            
+            // Initialize player
+            dashPlayer.initialize(video, url, true);
+            
+            // Event listeners
+            dashPlayer.on('streamInitialized', () => {
+                addLog('✅ DASH: Stream initialized');
+                updateStatus('READY', 'ready');
+                updateVideoState('Ready');
+                showNotification('DASH stream ready');
+                
+                // Auto-play
+                video.play().then(() => {
+                    addLog('▶️ Playback started');
+                    updateStatus('PLAYING', 'playing');
+                    updateVideoState('Playing');
+                }).catch(e => {
+                    addLog(`⚠️ Autoplay blocked: ${e.message}`, 'warning');
+                });
+            });
+            
+            dashPlayer.on('playbackPlaying', () => {
+                updateVideoState('Playing');
+            });
+            
+            dashPlayer.on('error', (e) => {
+                addLog(`❌ DASH Error: ${e.error || 'Unknown'}`, 'error');
+                updateStatus('ERROR', 'error');
+                updateVideoState('Error');
+            });
+            
+            // Update time display periodically
+            setInterval(updateCurrentTime, 500);
+        }
+        
+        // HLS Stream Loading dengan Headers
+        function loadHlsStream(video, url, headersConfig) {
+            addLog('🎬 Starting HLS dengan headers...');
+            
+            // Clean up previous HLS
+            if (hlsPlayer) {
+                hlsPlayer.destroy();
+                hlsPlayer = null;
+            }
+            
+            if (Hls.isSupported()) {
+                // Konfigurasi HLS dengan headers
+                const hlsConfig = {
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                    backBufferLength: 90
+                };
+                
+                // Tambah xhrSetup untuk headers
+                if (headersConfig) {
+                    hlsConfig.xhrSetup = function(xhr, xhrUrl) {
+                        if (headersConfig.referrer) {
+                            xhr.setRequestHeader('Referer', headersConfig.referrer);
+                        }
+                        if (headersConfig.origin) {
+                            xhr.setRequestHeader('Origin', headersConfig.origin);
+                        }
+                        if (headersConfig.userAgent) {
+                            xhr.setRequestHeader('User-Agent', headersConfig.userAgent);
+                        }
+                        if (headersConfig.contentType) {
+                            xhr.setRequestHeader('Content-Type', headersConfig.contentType);
+                        }
+                        // Custom headers
+                        if (headersConfig.customHeaders) {
+                            Object.entries(headersConfig.customHeaders).forEach(([key, value]) => {
+                                xhr.setRequestHeader(key, value);
+                            });
+                        }
+                        
+                        // Default headers
+                        xhr.setRequestHeader('Accept', '*/*');
+                        xhr.setRequestHeader('Accept-Language', 'en-US,en;q=0.9');
+                    };
+                    addLog('🌐 HLS headers configured');
+                }
+                
+                hlsPlayer = new Hls(hlsConfig);
+                
+                hlsPlayer.loadSource(url);
+                hlsPlayer.attachMedia(video);
+                
+                hlsPlayer.on(Hls.Events.MANIFEST_PARSED, () => {
+                    addLog('✅ HLS: Manifest parsed');
+                    updateStatus('READY', 'ready');
+                    updateVideoState('Ready');
+                    showNotification('HLS stream ready');
+                    
+                    video.play().then(() => {
+                        addLog('▶️ Playback started');
+                        updateStatus('PLAYING', 'playing');
+                        updateVideoState('Playing');
+                    }).catch(e => {
+                        addLog(`⚠️ Autoplay blocked: ${e.message}`, 'warning');
+                    });
+                });
+                
+                hlsPlayer.on(Hls.Events.ERROR, (event, data) => {
+                    if (data.fatal) {
+                        addLog(`❌ HLS Error: ${data.details}`, 'error');
+                        updateStatus('ERROR', 'error');
+                        updateVideoState('Error');
+                    }
+                });
+                
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // Native HLS (limited header support)
+                video.src = url;
+                video.addEventListener('loadedmetadata', () => {
+                    addLog('✅ Native HLS loaded');
+                    updateStatus('READY', 'ready');
+                    updateVideoState('Ready');
+                    video.play();
+                });
+                addLog('⚠️ Native HLS: Limited header support', 'warning');
+            } else {
+                throw new Error('HLS not supported');
+            }
+            
+            // Update time display
+            setInterval(updateCurrentTime, 500);
+        }
+        
+        // Embed Stream dengan Headers
+        function loadEmbedStream() {
+            try {
+                const embedUrl = document.getElementById('embedUrl').value.trim();
+                const embedReferrer = document.getElementById('embedReferrer').value.trim();
+                
+                if (!embedUrl) {
+                    throw new Error('Embed URL required');
+                }
+                
+                if (!embedUrl.startsWith('http')) {
+                    throw new Error('URL must start with http:// or https://');
+                }
+                
+                // Stop any video streams
+                stopAllStreams();
+                
+                addLog(`🔄 Loading embed: ${embedUrl}`);
+                updateStatus('LOADING...', 'loading');
+                updatePlayerStatus('EMBED');
+                
+                // Hide video, show embed
+                document.getElementById('video-element').style.display = 'none';
+                const embedPlayer = document.getElementById('embed-player');
+                embedPlayer.style.display = 'block';
+                
+                // Get headers config
+                const headersConfig = getHeadersConfig();
+                
+                // Configure sandbox dan headers
+                if (currentState.isSandbox) {
+                    embedPlayer.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-presentation');
+                    embedPlayer.setAttribute('referrerpolicy', 'no-referrer');
+                    embedPlayer.setAttribute('allow', 'autoplay; fullscreen; encrypted-media');
+                    
+                    // Set referrer via srcdoc jika perlu
+                    if (embedReferrer || headersConfig?.referrer) {
+                        const referrer = embedReferrer || headersConfig.referrer;
+                        embedPlayer.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+                        // Create iframe dengan custom headers via srcdoc
+                        const srcdoc = `
+                            <!DOCTYPE html>
+                            <html>
+                            <head>
+                                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                                <base href="${referrer}">
+                                <script>
+                                    // Inject custom headers via fetch API
+                                    Object.defineProperty(document, 'referrer', {
+                                        get: function() { return '${referrer}'; }
+                                    });
+                                <\/script>
+                            </head>
+                            <body style="margin:0;padding:0;overflow:hidden">
+                                <iframe src="${embedUrl}" 
+                                    style="width:100%;height:100%;border:none;" 
+                                    allow="autoplay; fullscreen; encrypted-media"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </body>
+                            </html>
+                        `;
+                        embedPlayer.srcdoc = srcdoc;
+                        addLog('🛡️ Embed dengan custom referrer', 'drm');
+                    }
+                    
+                    addLog('🛡️ Sandbox mode active', 'drm');
+                } else {
+                    embedPlayer.removeAttribute('sandbox');
+                    // Gunakan referrer dari config atau input khusus
+                    if (embedReferrer || headersConfig?.referrer) {
+                        embedPlayer.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+                        addLog(`🌐 Using referrer: ${embedReferrer || headersConfig.referrer}`);
+                    } else {
+                        embedPlayer.setAttribute('referrerpolicy', 'origin');
+                    }
+                    embedPlayer.setAttribute('allow', 'autoplay; fullscreen');
+                    addLog('🌐 Normal embed mode');
+                }
+                
+                // Load embed (jika tidak pakai srcdoc)
+                if (!embedPlayer.srcdoc) {
+                    embedPlayer.src = embedUrl;
+                }
+                
+                embedPlayer.onload = () => {
+                    addLog('✅ Embed loaded', 'success');
+                    updateStatus('PLAYING', 'playing');
+                    showNotification('Embed loaded');
+                };
+                
+                embedPlayer.onerror = () => {
+                    addLog('❌ Failed to load embed', 'error');
+                    updateStatus('ERROR', 'error');
+                };
+                
+                currentMode = 'embed';
+                currentState.isPlaying = true;
+                
+            } catch (error) {
+                addLog(`❌ Error: ${error.message}`, 'error');
+                updateStatus('ERROR', 'error');
+                showNotification(`Error: ${error.message}`, 'error');
+            }
+        }
+        
+        function stopEmbedStream() {
+            const embedPlayer = document.getElementById('embed-player');
+            embedPlayer.style.display = 'none';
+            embedPlayer.src = '';
+            embedPlayer.srcdoc = '';
+            
+            // Show video
+            document.getElementById('video-element').style.display = 'block';
+            
+            addLog('⏹️ Embed stopped');
+            updateStatus('READY', 'ready');
+            updatePlayerStatus('VIDEO');
+            currentMode = null;
+            currentState.isPlaying = false;
+        }
+        
+        // Stop All Streams
+        function stopAllStreams() {
+            // Stop DASH
+            if (dashPlayer) {
+                dashPlayer.destroy();
+                dashPlayer = null;
+                addLog('⏹️ DASH stopped');
+            }
+            
+            // Stop HLS
+            if (hlsPlayer) {
+                hlsPlayer.destroy();
+                hlsPlayer = null;
+                addLog('⏹️ HLS stopped');
+            }
+            
+            // Stop video
+            const video = document.getElementById('video-element');
+            video.pause();
+            video.src = '';
+            
+            // Stop embed if active
+            if (currentMode === 'embed') {
+                stopEmbedStream();
+            }
+            
+            addLog('⏹️ All stopped');
+            updateStatus('READY', 'ready');
+            updatePlayerStatus('VIDEO');
+            updateVideoState('Idle');
+            currentMode = null;
+            currentState.isPlaying = false;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            addLog('🎬 Player dengan Header Support ready');
+            updateStatus('READY', 'ready');
+            updateHeadersStatus('ON');
+            
+            // Initialize sandbox
+            setSandboxMode(true);
+            
+            // Load default preset
+            loadPreset('dash_open');
+            
+            // Setup video event listeners
+            const video = document.getElementById('video-element');
+            video.addEventListener('playing', () => {
+                updateVideoState('Playing');
+            });
+            video.addEventListener('pause', () => {
+                updateVideoState('Paused');
+            });
+            video.addEventListener('ended', () => {
+                updateVideoState('Ended');
+            });
+            video.addEventListener('error', (e) => {
+                updateVideoState(`Error: ${video.error?.code || 'Unknown'}`);
+            });
+            
+            // Auto-update time
+            setInterval(updateCurrentTime, 1000);
+            
+            // Enable headers by default
+            document.getElementById('enableHeaders').checked = true;
+        });
+    </script>
+</body>
+</html>
