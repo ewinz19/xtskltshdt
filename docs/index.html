@@ -878,7 +878,7 @@
             }, 10000);
 
 
-               if (type === 'embed') {
+       /*        if (type === 'embed') {
     // ✅ COBA SANDBOX DULU UNTUK DOMAIN TERTENTU
     if (url.includes('detik.com') || url.includes('cnnindonesia.com')) {
         loadEmbedSandbox(url, loadTimeout);
@@ -891,7 +891,28 @@
 } else {
     // Fallback to direct video
     loadDirectVideo(url, loadTimeout);
+}*/
+
+       if (type === 'embed') {
+    // ✅ SEMUA DOMAIN YANG PAKAI IFRAME HLS MASUK SANDBOX
+    const sandboxDomains = [
+        'detik.com',
+        'cnnindonesia.com',
+        'live.cnnindonesia.com'
+    ];
+    
+    const needsSandbox = sandboxDomains.some(domain => url.includes(domain));
+    
+    if (needsSandbox) {
+        loadEmbedSandbox(url, loadTimeout);
+    } else {
+        loadEmbedStream(url, loadTimeout); // Normal untuk RCTI+
+    }
 }
+
+
+
+        
         }
         
         function stopCurrentStream() {
