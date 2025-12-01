@@ -839,7 +839,7 @@
         function switchChannel(channel, url, type) {
             // Reset retry count
             currentState.retryCount = 0;
-            
+            stopCurrentStream();
             // Update connection status
             connectionStatus.textContent = 'Connecting...';
             connectionStatus.className = 'status-value connecting';
@@ -874,6 +874,32 @@
                 loadDirectVideo(url, loadTimeout);
             }
         }
+        
+        function stopCurrentStream() {
+    console.log('Stopping current stream with audio...');
+    
+    // ✅ PAUSE + MUTE + HIDE
+    if (videoPlayer) {
+        videoPlayer.pause();
+        videoPlayer.muted = true; // ✅ MATIKAN AUDIO
+        videoPlayer.style.display = 'none';
+    }
+    
+    // ✅ EMBED - TIDAK BISA CONTROL AUDIO, TAPI HIDE
+    embedPlayer.style.display = 'none';
+    
+    // ✅ HLS.js - STOP LOAD
+    if (currentState.player && Hls.isSupported()) {
+        currentState.player.stopLoad();
+    }
+    
+    // ✅ UPDATE STATE
+    currentState.isMuted = true;
+    
+    console.log('Stream and audio stopped');
+}
+        
+        
 
         function loadEmbedStream(url, timeout) {
             // Hide video player, show embed player
