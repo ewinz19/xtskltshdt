@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HLS Debug Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body { font-family: Arial; margin: 20px; background: #1a1a1a; color: white; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .input-group { margin: 10px 0; }
+        label { display: block; margin: 5px 0; color: #4fc3f7; }
+        input, select, button { 
+            width: 100%; padding: 10px; margin: 5px 0; 
+            border: 1px solid #444; background: #2a2a2a; color: white; 
+        }
+        button { background: #e74c3c; border: none; cursor: pointer; }
+        button:hover { background: #c0392b; }
+        .player { width: 100%; height: 400px; background: #000; margin: 20px 0; }
+        .log { 
+            background: #000; padding: 10px; height: 200px; overflow-y: scroll; 
+            border: 1px solid #444; font-family: monospace; font-size: 12px;
+        }
+        .success { color: #2ecc71; }
+        .error { color: #e74c3c; }
+        .warning { color: #f39c12; }
+        .info { color: #3498db; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 HLS Debug Player</h1>
+        
+        <div class="input-group">
+            <label>Stream URL:</label>
+            <input type="text" id="streamUrl" value="https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2102817461_b744100_sleng.m3u8" placeholder="Masukkan URL stream">
+        </div>
+
+        <div class="input-group">
+            <label>Stream Type:</label>
+            <select id="streamType">
+                <option value="hls">HLS (Video Element)</option>
+                <option value="embed">Embed (Iframe)</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Origin Header:</label>
+            <input type="text" id="originHeader" value="https://video.detik.com" placeholder="Origin header">
+        </div>
+
+        <div class="input-group">
+            <label>Referer Header:</label>
+            <input type="text" id="refererHeader" value="https://video.detik.com" placeholder="Referer header">
+        </div>
+
+        <button onclick="loadStream()">🎬 Load Stream</button>
+        <button onclick="clearLog()">🗑️ Clear Log</button>
+
+        <div class="player">
+            <video id="videoPlayer" controls style="width:100%;height:100%;display:none;"></video>
+            <iframe id="embedPlayer" style="width:100%;height:100%;display:none;border:none;"></iframe>
+        </div>
+
+        <h3>Debug Log:</h3>
+        <div id="log" class="log"></div>
+    </div>
+
+    <script>
+        let hlsPlayer = null;
+        const videoPlayer = document.getElementById('videoPlayer');
+        const embedPlayer = document.getElementById('embedPlayer');
+        const logElement = document.getElementById('log');
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `<div class="${type}">[${timestamp}] ${message}</div>`;
+            logElement.innerHTML += logEntry;
+            logElement.scrollTop = logElement.scrollHeight;
+            console.log(`[${type}] ${message}`);
+        }
+
+        function clearLog() {
+            logElement.innerHTML = '';
+        }
+
+        function loadStream() {
+            const streamUrl = document.getElementById('streamUrl').value;
+            const streamType = document.getElementById('streamType').value;
+            const origin = document.getElementById('originHeader').value;
+            const referer = document.getElementById('refererHeader').value;
+
+            clearLog();
+            log(`Memuat stream: ${streamUrl}`, 'info');
+            log(`Type: ${streamType}, Origin: ${origin}, Referer: ${referer}`, 'info');
+
+            // Stop previous stream
+            if (hlsPlayer) {
+                hlsPlayer.destroy();
+                hlsPlayer = null;
+            }
+            videoPlayer.style.display = 'none';
+            embedPlayer.style.display = 'none';
+
+            if (streamType === 'hls') {
+                loadHlsStream(streamUrl, origin, referer);
+            } else {
+                loadEmbedStream(streamUrl, origin, referer);
+            }
+        }
+
+        function loadHlsStream(url, origin, referer) {
+            log('Memulai HLS playback...', 'info');
+            
+            if (!Hls.isSupported()) {
+                log('HLS tidak didukung browser', 'error');
+                videoPlayer.style.display = 'block';
+                videoPlayer.src = url;
+                return;
+            }
+
+            hlsPlayer = new Hls({
+                enableWorker: true,
+                lowLatencyMode: true,
+                debug: true,
+                xhrSetup: function(xhr, xhrUrl) {
+                    log(`xhrSetup dipanggil untuk: ${xhrUrl}`, 'success');
+                    log(`Headers sebelum: Origin=${xhr.getRequestHeader('Origin')}, Referer=${xhr.getRequestHeader('Referer')}`, 'info');
+                    
+                    xhr.setRequestHeader('Origin', origin);
+                    xhr.setRequestHeader('Referer', referer);
+                    xhr.setRequestHeader('Cache-Control', 'no-cache');
+                    xhr.setRequestHeader('Accept', '*/*');
+                    
+                    log(`Headers setelah: Origin=${xhr.getRequestHeader('Origin')}, Referer=${xhr.getRequestHeader('Referer')}`, 'info');
+                }
+            });
+
+            hlsPlayer.attachMedia(videoPlayer);
+            videoPlayer.style.display = 'block';
+
+            // Event listeners untuk debug
+            hlsPlayer.on(Hls.Events.MEDIA_ATTACHED, function() {
+                log('HLS media attached', 'success');
+            });
+
+            hlsPlayer.on(Hls.Events.MANIFEST_LOADING, function(event, data) {
+                log(`Loading manifest: ${data.url}`, 'info');
+            });
+
+            hlsPlayer.on(Hls.Events.MANIFEST_PARSED, function(event, data) {
+                log('Manifest parsed, mencoba autoplay...', 'success');
+                videoPlayer.play().catch(e => {
+                    log(`Autoplay dicegah: ${e.message}`, 'warning');
+                });
+            });
+
+            hlsPlayer.on(Hls.Events.LEVEL_LOADING, function(event, data) {
+                log(`Loading level: ${data.url}`, 'info');
+            });
+
+            hlsPlayer.on(Hls.Events.ERROR, function(event, data) {
+                log(`HLS Error: ${data.type} - ${data.details}`, 'error');
+                log(`Fatal: ${data.fatal}, URL: ${data.url}`, 'error');
+                
+                if (data.fatal) {
+                    switch(data.type) {
+                        case Hls.ErrorTypes.NETWORK_ERROR:
+                            log('Network error, mencoba recover...', 'warning');
+                            hlsPlayer.startLoad();
+                            break;
+                        case Hls.ErrorTypes.MEDIA_ERROR:
+                            log('Media error, mencoba recover...', 'warning');
+                            hlsPlayer.recoverMediaError();
+                            break;
+                        default:
+                            log('Cannot recover error', 'error');
+                            break;
+                    }
+                }
+            });
+
+            log('Memuat source HLS...', 'info');
+            hlsPlayer.loadSource(url);
+        }
+
+        function loadEmbedStream(url, origin, referer) {
+            log('Memulai Embed playback...', 'info');
+            
+            // Coba berbagai teknik bypass
+            embedPlayer.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-presentation');
+            embedPlayer.setAttribute('referrerpolicy', 'no-referrer');
+            embedPlayer.setAttribute('allow', 'autoplay; fullscreen; encrypted-media');
+            
+            embedPlayer.onload = function() {
+                log('Embed loaded successfully', 'success');
+            };
+            
+            embedPlayer.onerror = function() {
+                log('Embed loading error', 'error');
+            };
+
+            embedPlayer.src = url;
+            embedPlayer.style.display = 'block';
+            log('Embed iframe dibuat dengan sandbox attributes', 'info');
+        }
+
+        // Auto-load pada start
+        setTimeout(() => {
+            loadStream();
+        }, 1000);
+    </script>
+</body>
+</html>

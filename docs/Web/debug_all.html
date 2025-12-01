@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Stream Debug Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dashjs@latest/dist/dash.all.min.js"></script>
+    <style>
+        body { font-family: Arial; margin: 20px; background: #1a1a1a; color: white; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .input-group { margin: 10px 0; }
+        label { display: block; margin: 5px 0; color: #4fc3f7; }
+        input, select, button, textarea { 
+            width: 100%; padding: 10px; margin: 5px 0; 
+            border: 1px solid #444; background: #2a2a2a; color: white; 
+        }
+        button { background: #e74c3c; border: none; cursor: pointer; }
+        button:hover { background: #c0392b; }
+        .player { width: 100%; height: 400px; background: #000; margin: 20px 0; }
+        .log { 
+            background: #000; padding: 10px; height: 200px; overflow-y: scroll; 
+            border: 1px solid #444; font-family: monospace; font-size: 12px;
+        }
+        .config-section { 
+            background: #2a2a2a; padding: 15px; margin: 10px 0; border-radius: 5px;
+        }
+        .section-title { color: #f39c12; margin-bottom: 10px; font-weight: bold; }
+        .success { color: #2ecc71; }
+        .error { color: #e74c3c; }
+        .warning { color: #f39c12; }
+        .info { color: #3498db; }
+        .debug { color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Advanced Stream Debug Player</h1>
+        
+        <div class="config-section">
+            <div class="section-title">📺 Stream Configuration</div>
+            <div class="input-group">
+                <label>Stream URL:</label>
+                <input type="text" id="streamUrl" value="https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2102817461_b744100_sleng.m3u8" placeholder="Masukkan URL stream">
+            </div>
+
+            <div class="input-group">
+                <label>Stream Type:</label>
+                <select id="streamType">
+                    <option value="hls">HLS (Video Element)</option>
+                    <option value="dash">MPEG-DASH</option>
+                    <option value="embed">Embed (Iframe)</option>
+                    <option value="direct">Direct Video</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="config-section">
+            <div class="section-title">🔧 HTTP Headers</div>
+            <div class="input-group">
+                <label>User-Agent:</label>
+                <input type="text" id="userAgent" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" placeholder="User-Agent header">
+            </div>
+
+            <div class="input-group">
+                <label>Origin Header:</label>
+                <input type="text" id="originHeader" value="https://video.detik.com" placeholder="Origin header">
+            </div>
+
+            <div class="input-group">
+                <label>Referer Header:</label>
+                <input type="text" id="refererHeader" value="https://video.detik.com" placeholder="Referer header">
+            </div>
+
+            <div class="input-group">
+                <label>Custom Headers (JSON):</label>
+                <textarea id="customHeaders" placeholder='{"X-Custom-Header": "value"}' rows="3">{"Cache-Control": "no-cache", "Accept": "*/*"}</textarea>
+            </div>
+        </div>
+
+        <div class="config-section" id="dashConfig" style="display:none;">
+            <div class="section-title">🔑 DASH DRM Configuration</div>
+            <div class="input-group">
+                <label>DRM License Server URL:</label>
+                <input type="text" id="dashLicenseUrl" placeholder="https://license-server.com/license">
+            </div>
+            <div class="input-group">
+                <label>DRM Headers (JSON):</label>
+                <textarea id="dashLicenseHeaders" placeholder='{"Authorization": "Bearer token"}' rows="3"></textarea>
+            </div>
+            <div class="input-group">
+                <label>DRM Authentication Token:</label>
+                <input type="text" id="dashAuthToken" placeholder="DRM auth token">
+            </div>
+        </div>
+
+        <button onclick="loadStream()">🎬 Load Stream</button>
+        <button onclick="testHeaders()">🔍 Test Headers Only</button>
+        <button onclick="clearLog()">🗑️ Clear Log</button>
+
+        <div class="player">
+            <video id="videoPlayer" controls style="width:100%;height:100%;display:none;"></video>
+            <iframe id="embedPlayer" style="width:100%;height:100%;display:none;border:none;"></iframe>
+        </div>
+
+        <h3>📋 Debug Log:</h3>
+        <div id="log" class="log"></div>
+    </div>
+
+    <script>
+        let hlsPlayer = null;
+        let dashPlayer = null;
+        const videoPlayer = document.getElementById('videoPlayer');
+        const embedPlayer = document.getElementById('embedPlayer');
+        const logElement = document.getElementById('log');
+        const dashConfig = document.getElementById('dashConfig');
+
+        // Toggle DASH config visibility
+        document.getElementById('streamType').addEventListener('change', function() {
+            dashConfig.style.display = this.value === 'dash' ? 'block' : 'none';
+        });
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `<div class="${type}">[${timestamp}] ${message}</div>`;
+            logElement.innerHTML += logEntry;
+            logElement.scrollTop = logElement.scrollHeight;
+            console.log(`[${type}] ${message}`);
+        }
+
+        function clearLog() {
+            logElement.innerHTML = '';
+        }
+
+        function testHeaders() {
+            const streamUrl = document.getElementById('streamUrl').value;
+            const userAgent = document.getElementById('userAgent').value;
+            const origin = document.getElementById('originHeader').value;
+            const referer = document.getElementById('refererHeader').value;
+            const customHeaders = JSON.parse(document.getElementById('customHeaders').value || '{}');
+
+            log('🔍 Testing headers dengan fetch...', 'info');
+            
+            const headers = {
+                'User-Agent': userAgent,
+                'Origin': origin,
+                'Referer': referer,
+                ...customHeaders
+            };
+
+            log(`Request headers: ${JSON.stringify(headers, null, 2)}`, 'debug');
+
+            fetch(streamUrl, { headers })
+                .then(response => {
+                    log(`✅ Response Status: ${response.status} ${response.statusText}`, 'success');
+                    log(`Response headers:`, 'info');
+                    
+                    response.headers.forEach((value, key) => {
+                        log(`  ${key}: ${value}`, 'info');
+                    });
+
+                    if (response.ok) {
+                        return response.text();
+                    } else {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                })
+                .then(data => {
+                    log(`✅ Data received (first 200 chars): ${data.substring(0, 200)}`, 'success');
+                })
+                .catch(error => {
+                    log(`❌ Fetch error: ${error.message}`, 'error');
+                });
+        }
+
+        function loadStream() {
+            const streamUrl = document.getElementById('streamUrl').value;
+            const streamType = document.getElementById('streamType').value;
+            const userAgent = document.getElementById('userAgent').value;
+            const origin = document.getElementById('originHeader').value;
+            const referer = document.getElementById('refererHeader').value;
+            const customHeaders = JSON.parse(document.getElementById('customHeaders').value || '{}');
+
+            clearLog();
+            log(`🎬 Memuat stream: ${streamUrl}`, 'info');
+            log(`Type: ${streamType}, Headers: User-Agent=${userAgent}, Origin=${origin}, Referer=${referer}`, 'debug');
+
+            // Stop previous streams
+            if (hlsPlayer) {
+                hlsPlayer.destroy();
+                hlsPlayer = null;
+            }
+            if (dashPlayer) {
+                dashPlayer.destroy();
+                dashPlayer = null;
+            }
+            videoPlayer.style.display = 'none';
+            embedPlayer.style.display = 'none';
+
+            switch(streamType) {
+                case 'hls':
+                    loadHlsStream(streamUrl, userAgent, origin, referer, customHeaders);
+                    break;
+                case 'dash':
+                    loadDashStream(streamUrl, userAgent, origin, referer, customHeaders);
+                    break;
+                case 'embed':
+                    loadEmbedStream(streamUrl, userAgent, origin, referer, customHeaders);
+                    break;
+                case 'direct':
+                    loadDirectStream(streamUrl, userAgent, origin, referer, customHeaders);
+                    break;
+            }
+        }
+
+        function loadHlsStream(url, userAgent, origin, referer, customHeaders) {
+            log('🚀 Memulai HLS playback...', 'info');
+            
+            if (!Hls.isSupported()) {
+                log('❌ HLS tidak didukung browser', 'error');
+                videoPlayer.style.display = 'block';
+                videoPlayer.src = url;
+                return;
+            }
+
+            hlsPlayer = new Hls({
+                enableWorker: true,
+                lowLatencyMode: true,
+                debug: true,
+                xhrSetup: function(xhr, xhrUrl) {
+                    log(`🔧 xhrSetup dipanggil untuk: ${xhrUrl}`, 'success');
+                    
+                    // Set semua headers
+                    xhr.setRequestHeader('User-Agent', userAgent);
+                    xhr.setRequestHeader('Origin', origin);
+                    xhr.setRequestHeader('Referer', referer);
+                    
+                    // Set custom headers
+                    Object.keys(customHeaders).forEach(key => {
+                        xhr.setRequestHeader(key, customHeaders[key]);
+                    });
+
+                    log(`📨 Headers yang diset: User-Agent, Origin, Referer + ${Object.keys(customHeaders).length} custom headers`, 'debug');
+                }
+            });
+
+            hlsPlayer.attachMedia(videoPlayer);
+            videoPlayer.style.display = 'block';
+
+            // Event listeners untuk debug
+            hlsPlayer.on(Hls.Events.MEDIA_ATTACHED, function() {
+                log('✅ HLS media attached', 'success');
+            });
+
+            hlsPlayer.on(Hls.Events.MANIFEST_LOADING, function(event, data) {
+                log(`📥 Loading manifest: ${data.url}`, 'info');
+            });
+
+            hlsPlayer.on(Hls.Events.MANIFEST_PARSED, function(event, data) {
+                log('✅ Manifest parsed, mencoba autoplay...', 'success');
+                videoPlayer.play().catch(e => {
+                    log(`⚠️ Autoplay dicegah: ${e.message}`, 'warning');
+                });
+            });
+
+            hlsPlayer.on(Hls.Events.ERROR, function(event, data) {
+                log(`❌ HLS Error: ${data.type} - ${data.details}`, 'error');
+                log(`Fatal: ${data.fatal}, URL: ${data.url}`, 'error');
+            });
+
+            log('📡 Memuat source HLS...', 'info');
+            hlsPlayer.loadSource(url);
+        }
+
+        function loadDashStream(url, userAgent, origin, referer, customHeaders) {
+            log('🚀 Memulai DASH playback...', 'info');
+            
+            if (!dashjs.supportsMediaSource()) {
+                log('❌ DASH tidak didukung browser', 'error');
+                return;
+            }
+
+            videoPlayer.style.display = 'block';
+
+            const config = {
+                debug: {
+                    logLevel: dashjs.Debug.LOG_LEVEL_DEBUG
+                },
+                streaming: {
+                    delay: {
+                        liveDelay: 3
+                    }
+                }
+            };
+
+            dashPlayer = dashjs.MediaPlayer().create();
+            dashPlayer.initialize(videoPlayer, url, true);
+            dashPlayer.updateSettings(config);
+
+            // Setup DRM jika dikonfigurasi
+            const licenseUrl = document.getElementById('dashLicenseUrl').value;
+            const licenseHeaders = JSON.parse(document.getElementById('dashLicenseHeaders').value || '{}');
+            const authToken = document.getElementById('dashAuthToken').value;
+
+            if (licenseUrl) {
+                const drmConfig = {
+                    'com.widevine.alpha': {
+                        serverURL: licenseUrl,
+                        httpRequestHeaders: {
+                            'User-Agent': userAgent,
+                            'Origin': origin,
+                            'Referer': referer,
+                            ...licenseHeaders,
+                            ...(authToken && { 'Authorization': `Bearer ${authToken}` })
+                        }
+                    },
+                    'com.microsoft.playready': {
+                        serverURL: licenseUrl,
+                        httpRequestHeaders: {
+                            'User-Agent': userAgent,
+                            'Origin': origin,
+                            'Referer': referer,
+                            ...licenseHeaders,
+                            ...(authToken && { 'Authorization': `Bearer ${authToken}` })
+                        }
+                    }
+                };
+
+                dashPlayer.setProtectionData(drmConfig);
+                log('🔑 DRM configuration applied', 'success');
+            }
+
+            // Event listeners
+            dashPlayer.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, function() {
+                log('✅ DASH stream initialized', 'success');
+            });
+
+            dashPlayer.on(dashjs.MediaPlayer.events.ERROR, function(e) {
+                log(`❌ DASH Error: ${e.error} - ${e.message}`, 'error');
+            });
+
+            log('📡 DASH player initialized', 'success');
+        }
+
+        function loadEmbedStream(url, userAgent, origin, referer, customHeaders) {
+            log('🚀 Memulai Embed playback...', 'info');
+            
+            // Coba berbagai teknik bypass
+            embedPlayer.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-presentation');
+            embedPlayer.setAttribute('referrerpolicy', 'no-referrer');
+            embedPlayer.setAttribute('allow', 'autoplay; fullscreen; encrypted-media');
+            
+            embedPlayer.onload = function() {
+                log('✅ Embed loaded successfully', 'success');
+            };
+            
+            embedPlayer.onerror = function() {
+                log('❌ Embed loading error', 'error');
+            };
+
+            embedPlayer.src = url;
+            embedPlayer.style.display = 'block';
+            log('🔧 Embed iframe dibuat dengan sandbox attributes', 'info');
+        }
+
+        function loadDirectStream(url, userAgent, origin, referer, customHeaders) {
+            log('🚀 Memulai Direct Video playback...', 'info');
+            
+            videoPlayer.style.display = 'block';
+            videoPlayer.src = url;
+            
+            videoPlayer.addEventListener('loadeddata', function() {
+                log('✅ Direct video loaded', 'success');
+                videoPlayer.play().catch(e => {
+                    log(`⚠️ Autoplay dicegah: ${e.message}`, 'warning');
+                });
+            });
+            
+            videoPlayer.addEventListener('error', function(e) {
+                log(`❌ Video error: ${e.message}`, 'error');
+            });
+        }
+
+        // Auto-load pada start
+        setTimeout(() => {
+            loadStream();
+        }, 1000);
+    </script>
+</body>
+</html>
