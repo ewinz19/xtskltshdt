@@ -908,13 +908,16 @@
     } else {
         loadEmbedStream(url, loadTimeout); // Normal untuk RCTI+
     }
-}
+     } else if (type === 'hls') {
+    // Use HLS.js for M3U8 streams
+    loadHlsStream(url, loadTimeout);
+} else {
+    // Fallback to direct video
+    loadDirectVideo(url, loadTimeout);
 
-
-
-        
-        }
-        
+           
+   }  
+        }       
         function stopCurrentStream() {
     console.log('Stopping current stream with audio...');
     
