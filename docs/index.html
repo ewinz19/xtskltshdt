@@ -615,7 +615,7 @@
                             <div class="channel-name">My Cinema Asia</div>
                             <div class="channel-quality">HLS</div>
                              </div>
-                              <div class="channel-btn  live" data-channel="myKidz" data-type="Embed" data-url="https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8">
+                              <div class="channel-btn  live" data-channel="myKidz" data-type="hls" data-url="https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8">
                             <div class="channel-icon">😹</div>
                             <div class="channel-name">MyKidz</div>
                             <div class="channel-quality">HLS</div>
@@ -770,17 +770,33 @@
                     lowLatencyMode: true,
                     backBufferLength: 90,
                     debug: false,
-
-                   xhrSetup: function(xhr, url) {
-    // Headers seperti OTT player
-   // xhr.setRequestHeader('Referer', 'https://20.video.detik.com/');
-    xhr.setRequestHeader('Origin', 'https://m.rctiplus.com/');
-   // xhr.setRequestHeader('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36');
+                    
+                    xhrSetup: function(xhr, url) {
+    // ✅ SET ORIGIN BERDASARKAN URL
+    if (url.includes('rctiplus.com')) {
+        xhr.setRequestHeader('Origin', 'https://m.rctiplus.com/');
+        xhr.setRequestHeader('Referer', 'https://m.rctiplus.com/');
+    }
+    else if (url.includes('detik.com') || url.includes('video.detik.com')) {
+        xhr.setRequestHeader('Origin', 'https://20.detik.com/');
+        xhr.setRequestHeader('Referer', 'https://20.detik.com/');
+    }
+    else if (url.includes('dens.tv')) {
+        xhr.setRequestHeader('Origin', 'https://dens.tv/');
+        xhr.setRequestHeader('Referer', 'https://dens.tv/');
+    }
+    else if (url.includes('cnnindonesia.com')) {
+        xhr.setRequestHeader('Origin', 'https://m.rctiplus.com/');
+        xhr.setRequestHeader('Referer', 'https://m.rctiplus.com/');
+    }
+    
+    // Headers umum untuk semua
+    xhr.setRequestHeader('Cache-Control', 'no-cache');
+    xhr.setRequestHeader('Accept-Language', 'en-US,en;q=0.9');                    
     xhr.setRequestHeader('Accept', '*/*');
-    xhr.setRequestHeader('Accept-Language', 'en-US,en;q=0.9');
-    //xhr.setRequestHeader('Sec-Fetch-Mode', 'cors');
-    //xhr.setRequestHeader('Sec-Fetch-Site', 'cross-site');
 }
+
+         /* sekarang ,masa lalu dan detik2 waktu berikut nya */          
                     
                 });
                 
