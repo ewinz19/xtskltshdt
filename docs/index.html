@@ -652,10 +652,10 @@
                             <div class="channel-name">TRANS TV</div>
                             <div class="channel-quality">HLS</div>
                         </div>
-                        <div class="channel-btn live" data-channel="trans7" data-type="embed" data-url="https://video.detik.com/trans7/smil:trans7.smil/chunklist_w49843411_b744100_sleng.m3u8">
+                        <div class="channel-btn live" data-channel="trans7" data-type="hls" data-url="https://video.detik.com/trans7/smil:trans7.smil/chunklist_w49843411_b744100_sleng.m3u8">
                             <div class="channel-icon">📺</div>
                             <div class="channel-name">TRANS 7</div>
-                            <div class="channel-quality">Embed</div>
+                            <div class="channel-quality">HLS</div>
                         </div>
                     </div>
                 </div>
@@ -779,7 +779,7 @@
         xhr.setRequestHeader('Referer', 'https://m.rctiplus.com/');
     }
     else if (url.includes('detik.com') || url.includes('video.detik.com')) {
-        xhr.setRequestHeader('Origin', 'https://20.detik.com/');
+        xhr.setRequestHeader('Origin', 'video.detik.com');
         xhr.setRequestHeader('Referer', 'https://20.detik.com/');
     }
     else if (url.includes('dens.tv')) {
@@ -798,7 +798,7 @@
 
          /* sekarang ,masa lalu dan detik2 waktu berikut nya */          
                     
-                });
+});                
                 
                 currentState.player.attachMedia(videoPlayer);
                 currentState.player.on(Hls.Events.MEDIA_ATTACHED, function() {
