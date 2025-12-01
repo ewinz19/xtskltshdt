@@ -782,8 +782,8 @@
         xhr.setRequestHeader('Referer', 'https://20.detik.com/');
     }
     else if (url.includes('dens.tv')) {
-        //xhr.setRequestHeader('Origin', 'https://dens.tv/');
-       // xhr.setRequestHeader('Referer', 'https://dens.tv/');
+        xhr.setRequestHeader('Origin', 'https://dens.tv/');
+        xhr.setRequestHeader('Referer', 'https://dens.tv/');
     }
     else if (url.includes('cnnindonesia.com')) {
         xhr.setRequestHeader('Origin', 'https://m.rctiplus.com/');
@@ -791,7 +791,6 @@
     }
     
     // Headers umum untuk semua
-    xhr.setRequestHeader('Cache-Control', 'no-cache');
     xhr.setRequestHeader('Accept-Language', 'en-US,en;q=0.9');                    
     xhr.setRequestHeader('Accept', '*/*');
 }
