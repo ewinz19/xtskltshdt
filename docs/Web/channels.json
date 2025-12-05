@@ -66,7 +66,7 @@
     {
       "id": "gtv",
       "name": "GTV",
-      "icon": "⚽",
+      "icon": "📽️",
       "type": "embed",
       "url": "https://embed.rctiplus.com/live/gtv/inewsid",
       "quality": "Embed",
@@ -114,6 +114,51 @@
       "icon": "📺",
       "type": "embed",
       "url": "https://video.detik.com/trans7/smil:trans7.smil/chunklist_w49843411_b744100_sleng.m3u8",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": "Sharjah Sports ",
+      "name": "Sharjah Sports ",
+      "icon": "⚽",
+      "type": "embed",
+      "url": "https://svs.itworkscdn.net/smc4sportslive/smc4.smil/playlist.m3u8",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": "omansport",
+      "name": "OMAN Sport",
+      "icon": "🏹",
+      "type": "embed",
+      "url": "https://partneta.cdn.mgmlcdn.com/omsport/smil:omsport.stream.smil/chunklist.m3u8",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": ",AlkassFourHD ",
+      "name": ",Alkass Four HD ",
+      "icon": "⚽",
+      "type": "embed",
+      "url": "https://streamer3.qna.org.qa/148164621_live/148164621_296.sdp/playlist.m3u8",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": ",AlkassTwo ",
+      "name": ",Alkass Two ",
+      "icon": "⚽",
+      "type": "embed",
+      "url": "https://streamer3.qna.org.qa/148164528_live/148164528_296.sdp/playlist.m3u8",
+      "quality": "Embed",
+      "category": "tv"
+    },
+   {
+      "id": ",AlkassThree ",
+      "name": ",Alkass Three ",
+      "icon": "⚽",
+      "type": "embed",
+      "url": "https://streamer3.qna.org.qa/148164621_live/148164621_296.sdp/playlist.m3u8",
       "quality": "Embed",
       "category": "tv"
     },
