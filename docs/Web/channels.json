@@ -1,0 +1,136 @@
+{
+  "channels": [
+    {
+      "id": "mekah",
+      "name": "Mekahq",
+      "icon": "🕋",
+      "type": "hls",
+      "url": "https://op-group1-swiftservesd-1.dens.tv/s/s28/02.m3u8",
+      "quality": "HLS",
+      "category": "tv"
+    },
+    {
+      "id": "indosiar",
+      "name": "INDOSIAR",
+      "icon": "😮‍💨",
+      "type": "hls",
+      "url": "https://op-group1-swiftservehd-1.dens.tv/h/h235/02.m3u8",
+      "quality": "HLS",
+      "category": "tv"
+    },
+    {
+      "id": "sctv",
+      "name": "SCTV",
+      "icon": "🥰",
+      "type": "hls",
+      "url": "https://op-group1-swiftservehd-1.dens.tv/h/h217/02.m3u8",
+      "quality": "HLS",
+      "category": "tv"
+    },
+    {
+      "id": "btv",
+      "name": "BTV",
+      "icon": "😁",
+      "type": "hls",
+      "url": "https://op-group1-swiftservehd-1.dens.tv/h/h210/02.m3u8",
+      "quality": "HLS",
+      "category": "tv"
+    },
+    {
+      "id": "my-cinema-asia",
+      "name": "My Cinema Asia",
+      "icon": "🫥",
+      "type": "hls",
+      "url": "https://op-group1-swiftservehd-1.dens.tv/h/h193/index.m3u8",
+      "quality": "HLS",
+      "category": "tv"
+    },
+    {
+      "id": "mykidz",
+      "name": "MyKidz",
+      "icon": "😹",
+      "type": "hls",
+      "url": "https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8",
+      "quality": "HLS",
+      "category": "tv"
+    },
+    {
+      "id": "rcti",
+      "name": "RCTI",
+      "icon": "🌟",
+      "type": "embed",
+      "url": "https://embed.rctiplus.com/live/rcti/inewsid",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": "gtv",
+      "name": "GTV",
+      "icon": "⚽",
+      "type": "embed",
+      "url": "https://embed.rctiplus.com/live/gtv/inewsid",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": "mnctv",
+      "name": "MNCTV",
+      "icon": "🎪",
+      "type": "embed",
+      "url": "https://embed.rctiplus.com/live/mnctv/inewsid",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": "inewstv",
+      "name": "iNews TV",
+      "icon": "📰",
+      "type": "embed",
+      "url": "https://embed.rctiplus.com/live/inews/inewsid",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": "cnn",
+      "name": "CNN TV",
+      "icon": "🌍",
+      "type": "embed",
+      "url": "https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/chunklist_w663703737_b384000_sleng.m3u8",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": "transtv",
+      "name": "TRANS TV",
+      "icon": "🎭",
+      "type": "embed",
+      "url": "https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2102817461_b744100_sleng.m3u8",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": "trans7",
+      "name": "TRANS 7",
+      "icon": "📺",
+      "type": "embed",
+      "url": "https://video.detik.com/trans7/smil:trans7.smil/chunklist_w49843411_b744100_sleng.m3u8",
+      "quality": "Embed",
+      "category": "tv"
+    },
+    {
+      "id": "debug",
+      "name": "DEBUG",
+      "icon": "💬",
+      "type": "link",
+      "url": "Web/debug_all.html",
+      "quality": "Link",
+      "category": "utility"
+    }
+  ],
+  "settings": {
+    "defaultChannel": "mekah",
+    "defaultType": "hls",
+    "autoPlay": true,
+    "showCategories": true
+  }
+}
