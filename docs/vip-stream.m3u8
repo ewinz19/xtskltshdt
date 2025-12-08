@@ -843,5 +843,10 @@ https://storage.googleapis.com/shaka-demo-assets/sintel-widevine/dash.mpd
 #KODIPROP:inputstream.adaptive.license_key=https://widevine-proxy.appspot.com/proxy
 https://cdn.bitmovin.com/content/assets/art-of-motion-dash-hls-progressive/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd
 
-
+#EXTINF:-1 ,tes widevine tes 7
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.stream_headers=user-agent=Xstream XGO/1.22 (Linux;Android 9) ExoPlayerLib/2.10.5
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://drm-widevine-licensing.axtest.net/AcquireLicense
+https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_1080p_Main_Profile.mpd
 ###ewinz 2025-12-09 05-01.25
