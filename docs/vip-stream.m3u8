@@ -907,4 +907,26 @@ https://cdn160.fantasab.com/data/3/D6/692e800d1bf61/692e800d1bf61720.m3u8
 #KODIPROP:inputstream.adaptive.license_key=https://proxy.uat.widevine.com/proxy?provider=widevine_test
 https://storage.googleapis.com/wvmedia/cenc/h264/tears/tears.mpd
 
+#EXTINF:-1 ,tes widevine shaka
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.stream_headers=user-agent=Xstream XGO/1.22 (Linux;Android 9) ExoPlayerLib/2.10.5
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cwip-shaka-proxy.appspot.com/no_auth
+https://storage.googleapis.com/shaka-demo-assets/angel-one-widevine/dash.mpd
+
+#EXTINF:-1 ,tes widevine shaka 2
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.stream_headers=user-agent=Xstream XGO/1.22 (Linux;Android 9) ExoPlayerLib/2.10.5
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cwip-shaka-proxy.appspot.com/no_auth
+https://storage.googleapis.com/shaka-demo-assets/sintel-widevine/dash.mpd
+
+#EXTINF:-1 ,tes widevine bitmovin
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.stream_headers=user-agent=Xstream XGO/1.22 (Linux;Android 9) ExoPlayerLib/2.10.5
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://widevine-proxy.appspot.com/proxy
+https://cdn.bitmovin.com/content/assets/art-of-motion-dash-hls-progressive/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd
+
+
 ###ewinz 2025-12-09 03-31.25
