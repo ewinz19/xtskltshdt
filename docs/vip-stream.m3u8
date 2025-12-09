@@ -533,8 +533,13 @@ https://a116aivottlinear-a.akamaihd.net/OTTB/pdx-nitro/live/clients/dash/enc/rwc
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key={"3a9c1f25f4e001a64a99edb452117c88":"9fb744b2e1ff54a1b7a9702f5db8d8e1","7ef57f7f3e8cf0efe4f3d5772a7cbb35":"0ac6d617095fbe0ca7f4c9ae72fa5f51"}
+#KODIPROP:inputstream.adaptive.license_key=3a9c1f25f4e001a64a99edb452117c88:9fb744b2e1ff54a1b7a9702f5db8d8e1
 https://a190aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/ampfzrmpam/out/v1/e08f3866c80040f2bc494cb48ebc7bce/cenc.mpd
+
+
+
+######,"7ef57f7f3e8cf0efe4f3d5772a7cbb35":"0ac6d617095fbe0ca7f4c9ae72fa5f51"}
+
 
 #EXTINF:-1 tvg-id="disneychannel"  tvg-logo="https://assets.stacktv.ca/wp-content/uploads/2023/09/disney-channel.png" group-title="Kids",Disney Channel
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
@@ -850,4 +855,4 @@ https://cdn.bitmovin.com/content/assets/art-of-motion-dash-hls-progressive/mpds/
 #KODIPROP:inputstream.adaptive.license_key=https://drm-widevine-licensing.axtest.net/AcquireLicense
 https://storage.googleapis.com/shaka-demo-assets/angel-one-widevine/dash.mpd
 
-###ewinz 2025-12-09 21-31.29
+###ewinz 2025-12-09 21-01.23
