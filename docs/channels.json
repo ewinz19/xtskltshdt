@@ -162,15 +162,15 @@
       "quality": "HLS",
       "category": "tv"
     }
-/*    {
-      "id": "debug",
-      "name": "DEBUG",
-      "icon": "💬",
-      "type": "link",
-      "url": "Web/debug_all.html",
-      "quality": "Link",
-      "category": "utility"
-    }*/
+//   {
+ //     "id": "debug",
+ //     "name": "DEBUG",
+  //    "icon": "💬",
+ //     "type": "link",
+ //     "url": "Web/debug_all.html",
+//      "quality": "Link",
+ //     "category": "utility"
+  //  }
   ],
   "settings": {
     "defaultChannel": "mekah",
