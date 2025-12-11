@@ -217,8 +217,12 @@ https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8
 ##########################################       Kids      ##################################################
 #############################################################################################################
 
-
-
+#EXTINF:-1 ,ares tvg-id="MyKidz.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/mykidz.png?raw=true" group-title="Premium"
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+https://cdn4.turboviplay.com/data/692e800d1bf61/692e800d1bf61.m3u8
 
 
 
@@ -230,4 +234,5 @@ https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8
 
 
 ###ewinz 2025-12-11 11-01.14
+
 
