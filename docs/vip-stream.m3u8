@@ -219,11 +219,20 @@ https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8
 
 #EXTINF:-1 ,ares
 #EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#EXTVLCOPT:http-referrer=https://cdn4.turboviplay.com/ 
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 https://cdn4.turboviplay.com/data/692e800d1bf61/692e800d1bf61.m3u8
 
+
+#EXTINF:-1 ,lone samurai
+#EXTVLCOPT:http-user-agent=iTunes-AppleTV/5.0.2 (3; dt:12)
+#EXTVLCOPT:http-referrer=https://cdn4.turboviplay.com/ 
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+https://cdn.turboviplay.com/data/6934955314487/6934955314487.m3u8
 
 
 ######----#####
@@ -234,6 +243,7 @@ https://cdn4.turboviplay.com/data/692e800d1bf61/692e800d1bf61.m3u8
 
 
 ###ewinz 2025-12-11 11-01.14
+
 
 
 
