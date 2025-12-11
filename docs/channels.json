@@ -161,16 +161,16 @@
       "url": "https://streamer3.qna.org.qa/148164621_live/148164621_296.sdp/playlist.m3u8",
       "quality": "HLS",
       "category": "tv"
+    },
+   {
+      "id": "debug",
+      "name": "DEBUG",
+      "icon": "💬",
+      "type": "link",
+      "url": "Web/debug_all.html",
+      "quality": "Link",
+      "category": "utility"
     }
-//   {
- //     "id": "debug",
- //     "name": "DEBUG",
-  //    "icon": "💬",
- //     "type": "link",
- //     "url": "Web/debug_all.html",
-//      "quality": "Link",
- //     "category": "utility"
-  //  }
   ],
   "settings": {
     "defaultChannel": "mekah",
@@ -179,3 +179,9 @@
     "showCategories": true
   }
 }
+
+
+
+
+
+
