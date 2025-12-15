@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -453,7 +454,7 @@
                     <div class="preset-buttons">
                         <button class="preset-btn" onclick="loadPreset('dash_open')">DASH Open</button>
                         <button class="preset-btn" onclick="loadPreset('hls_open')">HLS Open</button>
-                        <button class="preset-btn" onclick="loadPreset('visionplus')">Vision+</button>
+                        <button class="preset-btn" onclick="loadPreset('dash_drm')">DASH KEY</button>
                         <button class="preset-btn" onclick="clearAll()">Clear</button>
                     </div>
                     
@@ -658,14 +659,14 @@
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
                 originHeader: ''
             },
-            'visionplus': {
-                streamUrl: 'https://d2tjypxxy769fn.cloudfront.net/out/v1/b8b9b1d5f80f45649b4a3619291551ab/index.mpd',
+            'dash_drm': {
+                streamUrl: 'https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_ClearKey.mpd',
                 streamType: 'dash',
                 drmType: 'clearkey',
-                licenseKey: '036e85de0bb448eeb21d39ab300da48e:4c6f9b15dfab2a169b2b78a498c4d77d1',
-                httpReferrer: 'https://www.visionplus.id/',
+                licenseKey: 'nrQFDeRLSAKTLifXUIPiZg:FmY0xnWCPCNaSpRG-tUuTQ',
+                httpReferrer: '',
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                originHeader: 'https://www.visionplus.id'
+                originHeader: ''
             }
         };
         
