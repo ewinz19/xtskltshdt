@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konverter Hex KK:k ke Base64 - Dua Output</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #1a2a6c;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        
+        .description {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .input-section, .output-section {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a2a6c;
+            font-size: 1.1rem;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+        
+        textarea:focus {
+            border-color: #1a2a6c;
+            outline: none;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+        }
+        
+        button {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+        
+        .output-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .output-title {
+            font-weight: 600;
+            color: #1a2a6c;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 35px;
+            right: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #3d8b40;
+        }
+        
+        .copy-btn.copied {
+            background: #2e7d32;
+        }
+        
+        .example {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1a2a6c;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .example h3 {
+            color: #1a2a6c;
+            margin-bottom: 10px;
+        }
+        
+        .example code {
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            display: block;
+            margin: 5px 0;
+            word-break: break-all;
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #fff;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .error {
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .output-result {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .output-result:last-child {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            textarea {
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Konverter Hex ke Base64 (Dua Output)</h1>
+            <p class="description">
+                Alat ini mengonversi dua data hex yang dipisahkan dengan titik dua (:) ke format base64 terpisah.
+                Masukkan data hex dalam format "hex1:hex2" dan hasil konversi akan muncul sebagai dua output base64 terpisah.
+            </p>
+        </header>
+        
+        <div class="input-section">
+            <label for="hexInput">Masukkan data hex (format: hex1:hex2):</label>
+            <textarea id="hexInput" placeholder="Contoh: 69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a"></textarea>
+        </div>
+        
+        <div class="button-container">
+            <button id="convertBtn">Konversi ke Base64</button>
+        </div>
+        
+        <div class="output-section">
+            <label>Hasil Konversi:</label>
+            
+            <div id="outputResults">
+                <!-- Output akan ditampilkan di sini -->
+            </div>
+            
+            <div class="error" id="errorMsg">Terjadi kesalahan. Pastikan format input benar (hex1:hex2).</div>
+        </div>
+        
+        <div class="example">
+            <h3>Contoh Format Input:</h3>
+            <p><strong>Format:</strong> <code>hex1:hex2</code></p>
+            <p><strong>Contoh 1:</strong> <code>69646b755f3130303030303030307930:e4a2359b05563399f1d9afce6488724a</code></p>
+            <p><strong>Contoh 2:</strong> <code>0123456789abcdef:fedcba9876543210</code></p>
+            <p><strong>Hasil:</strong> Dua output base64 terpisah akan dihasilkan untuk masing-masing hex.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Konverter Hex ke Base64 - Mendukung dua input terpisah</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hexInput = document.getElementById('hexInput');
+            const outputResults = document.getElementById('outputResults');
+            const convertBtn = document.getElementById('convertBtn');
+            const errorMsg = document.getElementById('errorMsg');
+            
+            // Template untuk output
+            const outputTemplate = (index, hex, base64) => `
+                <div class="output-result">
+                    <div class="output-title">Hex ${index} (${hex.length/2} bytes):</div>
+                    <code style="margin-bottom: 10px; display: block; color: #666; font-size: 0.9rem;">${hex}</code>
+                    
+                    <div class="output-title">Base64 ${index}:</div>
+                    <div class="output-container">
+                        <textarea class="base64-output" readonly>${base64}</textarea>
+                        <button class="copy-btn" data-base64="${base64}">Salin ${index}</button>
+                    </div>
+                </div>
+            `;
+            
+            // Fungsi untuk membersihkan hex (menghapus karakter non-hex)
+            function cleanHex(input) {
+                return input.replace(/[^0-9a-fA-F]/g, '');
+            }
+            
+            // Fungsi untuk mengonversi hex ke base64
+            function hexToBase64(hexString) {
+                // Pastikan panjang hex genap
+                if (hexString.length % 2 !== 0) {
+                    throw new Error('Panjang string hex harus genap');
+                }
+                
+                // Konversi hex ke byte array
+                const bytes = [];
+                for (let i = 0; i < hexString.length; i += 2) {
+                    bytes.push(parseInt(hexString.substr(i, 2), 16));
+                }
+                
+                // Konversi byte array ke string biner
+                const binary = bytes.map(byte => String.fromCharCode(byte)).join('');
+                
+                // Encode ke base64
+                return btoa(binary);
+            }
+            
+            // Fungsi untuk menangani konversi
+            function convertToBase64() {
+                const input = hexInput.value.trim();
+                
+                if (!input) {
+                    showError('Masukkan data hex terlebih dahulu');
+                    return;
+                }
+                
+                // Cek apakah input mengandung pemisah titik dua
+                if (!input.includes(':')) {
+                    showError('Format input harus: hex1:hex2 (dipisahkan dengan titik dua)');
+                    return;
+                }
+                
+                try {
+                    // Pisahkan input menjadi dua bagian
+                    const parts = input.split(':');
+                    if (parts.length !== 2) {
+                        showError('Format input harus tepat dua bagian dipisahkan dengan titik dua');
+                        return;
+                    }
+                    
+                    const hex1 = cleanHex(parts[0]);
+                    const hex2 = cleanHex(parts[1]);
+                    
+                    if (hex1.length === 0 || hex2.length === 0) {
+                        showError('Kedua bagian hex harus berisi data yang valid');
+                        return;
+                    }
+                    
+                    // Konversi masing-masing hex ke base64
+                    const base64_1 = hexToBase64(hex1);
+                    const base64_2 = hexToBase64(hex2);
+                    
+                    // Tampilkan hasil
+                    outputResults.innerHTML = outputTemplate(1, hex1, base64_1) + outputTemplate(2, hex2, base64_2);
+                    errorMsg.style.display = 'none';
+                    
+                    // Tambahkan event listener untuk tombol salin baru
+                    attachCopyEvents();
+                    
+                    console.log(`Konversi berhasil:`);
+                    console.log(`Hex 1: ${hex1.length/2} bytes -> ${base64_1.length} karakter base64`);
+                    console.log(`Hex 2: ${hex2.length/2} bytes -> ${base64_2.length} karakter base64`);
+                } catch (error) {
+                    showError(`Error: ${error.message}`);
+                }
+            }
+            
+            // Fungsi untuk menampilkan error
+            function showError(message) {
+                errorMsg.textContent = message;
+                errorMsg.style.display = 'block';
+                outputResults.innerHTML = '';
+            }
+            
+            // Fungsi untuk menyalin hasil ke clipboard
+            function copyToClipboard(base64Text) {
+                if (!base64Text) return;
+                
+                navigator.clipboard.writeText(base64Text)
+                    .then(() => {
+                        // Cari tombol yang sesuai dan tampilkan feedback
+                        const copyButtons = document.querySelectorAll('.copy-btn');
+                        copyButtons.forEach(btn => {
+                            if (btn.getAttribute('data-base64') === base64Text) {
+                                const originalText = btn.textContent;
+                                btn.textContent = 'Tersalin!';
+                                btn.classList.add('copied');
+                                
+                                setTimeout(() => {
+                                    btn.textContent = originalText;
+                                    btn.classList.remove('copied');
+                                }, 2000);
+                            }
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Gagal menyalin: ', err);
+                        alert('Gagal menyalin ke clipboard. Silakan salin secara manual.');
+                    });
+            }
+            
+            // Fungsi untuk melampirkan event listener ke tombol salin
+            function attachCopyEvents() {
+                const copyButtons = document.querySelectorAll('.copy-btn');
+                copyButtons.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const base64Text = this.getAttribute('data-base64');
+                        copyToClipboard(base64Text);
+                    });
+                });
+            }
+            
+            // Event listeners
+            convertBtn.addEventListener('click', convertToBase64);
+            
+            // Konversi otomatis saat mengetik (opsional)
+            hexInput.addEventListener('input', function() {
+                errorMsg.style.display = 'none';
+            });
+            
+            // Contoh data untuk pengujian
+            hexInput.value = "69646b755f3130303030303030303070:e4a2359b05563399f1d9adfce641774a";
+            
+            // Konversi otomatis saat halaman dimuat dengan contoh
+            convertToBase64();
+        });
+    </script>
+</body>
+  </html>
