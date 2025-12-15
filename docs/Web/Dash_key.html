@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash.js ClearKey DRM Tester</title>
+    <script src="https://cdn.dashjs.org/v4.1.0/dash.all.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        h1 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        
+        .description {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .config-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 900px) {
+            .config-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1e3c72;
+            font-size: 1.1rem;
+        }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            font-family: monospace;
+        }
+        
+        input[type="text"]:focus, textarea:focus {
+            border-color: #1e3c72;
+            outline: none;
+        }
+        
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+            gap: 15px;
+        }
+        
+        button {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+        
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        button#loadBtn {
+            background: linear-gradient(to right, #2a5298, #1e3c72);
+        }
+        
+        button#resetBtn {
+            background: linear-gradient(to right, #666, #888);
+        }
+        
+        button#exampleBtn {
+            background: linear-gradient(to right, #27ae60, #2ecc71);
+        }
+        
+        .player-container {
+            margin-top: 30px;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        #videoPlayer {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            background: #000;
+        }
+        
+        .player-controls {
+            background: #1e3c72;
+            padding: 15px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .control-btn {
+            background: #2a5298;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .status-container {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #1e3c72;
+        }
+        
+        .status-title {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        #statusText {
+            font-family: monospace;
+            color: #333;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .status-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-left-color: #28a745;
+        }
+        
+        .status-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left-color: #dc3545;
+        }
+        
+        .example {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2a5298;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .example h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        .example code {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            display: block;
+            margin: 10px 0;
+            word-break: break-all;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .info-box h3 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+        
+        .error {
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .key-input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        @media (max-width: 600px) {
+            .key-input-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dash.js ClearKey DRM Tester</h1>
+            <p class="description">
+                Alat untuk menguji stream DASH yang dilindungi dengan ClearKey DRM. 
+                Masukkan URL MPD dan kunci DRM Anda, lalu klik "Load Stream".
+            </p>
+        </header>
+        
+        <div class="info-box">
+            <h3>Informasi Penting</h3>
+            <p>Pastikan stream Anda menggunakan enkripsi <strong>ClearKey DRM</strong>. Contoh ini hanya berfungsi untuk ClearKey, bukan Widevine, PlayReady, atau FairPlay.</p>
+        </div>
+        
+        <div class="config-section">
+            <div class="input-group">
+                <label for="mpdUrl">URL Manifest (.mpd):</label>
+                <input type="text" id="mpdUrl" placeholder="https://example.com/path/to/your-stream.mpd">
+                
+                <label for="keyId">Key ID (Base64 atau Hex):</label>
+                <input type="text" id="keyId" placeholder="nrQFDeRLSAKTLifXUIPiZg">
+                
+                <label for="keyValue">Key Value (Base64 atau Hex):</label>
+                <input type="text" id="keyValue" placeholder="FmY0xnWCPCNaSpRG-tUuTQ">
+            </div>
+            
+            <div class="input-group">
+                <label for="customProtData">Custom Protection Data (JSON - opsional):</label>
+                <textarea id="customProtData" placeholder='{
+    "org.w3.clearkey": {
+        "clearkeys": {
+            "keyId1": "keyValue1",
+            "keyId2": "keyValue2"
+        }
+    }
+}'></textarea>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">
+                    Gunakan ini jika Anda memiliki multiple keys. Jika diisi, input Key ID/Value di atas akan diabaikan.
+                </p>
+            </div>
+        </div>
+        
+        <div class="button-container">
+            <button id="loadBtn">Load Stream</button>
+            <button id="exampleBtn">Load Contoh</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+        
+        <div class="player-container">
+            <video id="videoPlayer" controls></video>
+            <div class="player-controls">
+                <button class="control-btn" id="playBtn">Play</button>
+                <button class="control-btn" id="pauseBtn">Pause</button>
+                <button class="control-btn" id="stopBtn">Stop</button>
+                <span style="color: white; margin-left: auto; font-size: 0.9rem;">
+                    Dash.js v4.1.0
+                </span>
+            </div>
+        </div>
+        
+        <div class="status-container">
+            <div class="status-title">Status Player</div>
+            <div id="statusText">Ready. Masukkan URL dan kunci DRM, lalu klik "Load Stream".</div>
+        </div>
+        
+        <div class="example">
+            <h3>Contoh Data untuk Testing</h3>
+            <p><strong>URL MPD ClearKey (public test):</strong></p>
+            <code>https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_ClearKey.mpd</code>
+            
+            <p><strong>Key ID (Base64):</strong></p>
+            <code>nrQFDeRLSAKTLifXUIPiZg</code>
+            
+            <p><strong>Key Value (Base64):</strong></p>
+            <code>FmY0xnWCPCNaSpRG-tUuTQ</code>
+            
+            <p><strong>Catatan:</strong> Contoh di atas adalah stream test publik yang bisa langsung digunakan.</p>
+        </div>
+        
+        <footer>
+            <p>Dash.js ClearKey DRM Tester | Gunakan untuk testing stream DASH dengan DRM ClearKey</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const mpdUrlInput = document.getElementById('mpdUrl');
+            const keyIdInput = document.getElementById('keyId');
+            const keyValueInput = document.getElementById('keyValue');
+            const customProtDataInput = document.getElementById('customProtData');
+            const loadBtn = document.getElementById('loadBtn');
+            const exampleBtn = document.getElementById('exampleBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const videoPlayer = document.getElementById('videoPlayer');
+            const statusText = document.getElementById('statusText');
+            const statusContainer = document.querySelector('.status-container');
+            const playBtn = document.getElementById('playBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const stopBtn = document.getElementById('stopBtn');
+            
+            // Variables
+            let player = null;
+            
+            // Update status
+            function updateStatus(message, isError = false) {
+                statusText.textContent = message;
+                statusContainer.className = 'status-container ' + (isError ? 'status-error' : 'status-success');
+                console.log(isError ? 'Error: ' + message : 'Status: ' + message);
+            }
+            
+            // Load stream
+            function loadStream() {
+                const url = mpdUrlInput.value.trim();
+                const keyId = keyIdInput.value.trim();
+                const keyValue = keyValueInput.value.trim();
+                const customProtData = customProtDataInput.value.trim();
+                
+                // Validation
+                if (!url) {
+                    updateStatus('Error: URL MPD tidak boleh kosong', true);
+                    return;
+                }
+                
+                // Check if URL ends with .mpd
+                if (!url.toLowerCase().endsWith('.mpd')) {
+                    updateStatus('Warning: URL mungkin bukan file MPD. Pastikan URL mengarah ke file .mpd', true);
+                }
+                
+                // Stop previous player
+                if (player) {
+                    player.reset();
+                    updateStatus('Player direset...');
+                }
+                
+                // Initialize player
+                try {
+                    player = dashjs.MediaPlayer().create();
+                    
+                    // Configure protection data
+                    let protData = {};
+                    
+                    if (customProtData) {
+                        // Use custom protection data
+                        try {
+                            protData = JSON.parse(customProtData);
+                            updateStatus('Menggunakan custom protection data dari JSON');
+                        } catch (e) {
+                            updateStatus('Error: Format JSON pada custom protection data tidak valid', true);
+                            return;
+                        }
+                    } else if (keyId && keyValue) {
+                        // Use single key from inputs
+                        protData = {
+                            "org.w3.clearkey": {
+                                "clearkeys": {
+                                    [keyId]: keyValue
+                                }
+                            }
+                        };
+                        updateStatus(`Menggunakan kunci tunggal: Key ID = ${keyId.substring(0, 20)}...`);
+                    } else {
+                        // No DRM (clear content)
+                        updateStatus('Stream tanpa DRM (clear content)');
+                    }
+                    
+                    // Initialize player
+                    player.initialize(videoPlayer, url, false);
+                    
+                    // Set protection data if provided
+                    if (Object.keys(protData).length > 0) {
+                        player.setProtectionData(protData);
+                    }
+                    
+                    // Set up event listeners
+                    player.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, function() {
+                        updateStatus('Stream berhasil diinisialisasi. Klik Play untuk mulai.');
+                    });
+                    
+                    player.on(dashjs.MediaPlayer.events.ERROR, function(e) {
+                        if (e.error) {
+                            updateStatus(`Error: ${e.error.code} - ${e.error.message}`, true);
+                        } else {
+                            updateStatus('Terjadi error pada pemutaran stream', true);
+                        }
+                    });
+                    
+                    player.on(dashjs.MediaPlayer.events.PLAYBACK_ERROR, function(e) {
+                        updateStatus(`Playback error: ${e}`, true);
+                    });
+                    
+                    player.on(dashjs.MediaPlayer.events.PLAYBACK_METADATA_LOADED, function() {
+                        updateStatus('Metadata stream dimuat');
+                    });
+                    
+                    player.on(dashjs.MediaPlayer.events.PLAYBACK_STARTED, function() {
+                        updateStatus('Stream mulai diputar');
+                    });
+                    
+                    updateStatus(`Stream dimuat dari: ${url}`);
+                    
+                } catch (error) {
+                    updateStatus(`Error: ${error.message}`, true);
+                    console.error(error);
+                }
+            }
+            
+            // Load example
+            function loadExample() {
+                mpdUrlInput.value = 'https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_ClearKey.mpd';
+                keyIdInput.value = 'nrQFDeRLSAKTLifXUIPiZg';
+                keyValueInput.value = 'FmY0xnWCPCNaSpRG-tUuTQ';
+                customProtDataInput.value = '';
+                updateStatus('Contoh data dimuat. Klik "Load Stream" untuk mencoba.');
+            }
+            
+            // Reset all
+            function resetAll() {
+                if (player) {
+                    player.reset();
+                    player = null;
+                }
+                videoPlayer.src = '';
+                mpdUrlInput.value = '';
+                keyIdInput.value = '';
+                keyValueInput.value = '';
+                customProtDataInput.value = '';
+                updateStatus('Semua input dan player direset.');
+                videoPlayer.load(); // Reset video element
+            }
+            
+            // Event listeners
+            loadBtn.addEventListener('click', loadStream);
+            exampleBtn.addEventListener('click', loadExample);
+            resetBtn.addEventListener('click', resetAll);
+            
+            // Player control buttons
+            playBtn.addEventListener('click', function() {
+                if (player && videoPlayer.paused) {
+                    videoPlayer.play().catch(e => {
+                        updateStatus(`Tidak bisa play: ${e.message}`, true);
+                    });
+                }
+            });
+            
+            pauseBtn.addEventListener('click', function() {
+                if (player && !videoPlayer.paused) {
+                    videoPlayer.pause();
+                    updateStatus('Video dijeda');
+                }
+            });
+            
+            stopBtn.addEventListener('click', function() {
+                if (player) {
+                    videoPlayer.pause();
+                    videoPlayer.currentTime = 0;
+                    updateStatus('Video dihentikan');
+                }
+            });
+            
+            // Load example on startup
+            loadExample();
+        });
+    </script>
+</body>
+</html>
