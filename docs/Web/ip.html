@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Info</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            background: #f8f9fa;
+        }
+        
+        .mini-box {
+            background: white;
+            border-radius: 6px;
+            padding: 8px;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            max-width: 180px;
+        }
+        
+        .mini-title {
+            color: #2c3e50;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-align: center;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #3498db;
+        }
+        
+        .mini-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 4px 0;
+            padding: 3px 0;
+            border-bottom: 1px dotted #eee;
+        }
+        
+        .mini-label {
+            color: #7f8c8d;
+            font-size: 10px;
+            min-width: 60px;
+        }
+        
+        .mini-value {
+            color: #2c3e50;
+            font-size: 10px;
+            font-family: 'Courier New', monospace;
+            text-align: right;
+            max-width: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 15px 0;
+            color: #95a5a6;
+            font-size: 11px;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #bdc3c7;
+            border-top-color: #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 5px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .maps-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 9px;
+            margin-top: 2px;
+        }
+        
+        .footer {
+            margin-top: 8px;
+            text-align: center;
+            font-size: 9px;
+            color: #95a5a6;
+            padding-top: 5px;
+            border-top: 1px dotted #eee;
+        }
+        
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mini-box">
+        <div class="mini-title">🌐 IP Info</div>
+        
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <div>Loading...</div>
+        </div>
+        
+        <div id="content" style="display: none;">
+            <div class="mini-row">
+                <span class="mini-label">IP:</span>
+                <span class="mini-value" id="ip">-</span>
+            </div>
+            <div class="mini-row">
+                <span class="mini-label">Location:</span>
+                <span class="mini-value" id="location">-</span>
+            </div>
+            <div class="mini-row">
+                <span class="mini-label">Country:</span>
+                <span class="mini-value" id="country">-</span>
+            </div>
+            <div class="mini-row">
+                <span class="mini-label">ISP:</span>
+                <span class="mini-value" id="isp">-</span>
+            </div>
+            <div class="mini-row">
+                <span class="mini-label">Time:</span>
+                <span class="mini-value" id="timezone">-</span>
+            </div>
+            <div class="mini-row" id="maps-row" style="display: none;">
+                <span class="mini-label">Maps:</span>
+                <div>
+                    <a href="#" target="_blank" class="maps-link" id="maps-link">view</a>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <span id="timestamp">-</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetch('https://ipinfo.io/json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                
+                document.getElementById('ip').textContent = data.ip || '-';
+                
+                const location = [data.city, data.region].filter(Boolean).join(', ');
+                document.getElementById('location').textContent = location || '-';
+                
+                document.getElementById('country').textContent = data.country || '-';
+                
+                if (data.org) {
+                    const isp = data.org.replace(/^AS\d+\s*/, '');
+                    const shortISP = isp.length > 18 ? isp.substring(0, 16) + '...' : isp;
+                    document.getElementById('isp').textContent = shortISP;
+                } else {
+                    document.getElementById('isp').textContent = '-';
+                }
+                
+                document.getElementById('timezone').textContent = data.timezone || '-';
+                
+                if (data.loc) {
+                    document.getElementById('maps-link').href = `https://maps.google.com?q=${data.loc}`;
+                    document.getElementById('maps-row').style.display = 'flex';
+                }
+                
+                const now = new Date();
+                const time = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+                document.getElementById('timestamp').textContent = time;
+            })
+            .catch(error => {
+                document.getElementById('loading').innerHTML = 
+                    '<div class="error">Error</div>';
+            });
+    </script>
+</body>
+</html>
