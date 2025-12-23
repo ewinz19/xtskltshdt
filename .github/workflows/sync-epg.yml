@@ -1,4 +1,4 @@
-name: Sync private epg2-Vision.xml to docs folder
+name: Sync private epg2-Vision.xml to docs folder 
 
 on:
   schedule:
