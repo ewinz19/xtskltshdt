@@ -120,20 +120,6 @@ https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8
 ##########################################   alternatif   ###################################################
 #############################################################################################################
 
-###############com.widevine.alpha######
-//#EXTINF:-1 tvg-id="Indosiar.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/indosiar.png?raw=true" group-title="alternatif",Indosiar
-//#KODIPROP:inputstreamaddon=inputstream.adaptive
-//#KODIPROP:inputstream.adaptive.stream_headers=user-agent=Xstream XGO/1.22 (Linux;Android 10) ExoPlayerLib/2.10.5
-//#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-//#KODIPROP:inputstream.adaptive.license_key=https://bintangstreaming.my.id/cubmu/bintangstream/forsattv_pro/sultantvnew2.php
-//https://cdnjkt913.transvision.co.id:1004/live/master/1/4028c6856c3db2cc016cd6e773b02392/manifest.mpd
-
-//#EXTINF:-1 tvg-id="SCTV.id" tvg-logo="https://github.com/ewinz19/xtskltshdt/blob/main/icons/sctv.png?raw=true" group-title="alternatif",SCTV
-//#KODIPROP:inputstreamaddon=inputstream.adaptive
-//#KODIPROP:inputstream.adaptive.stream_headers=user-agent=Xstream XGO/1.22 (Linux;Android 10) ExoPlayerLib/2.10.5
-//#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-//#KODIPROP:inputstream.adaptive.license_key=https://bintangstreaming.my.id/cubmu/bintangstream/forsattv_pro/sultantvnew2.php
-//https://cdnjkt913.transvision.co.id:1000/live/master/5/4028c6856c3db2cc016cd6e647532391/manifest.mpd
 
 #############################################################################################################
 ##########################################       Kids      ##################################################
@@ -161,6 +147,7 @@ https://cdn.turboviplay.com/data/6934955314487/6934955314487.m3u8
 
 
 ###winz 2025-12-11 11-01.14
+
 
 
 
