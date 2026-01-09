@@ -10,3 +10,5 @@ my m 3 u i pt v
 
 
 📦 
+#source public m3u
+*https://github.com/iptv-org/iptv-org.github.io*
