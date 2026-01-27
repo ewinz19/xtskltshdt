@@ -106,8 +106,8 @@
 <channel id="stream.id"><display-name>mecca</display-name><url>https://channel.ku</url></channel>
 <channel id="QuranRadio.sa"><display-name>qur&apos;an mekah</display-name><icon src="https://i.imgur.com/ut0kr4x.png"/><url>https://channel.ku</url></channel>
 <channel id="AlQuranAlKareemTV.sa"><display-name>mekah quran</display-name><icon src="https://i.imgur.com/A2fJysM.png"/><url>https://channel.ku</url></channel>
-<programme channel="ibnul.id"><title lang="id">record/live: ibnul amin tv (pp pemangkih)</title><desc lang="id">record/live: ibnul amin tv (pp pemangkih)</desc></programme>
-<programme channel="ibnul.id"><title lang="id">record/live: ibnul amin tv (pp pemangkih)</title><desc lang="id">record/live: ibnul amin tv (pp pemangkih)</desc></programme>
+<programme start="20260127000000 +0000" stop="20260127235959 +0000" channel="ibnul.id"><title lang="id">record/live: ibnul amin tv (pp pemangkih)</title></programme>
+<programme start="20260128000000 +0000" stop="20260128235959 +0000" channel="ibnul.id"><title lang="id">record/live: ibnul amin tv (pp pemangkih)</title></programme>
 <programme start="20260127230000 +0000" stop="20260128010000 +0000" channel="beINSports5.qa"><title lang="id">beIN SPORTS 5</title><desc lang="id">Jaringan televisi olahraga internasional yang menawarkan berbagai siaran olahraga dari seluruh dunia.</desc><category lang="id">Sports</category></programme>
 <programme start="20260128010000 +0000" stop="20260128030000 +0000" channel="beINSports5.qa"><title lang="id">beIN SPORTS 5</title><desc lang="id">Jaringan televisi olahraga internasional yang menawarkan berbagai siaran olahraga dari seluruh dunia.</desc><category lang="id">Sports</category></programme>
 <programme start="20260128030000 +0000" stop="20260128050000 +0000" channel="beINSports5.qa"><title lang="id">beIN SPORTS 5</title><desc lang="id">Jaringan televisi olahraga internasional yang menawarkan berbagai siaran olahraga dari seluruh dunia.</desc><category lang="id">Sports</category></programme>
@@ -5454,7 +5454,7 @@
 <programme start="20260127113000 +0000" stop="20260127120000 +0000" channel="TV2.my"><title lang="ms">Berita Tamil</title><desc lang="ms">Berita berbahasa Tamil yang memaparkan perkembangan politik, sosial, ekonomi, sukan, hiburan dan isu-isu semasa.</desc><rating system="LPF"><value>U</value></rating><image>https://s3-ap-southeast-1.amazonaws.com/ams-astro/production/resizedImages/ivp_default_1029_IVP_LAND_1280x720.jpg</image></programme>
 <programme start="20260127120000 +0000" stop="20260127130000 +0000" channel="TV2.my"><title lang="ms">Gadis Kopi Ep12</title><desc lang="ms">Effa muncul di Tenom mencari kembali Bakri. Ketagihan James pada dadah semakin teruk. Peguam Ain menarik diri dari mewakili Kopi Kampung dalam saman oleh Kopi Lim setelah ditawarkan wang oleh Bunan.</desc><category lang="ms">Drama</category><episode-num system="xmltv_ns">0.11.0/1</episode-num><episode-num system="onscreen">S01E12</episode-num><rating system="LPF"><value>13</value></rating><image>https://s3-ap-southeast-1.amazonaws.com/ams-astro/production/resizedImages/ivp_default_1029_IVP_LAND_1280x720.jpg</image></programme>
 <programme start="20260127130000 +0000" stop="20260127153000 +0000" channel="TV2.my"><title lang="ms">Abang</title><desc lang="ms">Fuad merupakan anak sulung dan juga pewaris kepada sebuah syarikat di Kuala Lumpur pulang ke Malaysia selepas berhijrah ke London sedekad yang lalu. Keluarganya bergolak dengan emosi sejak kepulangannya</desc><category lang="ms">Drama</category><rating system="LPF"><value>13</value></rating><image>https://s3-ap-southeast-1.amazonaws.com/ams-astro/production/resizedImages/ivp_default_1029_IVP_LAND_1280x720.jpg</image></programme>
-<programme start="20260127153000 +0000" stop="20260127163000 +0000" channel="TV2.my"><episode-num system="xmltv_ns">0.20.0/1</episode-num><episode-num system="onscreen">S01E21</episode-num></programme>
+<programme start="20260127153000 +0000" stop="20260127163000 +0000" channel="TV2.my"><title lang="ms">Lethal Weapon Ep21</title><desc lang="ms">Murtaugh memegang jawatan sebagai kapten sementara, terdapat kes isteri seorang ahli perniagaan terkenal telah diculik, dan dia menemui kaitan bapa Riggs, Nathan dalam kes itu.</desc><category lang="ms">Drama</category><episode-num system="xmltv_ns">0.20.0/1</episode-num><episode-num system="onscreen">S01E21</episode-num><rating system="LPF"><value>16</value></rating><image>https://s3-ap-southeast-1.amazonaws.com/ams-astro/production/resizedImages/ivp_default_1029_IVP_LAND_1280x720.jpg</image></programme>
 <programme start="20260127160000 +0000" stop="20260127163000 +0000" channel="TV1.my"/>
 <programme start="20260127163000 +0000" stop="20260127173000 +0000" channel="TV1.my"><episode-num system="xmltv_ns">0.23.0/1</episode-num><episode-num system="onscreen">S01E24</episode-num></programme>
 <programme start="20260127173000 +0000" stop="20260127180000 +0000" channel="TV1.my"><episode-num system="xmltv_ns">0.3.0/1</episode-num><episode-num system="onscreen">S01E04</episode-num></programme>
@@ -5533,18 +5533,18 @@
 <programme start="20260127000000 +0000" stop="20260127235959 +0000" channel="donasi.win"><title lang="id">Dukung Pengembang: jika anda suka kirim kan donasi Anda</title></programme>
 <programme start="20260128000000 +0000" stop="20260128235959 +0000" channel="myvidio.win"><title lang="id">vVip TV: selamat datang disiaran vip 24/7</title></programme>
 <programme start="20260127000000 +0000" stop="20260127235959 +0000" channel="myvidio.win"><title lang="id">vVip TV: selamat datang disiaran vip 24/7</title></programme>
-<programme channel="movie.tv"><title lang="id">film2 pilihan (Bioskop 50)</title><desc lang="id">film2 pilihan (Bioskop 50)</desc></programme>
-<programme channel="movie.tv"><title lang="id">film2 pilihan (Bioskop 50)</title><desc lang="id">film2 pilihan (Bioskop 50)</desc></programme>
-<programme channel="sunna-tv"><title lang="id">live</title><desc lang="id">live</desc></programme>
-<programme channel="sunna-tv"><title lang="id">live</title><desc lang="id">live</desc></programme>
-<programme channel="bahrain.tv"><title lang="id">Qur`an 24 jam</title><desc lang="id">Qur`an 24 jam</desc></programme>
-<programme channel="bahrain.tv"><title lang="id">Qur`an 24 jam</title><desc lang="id">Qur`an 24 jam</desc></programme>
-<programme channel="stream.id"><title lang="id">live</title><desc lang="id">live</desc></programme>
-<programme channel="stream.id"><title lang="id">live</title><desc lang="id">live</desc></programme>
-<programme channel="QuranRadio.sa"><title lang="id">Mekah Live</title><desc lang="id">Mekah Live</desc></programme>
-<programme channel="QuranRadio.sa"><title lang="id">Mekah Live</title><desc lang="id">Mekah Live</desc></programme>
-<programme channel="AlQuranAlKareemTV.sa"><title lang="id">Mekah Live 24 jam nonstop</title><desc lang="id">Mekah Live 24 jam nonstop</desc></programme>
-<programme channel="AlQuranAlKareemTV.sa"><title lang="id">Mekah Live 24 jam nonstop</title><desc lang="id">Mekah Live 24 jam nonstop</desc></programme>
-<programme channel="stream.id"><title lang="id">Qur`an: selamat datang di siaran vip 24/7</title><desc lang="id">Qur`an: selamat datang di siaran vip 24/7</desc></programme>
-<programme channel="stream.id"><title lang="id">Qur`an: selamat datang di siaran vip 24/7</title><desc lang="id">Qur`an: selamat datang di siaran vip 24/7</desc></programme>
+<programme start="20260128000000 +0000" stop="20260128235959 +0000" channel="movie.tv"><title lang="id">film2 pilihan (Bioskop 50)</title></programme>
+<programme start="20260127000000 +0000" stop="20260127235959 +0000" channel="movie.tv"><title lang="id">film2 pilihan (Bioskop 50)</title></programme>
+<programme start="20260128000000 +0000" stop="20260128235959 +0000" channel="sunna-tv"><title lang="id">live</title></programme>
+<programme start="20260127000000 +0000" stop="20260127235959 +0000" channel="sunna-tv"><title lang="id">live</title></programme>
+<programme start="20260128000000 +0000" stop="20260128235959 +0000" channel="bahrain.tv"><title lang="id">Qur`an 24 jam</title></programme>
+<programme start="20260127000000 +0000" stop="20260127235959 +0000" channel="bahrain.tv"><title lang="id">Qur`an 24 jam</title></programme>
+<programme start="20260128000000 +0000" stop="20260128235959 +0000" channel="stream.id"><title lang="id">live</title></programme>
+<programme start="20260127000000 +0000" stop="20260127235959 +0000" channel="stream.id"><title lang="id">live</title></programme>
+<programme start="20260128000000 +0000" stop="20260128235959 +0000" channel="QuranRadio.sa"><title lang="id">Mekah Live</title></programme>
+<programme start="20260127000000 +0000" stop="20260127235959 +0000" channel="QuranRadio.sa"><title lang="id">Mekah Live</title></programme>
+<programme start="20260128000000 +0000" stop="20260128235959 +0000" channel="AlQuranAlKareemTV.sa"><title lang="id">Mekah Live 24 jam nonstop</title></programme>
+<programme start="20260127000000 +0000" stop="20260127235959 +0000" channel="AlQuranAlKareemTV.sa"><title lang="id">Mekah Live 24 jam nonstop</title></programme>
+<programme start="20260128000000 +0000" stop="20260128235959 +0000" channel="stream.id"><title lang="id">Qur`an: selamat datang di siaran vip 24/7</title></programme>
+<programme start="20260127000000 +0000" stop="20260127235959 +0000" channel="stream.id"><title lang="id">Qur`an: selamat datang di siaran vip 24/7</title></programme>
 </tv>
