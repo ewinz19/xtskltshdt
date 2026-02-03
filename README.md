@@ -5,7 +5,7 @@ my m 3 u i pt v
 ##
 
 
-*winz.linkpc.net/737d7ok.m3u*
+*winz.linkpc.net/vip-stream.m3u8*
 
 
 
