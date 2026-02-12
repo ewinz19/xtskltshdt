@@ -1,0 +1,68 @@
+name: Rotate Welcome Images
+
+on:
+  schedule:
+    # Setiap 3 jam
+    - cron: '0 */3 * * *'
+  workflow_dispatch:  # Bisa dijalankan manual
+
+jobs:
+  rotate-image:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Setup Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    
+    - name: Rotate welcome image randomly
+      run: |
+        cd icons/wel
+        
+        # Cek apakah file welcome1.png sampai welcome9.png ada
+        available_files=()
+        for i in {1..9}; do
+          if [ -f "welcome$i.png" ]; then
+            available_files+=("welcome$i.png")
+          fi
+        done
+        
+        # Cek apakah ada file yang tersedia
+        if [ ${#available_files[@]} -eq 0 ]; then
+          echo "❌ Tidak ada file welcome1.png - welcome9.png ditemukan!"
+          exit 1
+        fi
+        
+        # Pilih file secara acak
+        random_index=$(( RANDOM % ${#available_files[@]} ))
+        selected_file="${available_files[$random_index]}"
+        
+        echo "✅ Memilih file: $selected_file"
+        
+        # Hapus welcome.png jika ada
+        rm -f welcome.png
+        
+        # Copy file yang dipilih menjadi welcome.png
+        cp "$selected_file" welcome.png
+        
+        echo "✅ Welcome image diupdate dari $selected_file"
+        
+        # Tampilkan informasi
+        echo "📊 Statistik:"
+        echo "- Total file tersedia: ${#available_files[@]}"
+        echo "- File terpilih: $selected_file"
+        echo "- Waktu update: $(date)"
+    
+    - name: Commit and push changes
+      run: |
+        cd icons/wel
+        git add welcome.png
+        git diff --quiet && git diff --staged --quiet || git commit -m "🔄 Rotate welcome image [skip ci] - $(date)"
+        git push
