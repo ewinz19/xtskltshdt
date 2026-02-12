@@ -48,9 +48,11 @@ jobs:
         
         # Hapus welcome.png jika ada
         rm -f welcome.png
+        sleep 1
         
         # Copy file yang dipilih menjadi welcome.png
         cp "$selected_file" welcome.png
+        touch welcome.png
         
         echo "✅ Welcome image diupdate dari $selected_file"
         
