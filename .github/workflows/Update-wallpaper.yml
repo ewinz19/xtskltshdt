@@ -28,7 +28,7 @@ jobs:
         
         # Cek apakah file welcome1.png sampai welcome20.png ada
         available_files=()
-        for i in {1..20}; do
+        for i in {1..40}; do
           if [ -f "welcome$i.png" ]; then
             available_files+=("welcome$i.png")
           fi
