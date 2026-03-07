@@ -1,4 +1,6 @@
 {
-  "valid": false,
-  "message": "OK"
+  "min_version": "1.5.7-Winz"",
+  "latest_version": "1.5.7-Winz"",
+  "force_update": true,
+  "message": "Update tersedia"
 }
